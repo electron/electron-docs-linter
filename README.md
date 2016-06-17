@@ -1,27 +1,15 @@
 # electron-apis
 
-A JSON object describing electron's internal APIs
+A JSON object describing Electron's public APIs
 
-## Notes and Prior Art
+## Notes, Inspiration, and Prior Art
 
+- [Electron Coding Style: Naming Things](https://github.com/electron/electron/blob/master/docs/development/coding-style.md#naming-things)
+- [Electron Styleguide](https://github.com/electron/electron/blob/master/docs/styleguide.md)
 - https://github.com/atom/autocomplete-atom-api
 - https://kapeli.com/docsets#dashDocset
-- https://github.com/electron/electron/issues/3375
+- [Publish the public API as JSON](https://github.com/electron/electron/issues/3375)
 - https://raw.githubusercontent.com/atom/autocomplete-atom-api/master/completions.json
-- https://github.com/electron/electron/issues/5010#issuecomment-206749071
-
-## Electron Naming Conventions
-
-From https://github.com/electron/electron/issues/5010#issuecomment-206749071
-
-> The basic idea is, the name of API should match how you use them. So use CamelCase when it is a class, or mixedCase when you want to call its methods.
-
-* When the module itself is a class, like `BrowserWindow` => use CamelCase
-* When the module is a set of APIs, like `clipboard` => use mixedCase
-* When the API is a property of object, and it is complex enough to be in a separate chapter, like `win.webContents` => use mixedCase
-* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
-
-> This follows the style of Node's APIs.
 
 ## Installation
 

@@ -1,10 +1,9 @@
 {
   "name": "electron-apis",
   "version": "1.0.0",
-  "description": "A JSON object describing electron's internal APIs",
+  "description": "A JSON object describing Electron's public APIs",
   "main": "apis.json",
   "scripts": {
-    "download-docs": "tar -xvf foo.tar home/foo/bar",
     "build": "electron lib/main.js > apis.json",
     "debug": "electron lib/main.js --debug",
     "pretest": "npm run build",
@@ -29,18 +28,13 @@
   "homepage": "https://github.com/zeke/electron-apis#readme",
   "devDependencies": {
     "decamelize": "^1.2.0",
+    "electron-docs": "^1.0.4",
     "electron-prebuilt": "^1.2.2",
-    "gunzip-maybe": "^1.3.1",
     "lodash.find": "^4.3.0",
-    "node-dir": "^0.1.12",
-    "nugget": "^2.0.0",
     "slug": "^0.9.1",
-    "sort-object-keys": "^1.1.2",
     "standard": "^6.0.8",
-    "superagent": "^1.8.3",
     "tap-spec": "^4.1.1",
     "tape": "^4.5.1",
-    "tar-fs": "^1.13.0",
-    "tmp": "0.0.28"
+    "marky-markdown-lite": "^1.1.0"
   }
 }
