@@ -1,34 +1,34 @@
 [
   {
     "name": "clipboard",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "clipboard",
-    "website_url": "http://electron.atom.io/docs/api/clipboard",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/clipboard.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/clipboard",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/clipboard.md",
     "type": "Object",
-    "renderer_process": true,
+    "rendererProcess": true,
     "description": "Perform copy and paste operations on the system clipboard."
   },
   {
     "name": "crashReporter",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "crash-reporter",
-    "website_url": "http://electron.atom.io/docs/api/crash-reporter",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/crash-reporter.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/crash-reporter",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/crash-reporter.md",
     "type": "Object",
-    "renderer_process": true,
+    "rendererProcess": true,
     "description": "Submit crash reports to a remote server."
   },
   {
     "name": "nativeImage",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "native-image",
-    "website_url": "http://electron.atom.io/docs/api/native-image",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/native-image.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/native-image",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/native-image.md",
     "type": "Object",
-    "renderer_process": true,
+    "rendererProcess": true,
     "description": "Create tray, dock, and application icons using PNG or JPG files.",
-    "instance_methods": [
+    "instanceMethods": [
       {
         "name": "toPng",
         "signature": "()"
@@ -65,20 +65,20 @@
   },
   {
     "name": "shell",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "shell",
-    "website_url": "http://electron.atom.io/docs/api/shell",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/shell.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/shell",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/shell.md",
     "type": "Object",
-    "renderer_process": true,
+    "rendererProcess": true,
     "description": "Manage files and URLs using their default applications."
   },
   {
     "name": "app",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "app",
-    "website_url": "http://electron.atom.io/docs/api/app",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/app.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/app",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/app.md",
     "type": "Object",
     "description": "Control your application's event lifecycle.",
     "events": [
@@ -349,10 +349,10 @@
   },
   {
     "name": "autoUpdater",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "auto-updater",
-    "website_url": "http://electron.atom.io/docs/api/auto-updater",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/auto-updater.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/auto-updater",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/auto-updater.md",
     "type": "Object",
     "description": "Enable apps to automatically update themselves.",
     "events": [
@@ -408,13 +408,13 @@
   },
   {
     "name": "BrowserWindow",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "browser-window",
-    "website_url": "http://electron.atom.io/docs/api/browser-window",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/browser-window.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/browser-window",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/browser-window.md",
     "type": "Class",
     "description": "Create and control browser windows.",
-    "instance_methods": [
+    "instanceMethods": [
       {
         "name": "destroy",
         "signature": "()"
@@ -896,49 +896,49 @@
   },
   {
     "name": "contentTracing",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "content-tracing",
-    "website_url": "http://electron.atom.io/docs/api/content-tracing",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/content-tracing.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/content-tracing",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/content-tracing.md",
     "type": "Object",
     "description": "Collect tracing data from Chromium's content module for finding performance\nbottlenecks and slow operations."
   },
   {
     "name": "dialog",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "dialog",
-    "website_url": "http://electron.atom.io/docs/api/dialog",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/dialog.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/dialog",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/dialog.md",
     "type": "Object",
     "description": "Display native system dialogs for opening and saving files, alerting, etc."
   },
   {
     "name": "ipcMain",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "ipc-main",
-    "website_url": "http://electron.atom.io/docs/api/ipc-main",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/ipc-main.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/ipc-main",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/ipc-main.md",
     "type": "Object",
     "description": "Communicate asynchronously from the main process to renderer processes."
   },
   {
     "name": "globalShortcut",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "global-shortcut",
-    "website_url": "http://electron.atom.io/docs/api/global-shortcut",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/global-shortcut.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/global-shortcut",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/global-shortcut.md",
     "type": "Object",
     "description": "Detect keyboard events when the application does not have keyboard focus."
   },
   {
     "name": "Menu",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "menu",
-    "website_url": "http://electron.atom.io/docs/api/menu",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/menu.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/menu",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/menu.md",
     "type": "Class",
     "description": "Create native application menus and context menus.",
-    "instance_methods": [
+    "instanceMethods": [
       {
         "name": "popup",
         "signature": "([browserWindow, x, y, positioningItem])"
@@ -955,19 +955,19 @@
   },
   {
     "name": "MenuItem",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "menu-item",
-    "website_url": "http://electron.atom.io/docs/api/menu-item",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/menu-item.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/menu-item",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/menu-item.md",
     "type": "Class",
     "description": "Add items to native application menus and context menus."
   },
   {
     "name": "powerMonitor",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "power-monitor",
-    "website_url": "http://electron.atom.io/docs/api/power-monitor",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/power-monitor.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/power-monitor",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/power-monitor.md",
     "type": "Object",
     "description": "Monitor power state changes.",
     "events": [
@@ -997,30 +997,30 @@
   },
   {
     "name": "powerSaveBlocker",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "power-save-blocker",
-    "website_url": "http://electron.atom.io/docs/api/power-save-blocker",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/power-save-blocker.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/power-save-blocker",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/power-save-blocker.md",
     "type": "Object",
     "description": "Block the system from entering low-power (sleep) mode."
   },
   {
     "name": "protocol",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "protocol",
-    "website_url": "http://electron.atom.io/docs/api/protocol",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/protocol.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/protocol",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/protocol.md",
     "type": "Object",
     "description": "Register a custom protocol and intercept existing protocol requests."
   },
   {
     "name": "screen",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "screen",
-    "website_url": "http://electron.atom.io/docs/api/screen",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/screen.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/screen",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/screen.md",
     "type": "Object",
-    "renderer_process": true,
+    "rendererProcess": true,
     "description": "Retrieve information about screen size, displays, cursor position, etc.",
     "events": [
       {
@@ -1073,13 +1073,13 @@
   },
   {
     "name": "session",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "session",
-    "website_url": "http://electron.atom.io/docs/api/session",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/session.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/session",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/session.md",
     "type": "Object",
     "description": "Manage browser sessions, cookies, cache, proxy settings, etc.",
-    "instance_methods": [
+    "instanceMethods": [
       {
         "name": "resolveProxy",
         "signature": "(url, callback)"
@@ -1088,19 +1088,19 @@
   },
   {
     "name": "systemPreferences",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "system-preferences",
-    "website_url": "http://electron.atom.io/docs/api/system-preferences",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/system-preferences.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/system-preferences",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/system-preferences.md",
     "type": "Object",
     "description": "Get system preferences."
   },
   {
     "name": "Tray",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "tray",
-    "website_url": "http://electron.atom.io/docs/api/tray",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/tray.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/tray",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/tray.md",
     "type": "Class",
     "description": "Add icons and context menus to the system's notification area.",
     "events": [
@@ -1224,13 +1224,13 @@
   },
   {
     "name": "webContents",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "web-contents",
-    "website_url": "http://electron.atom.io/docs/api/web-contents",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/web-contents.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/web-contents",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/web-contents.md",
     "type": "Object",
     "description": "Render and control web pages.",
-    "instance_methods": [
+    "instanceMethods": [
       {
         "name": "loadURL",
         "signature": "(url[, options])"
@@ -1982,10 +1982,10 @@
   },
   {
     "name": "process",
-    "main_process": true,
+    "mainProcess": true,
     "slug": "process",
-    "website_url": "http://electron.atom.io/docs/api/process",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/process.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/process",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/process.md",
     "type": "Object",
     "description": "Extensions to process object.",
     "events": [
@@ -1997,37 +1997,37 @@
   },
   {
     "name": "desktopCapturer",
-    "renderer_process": true,
+    "rendererProcess": true,
     "slug": "desktop-capturer",
-    "website_url": "http://electron.atom.io/docs/api/desktop-capturer",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/desktop-capturer.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/desktop-capturer",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/desktop-capturer.md",
     "type": "Object",
     "description": "List getUserMedia sources for capturing audio, video, and images from a\nmicrophone, camera, or screen."
   },
   {
     "name": "ipcRenderer",
-    "renderer_process": true,
+    "rendererProcess": true,
     "slug": "ipc-renderer",
-    "website_url": "http://electron.atom.io/docs/api/ipc-renderer",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/ipc-renderer.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/ipc-renderer",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/ipc-renderer.md",
     "type": "Object",
     "description": "Communicate asynchronously from a renderer process to the main process."
   },
   {
     "name": "remote",
-    "renderer_process": true,
+    "rendererProcess": true,
     "slug": "remote",
-    "website_url": "http://electron.atom.io/docs/api/remote",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/remote.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/remote",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/remote.md",
     "type": "Object",
     "description": "Use main process modules from the renderer process."
   },
   {
     "name": "webFrame",
-    "renderer_process": true,
+    "rendererProcess": true,
     "slug": "web-frame",
-    "website_url": "http://electron.atom.io/docs/api/web-frame",
-    "github_docs_url": "https://github.com/electron/electron/blob/v1.2.3/docs/api/web-frame.md",
+    "websiteUrl": "http://electron.atom.io/docs/api/web-frame",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/web-frame.md",
     "type": "Object",
     "description": "Customize the rendering of the current web page."
   }
