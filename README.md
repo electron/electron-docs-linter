@@ -1,4 +1,4 @@
-# electron-apis
+# electron-apis [![Build Status](https://travis-ci.org/zeke/electron-apis.svg?branch=master)](https://travis-ci.org/zeke/electron-apis)
 
 A JSON object describing [Electron's APIs](http://electron.atom.io/docs/api/).
 
