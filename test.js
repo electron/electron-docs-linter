@@ -41,6 +41,7 @@ test('electron-apis', function (t) {
 
   t.end()
 
+  // TODO: make test async-friendly, then bring back these http checks:
   // apis.forEach(api => {
   //   t.comment(api.name)
   //   t.ok(api.websiteUrl, 'has a websiteUrl')
