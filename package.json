@@ -31,10 +31,11 @@
     "electron-docs": "^1.0.4",
     "electron-prebuilt": "^1.2.2",
     "lodash.find": "^4.3.0",
+    "marky-markdown-lite": "^1.1.0",
+    "omit-empty": "^0.4.1",
     "slug": "^0.9.1",
     "standard": "^6.0.8",
     "tap-spec": "^4.1.1",
-    "tape": "^4.5.1",
-    "marky-markdown-lite": "^1.1.0"
+    "tape": "^4.5.1"
   }
 }
