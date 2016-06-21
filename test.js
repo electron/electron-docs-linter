@@ -29,11 +29,15 @@ test('electron-apis', function (t) {
   t.equal(event.returns[0].name, 'event', 'events have a return object with a `name` key')
   t.equal(event.returns[0].type, 'Event', 'events have a return object with a `type` key')
 
-  t.equal(event.returns[1].name, 'exitCode', 'events have a return object with a `name` key')
-  t.equal(event.returns[1].type, 'Integer', 'events have a return object with a `name` key')
-
+  // events: platforms
   event = find(app.events, {name: 'open-file'})
   t.equal(event.platforms[0], 'OS X', 'events can have a `platforms` array')
+
+  // events: properties
+  var Tray = find(apis, {name: 'Tray'})
+  var props = find(Tray.events, {name: 'right-click'}).returns[0].properties
+  t.equal(props[0].name, 'altKey', 'return objects have properties with a `name`')
+  t.equal(props[0].type, 'Boolean', 'return objects have properties with a `type`')
 
   t.end()
 

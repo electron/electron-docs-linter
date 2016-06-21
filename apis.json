@@ -84,7 +84,7 @@
     "events": [
       {
         "name": "will-finish-launching",
-        "description": "Emitted when the application has finished basic startup. On Windows and Linux, the <code>will-finish-launching</code> event is the same as the <code>ready</code> event; on OS X, this event represents the <code>applicationWillFinishLaunching</code> notification of <code>NSApplication</code>. You would usually set up listeners for the <code>open-file</code> and <code>open-url</code> events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the <code>ready</code> event handler."
+        "description": "Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on OS X, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler."
       },
       {
         "name": "ready",
@@ -92,11 +92,11 @@
       },
       {
         "name": "window-all-closed",
-        "description": "Emitted when all windows have been closed. If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed <code>Cmd + Q</code>, or the developer called <code>app.quit()</code>, Electron will first try to close all the windows and then emit the <code>will-quit</code> event, and in this case the <code>window-all-closed</code> event would not be emitted."
+        "description": "Emitted when all windows have been closed. If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed Cmd + Q, or the developer called app.quit(), Electron will first try to close all the windows and then emit the will-quit event, and in this case the window-all-closed event would not be emitted."
       },
       {
         "name": "before-quit",
-        "description": "Emitted before the application starts closing its windows. Calling <code>event.preventDefault()</code> will prevent the default behaviour, which is terminating the application.",
+        "description": "Emitted before the application starts closing its windows. Calling event.preventDefault() will prevent the default behaviour, which is terminating the application.",
         "returns": [
           {
             "name": "event",
@@ -106,7 +106,7 @@
       },
       {
         "name": "will-quit",
-        "description": "Emitted when all windows have been closed and the application will quit. Calling <code>event.preventDefault()</code> will prevent the default behaviour, which is terminating the application. See the description of the <code>window-all-closed</code> event for the differences between the <code>will-quit</code> and <code>window-all-closed</code> events.",
+        "description": "Emitted when all windows have been closed and the application will quit. Calling event.preventDefault() will prevent the default behaviour, which is terminating the application. See the description of the window-all-closed event for the differences between the will-quit and window-all-closed events.",
         "returns": [
           {
             "name": "event",
@@ -130,7 +130,7 @@
       },
       {
         "name": "open-file",
-        "description": "Emitted when the user wants to open a file with the application. The <code>open-file</code> event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. <code>open-file</code> is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the <code>open-file</code> event very early in your application startup to handle this case (even before the <code>ready</code> event is emitted). You should call <code>event.preventDefault()</code> if you want to handle this event. On Windows, you have to parse <code>process.argv</code> (in the main process) to get the filepath.",
+        "description": "Emitted when the user wants to open a file with the application. The open-file event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. open-file is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the open-file event very early in your application startup to handle this case (even before the ready event is emitted). You should call event.preventDefault() if you want to handle this event. On Windows, you have to parse process.argv (in the main process) to get the filepath.",
         "platforms": [
           "OS X"
         ],
@@ -147,7 +147,7 @@
       },
       {
         "name": "open-url",
-        "description": "Emitted when the user wants to open a URL with the application. The URL scheme must be registered to be opened by your application. You should call <code>event.preventDefault()</code> if you want to handle this event.",
+        "description": "Emitted when the user wants to open a URL with the application. The URL scheme must be registered to be opened by your application. You should call event.preventDefault() if you want to handle this event.",
         "platforms": [
           "OS X"
         ],
@@ -164,7 +164,7 @@
       },
       {
         "name": "activate",
-        "description": "Emitted when the application is activated, which usually happens when the user clicks on the application&apos;s dock icon.",
+        "description": "Emitted when the application is activated, which usually happens when the user clicks on the application's dock icon.",
         "platforms": [
           "OS X"
         ],
@@ -181,7 +181,7 @@
       },
       {
         "name": "continue-activity",
-        "description": "Emitted during <a href=\"https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html\">Handoff</a> when an activity from a different device wants to be resumed. You should call <code>event.preventDefault()</code> if you want to handle this event. A user activity can be continued only in an app that has the same developer Team ID as the activity&apos;s source app and that supports the activity&apos;s type. Supported activity types are specified in the app&apos;s <code>Info.plist</code> under the <code>NSUserActivityTypes</code> key.",
+        "description": "Emitted during Handoff when an activity from a different device wants to be resumed. You should call event.preventDefault() if you want to handle this event. A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's Info.plist under the NSUserActivityTypes key.",
         "platforms": [
           "OS X"
         ],
@@ -204,7 +204,7 @@
       },
       {
         "name": "browser-window-blur",
-        "description": "Emitted when a <a href=\"browser-window.md\">browserWindow</a> gets blurred.",
+        "description": "Emitted when a browserWindow gets blurred.",
         "returns": [
           {
             "name": "event",
@@ -218,7 +218,7 @@
       },
       {
         "name": "browser-window-focus",
-        "description": "Emitted when a <a href=\"browser-window.md\">browserWindow</a> gets focused.",
+        "description": "Emitted when a browserWindow gets focused.",
         "returns": [
           {
             "name": "event",
@@ -232,7 +232,7 @@
       },
       {
         "name": "browser-window-created",
-        "description": "Emitted when a new <a href=\"browser-window.md\">browserWindow</a> is created.",
+        "description": "Emitted when a new browserWindow is created.",
         "returns": [
           {
             "name": "event",
@@ -246,7 +246,7 @@
       },
       {
         "name": "web-contents-created",
-        "description": "Emitted when a new <a href=\"web-contents.md\">webContents</a> is created.",
+        "description": "Emitted when a new webContents is created.",
         "returns": [
           {
             "name": "event",
@@ -260,7 +260,7 @@
       },
       {
         "name": "certificate-error",
-        "description": "Emitted when failed to verify the <code>certificate</code> for <code>url</code>, to trust the certificate you should prevent the default behavior with <code>event.preventDefault()</code> and call <code>callback(true)</code>.",
+        "description": "Emitted when failed to verify the certificate for url, to trust the certificate you should prevent the default behavior with event.preventDefault() and call callback(true).",
         "returns": [
           {
             "name": "event",
@@ -281,7 +281,17 @@
           },
           {
             "name": "certificate",
-            "type": "Object"
+            "type": "Object",
+            "properties": [
+              {
+                "name": "data",
+                "type": "Buffer - PEM encoded data"
+              },
+              {
+                "name": "issuerName",
+                "type": "String"
+              }
+            ]
           },
           {
             "name": "callback",
@@ -291,7 +301,7 @@
       },
       {
         "name": "select-client-certificate",
-        "description": "Emitted when a client certificate is requested. The <code>url</code> corresponds to the navigation entry requesting the client certificate and <code>callback</code> needs to be called with an entry filtered from the list. Using <code>event.preventDefault()</code> prevents the application from using the first certificate from the store.",
+        "description": "Emitted when a client certificate is requested. The url corresponds to the navigation entry requesting the client certificate and callback needs to be called with an entry filtered from the list. Using event.preventDefault() prevents the application from using the first certificate from the store.",
         "returns": [
           {
             "name": "event",
@@ -307,7 +317,17 @@
           },
           {
             "name": "certificateList",
-            "type": "[Objects]"
+            "type": "[Objects]",
+            "properties": [
+              {
+                "name": "data",
+                "type": "Buffer - PEM encoded data"
+              },
+              {
+                "name": "issuerName",
+                "type": "String - Issuer&apos;s Common Name"
+              }
+            ]
           },
           {
             "name": "callback",
@@ -317,7 +337,7 @@
       },
       {
         "name": "login",
-        "description": "Emitted when <code>webContents</code> wants to do basic auth. The default behavior is to cancel all authentications, to override this you should prevent the default behavior with <code>event.preventDefault()</code> and call <code>callback(username, password)</code> with the credentials.",
+        "description": "Emitted when webContents wants to do basic auth. The default behavior is to cancel all authentications, to override this you should prevent the default behavior with event.preventDefault() and call callback(username, password) with the credentials.",
         "returns": [
           {
             "name": "event",
@@ -329,11 +349,47 @@
           },
           {
             "name": "request",
-            "type": "Object"
+            "type": "Object",
+            "properties": [
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "url",
+                "type": "URL"
+              },
+              {
+                "name": "referrer",
+                "type": "URL"
+              }
+            ]
           },
           {
             "name": "authInfo",
-            "type": "Object"
+            "type": "Object",
+            "properties": [
+              {
+                "name": "isProxy",
+                "type": "Boolean"
+              },
+              {
+                "name": "scheme",
+                "type": "String"
+              },
+              {
+                "name": "host",
+                "type": "String"
+              },
+              {
+                "name": "port",
+                "type": "Integer"
+              },
+              {
+                "name": "realm",
+                "type": "String"
+              }
+            ]
           },
           {
             "name": "callback",
@@ -380,7 +436,7 @@
       },
       {
         "name": "update-downloaded",
-        "description": "Emitted when an update has been downloaded. On Windows only <code>releaseName</code> is available.",
+        "description": "Emitted when an update has been downloaded. On Windows only releaseName is available.",
         "returns": [
           {
             "name": "event",
@@ -747,7 +803,7 @@
     "events": [
       {
         "name": "page-title-updated",
-        "description": "Emitted when the document changed its title, calling <code>event.preventDefault()</code> would prevent the native window&apos;s title to change.",
+        "description": "Emitted when the document changed its title, calling event.preventDefault() would prevent the native window's title to change.",
         "returns": [
           {
             "name": "event",
@@ -757,7 +813,7 @@
       },
       {
         "name": "close",
-        "description": "Emitted when the window is going to be closed. It&apos;s emitted before the <code>beforeunload</code> and <code>unload</code> event of the DOM. Calling <code>event.preventDefault()</code> will cancel the close. Usually you would want to use the <code>beforeunload</code> handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than <code>undefined</code> would cancel the close. For example:",
+        "description": "Emitted when the window is going to be closed. It's emitted before the beforeunload and unload event of the DOM. Calling event.preventDefault() will cancel the close. Usually you would want to use the beforeunload handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than undefined would cancel the close. For example:",
         "returns": [
           {
             "name": "event",
@@ -819,7 +875,7 @@
       },
       {
         "name": "move",
-        "description": "Emitted when the window is getting moved to a new position. <strong>Note</strong>: On OS X this event is just an alias of <code>moved</code>."
+        "description": "Emitted when the window is getting moved to a new position. Note: On OS X this event is just an alias of moved."
       },
       {
         "name": "moved",
@@ -846,7 +902,7 @@
       },
       {
         "name": "app-command",
-        "description": "Emitted when an <a href=\"https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx\">App Command</a> is invoked. These are typically related to keyboard media keys or browser commands, as well as the &quot;Back&quot; button built into some mice on Windows. Commands are lowercased with underscores replaced with hyphens and the <code>APPCOMMAND_</code> prefix stripped off. e.g. <code>APPCOMMAND_BROWSER_BACKWARD</code> is emitted as <code>browser-backward</code>.",
+        "description": "Emitted when an App Command is invoked. These are typically related to keyboard media keys or browser commands, as well as the \"Back\" button built into some mice on Windows. Commands are lowercased with underscores replaced with hyphens and the APPCOMMAND_ prefix stripped off. e.g. APPCOMMAND_BROWSER_BACKWARD is emitted as browser-backward.",
         "platforms": [
           "Windows"
         ],
@@ -877,7 +933,7 @@
       },
       {
         "name": "swipe",
-        "description": "Emitted on 3-finger swipe. Possible directions are <code>up</code>, <code>right</code>, <code>down</code>, <code>left</code>.",
+        "description": "Emitted on 3-finger swipe. Possible directions are up, right, down, left.",
         "platforms": [
           "OS X"
         ],
@@ -1025,7 +1081,7 @@
     "events": [
       {
         "name": "display-added",
-        "description": "Emitted when <code>newDisplay</code> has been added.",
+        "description": "Emitted when newDisplay has been added.",
         "returns": [
           {
             "name": "event",
@@ -1039,7 +1095,7 @@
       },
       {
         "name": "display-removed",
-        "description": "Emitted when <code>oldDisplay</code> has been removed.",
+        "description": "Emitted when oldDisplay has been removed.",
         "returns": [
           {
             "name": "event",
@@ -1053,7 +1109,7 @@
       },
       {
         "name": "display-metrics-changed",
-        "description": "Emitted when one or more metrics change in a <code>display</code>. The <code>changedMetrics</code> is an array of strings that describe the changes. Possible changes are <code>bounds</code>, <code>workArea</code>, <code>scaleFactor</code> and <code>rotation</code>.",
+        "description": "Emitted when one or more metrics change in a display. The changedMetrics is an array of strings that describe the changes. Possible changes are bounds, workArea, scaleFactor and rotation.",
         "returns": [
           {
             "name": "event",
@@ -1106,16 +1162,52 @@
     "events": [
       {
         "name": "click",
-        "description": "Emitted when the tray icon is clicked. <strong>Note:</strong> The <code>bounds</code> payload is only implemented on OS X and Windows.",
+        "description": "Emitted when the tray icon is clicked. Note: The bounds payload is only implemented on OS X and Windows.",
         "returns": [
           {
             "name": "event",
-            "type": "Event"
+            "type": "Event",
+            "properties": [
+              {
+                "name": "altKey",
+                "type": "Boolean"
+              },
+              {
+                "name": "shiftKey",
+                "type": "Boolean"
+              },
+              {
+                "name": "ctrlKey",
+                "type": "Boolean"
+              },
+              {
+                "name": "metaKey",
+                "type": "Boolean"
+              }
+            ]
           },
           {
             "name": "bounds",
             "type": "Object",
-            "description": "the bounds of tray icon."
+            "description": "the bounds of tray icon.",
+            "properties": [
+              {
+                "name": "x",
+                "type": "Integer"
+              },
+              {
+                "name": "y",
+                "type": "Integer"
+              },
+              {
+                "name": "width",
+                "type": "Integer"
+              },
+              {
+                "name": "height",
+                "type": "Integer"
+              }
+            ]
           }
         ]
       },
@@ -1129,12 +1221,48 @@
         "returns": [
           {
             "name": "event",
-            "type": "Event"
+            "type": "Event",
+            "properties": [
+              {
+                "name": "altKey",
+                "type": "Boolean"
+              },
+              {
+                "name": "shiftKey",
+                "type": "Boolean"
+              },
+              {
+                "name": "ctrlKey",
+                "type": "Boolean"
+              },
+              {
+                "name": "metaKey",
+                "type": "Boolean"
+              }
+            ]
           },
           {
             "name": "bounds",
             "type": "Object",
-            "description": "the bounds of tray icon."
+            "description": "the bounds of tray icon.",
+            "properties": [
+              {
+                "name": "x",
+                "type": "Integer"
+              },
+              {
+                "name": "y",
+                "type": "Integer"
+              },
+              {
+                "name": "width",
+                "type": "Integer"
+              },
+              {
+                "name": "height",
+                "type": "Integer"
+              }
+            ]
           }
         ]
       },
@@ -1148,12 +1276,48 @@
         "returns": [
           {
             "name": "event",
-            "type": "Event"
+            "type": "Event",
+            "properties": [
+              {
+                "name": "altKey",
+                "type": "Boolean"
+              },
+              {
+                "name": "shiftKey",
+                "type": "Boolean"
+              },
+              {
+                "name": "ctrlKey",
+                "type": "Boolean"
+              },
+              {
+                "name": "metaKey",
+                "type": "Boolean"
+              }
+            ]
           },
           {
             "name": "bounds",
             "type": "Object",
-            "description": "the bounds of tray icon"
+            "description": "the bounds of tray icon",
+            "properties": [
+              {
+                "name": "x",
+                "type": "Integer"
+              },
+              {
+                "name": "y",
+                "type": "Integer"
+              },
+              {
+                "name": "width",
+                "type": "Integer"
+              },
+              {
+                "name": "height",
+                "type": "Integer"
+              }
+            ]
           }
         ]
       },
@@ -1475,11 +1639,11 @@
     "events": [
       {
         "name": "did-finish-load",
-        "description": "Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the <code>onload</code> event was dispatched."
+        "description": "Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the onload event was dispatched."
       },
       {
         "name": "did-fail-load",
-        "description": "This event is like <code>did-finish-load</code> but emitted when the load failed or was cancelled, e.g. <code>window.stop()</code> is invoked. The full list of error codes and their meaning is available <a href=\"https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h\">here</a>. Note that redirect responses will emit <code>errorCode</code> -3; you may want to ignore that error explicitly.",
+        "description": "This event is like did-finish-load but emitted when the load failed or was cancelled, e.g. window.stop() is invoked. The full list of error codes and their meaning is available here. Note that redirect responses will emit errorCode -3; you may want to ignore that error explicitly.",
         "returns": [
           {
             "name": "event",
@@ -1527,7 +1691,7 @@
       },
       {
         "name": "did-get-response-details",
-        "description": "Emitted when details regarding a requested resource are available. <code>status</code> indicates the socket connection to download the resource.",
+        "description": "Emitted when details regarding a requested resource are available. status indicates the socket connection to download the resource.",
         "returns": [
           {
             "name": "event",
@@ -1632,7 +1796,7 @@
       },
       {
         "name": "new-window",
-        "description": "Emitted when the page requests to open a new window for a <code>url</code>. It could be requested by <code>window.open</code> or an external link like <code>&lt;a target=&apos;_blank&apos;&gt;</code>. By default a new <code>BrowserWindow</code> will be created for the <code>url</code>. Calling <code>event.preventDefault()</code> will prevent creating new windows.",
+        "description": "Emitted when the page requests to open a new window for a url. It could be requested by window.open or an external link like <a target='_blank'>. By default a new BrowserWindow will be created for the url. Calling event.preventDefault() will prevent creating new windows.",
         "returns": [
           {
             "name": "event",
@@ -1660,7 +1824,7 @@
       },
       {
         "name": "will-navigate",
-        "description": "Emitted when a user or the page wants to start navigation. It can happen when the <code>window.location</code> object is changed or a user clicks a link in the page. This event will not emit when the navigation is started programmatically with APIs like <code>webContents.loadURL</code> and <code>webContents.back</code>. It is also not emitted for in-page navigations, such as clicking anchor links or updating the <code>window.location.hash</code>. Use <code>did-navigate-in-page</code> event for this purpose. Calling <code>event.preventDefault()</code> will prevent the navigation.",
+        "description": "Emitted when a user or the page wants to start navigation. It can happen when the window.location object is changed or a user clicks a link in the page. This event will not emit when the navigation is started programmatically with APIs like webContents.loadURL and webContents.back. It is also not emitted for in-page navigations, such as clicking anchor links or updating the window.location.hash. Use did-navigate-in-page event for this purpose. Calling event.preventDefault() will prevent the navigation.",
         "returns": [
           {
             "name": "event",
@@ -1674,7 +1838,7 @@
       },
       {
         "name": "did-navigate",
-        "description": "Emitted when a navigation is done. This event is not emitted for in-page navigations, such as clicking anchor links or updating the <code>window.location.hash</code>. Use <code>did-navigate-in-page</code> event for this purpose.",
+        "description": "Emitted when a navigation is done. This event is not emitted for in-page navigations, such as clicking anchor links or updating the window.location.hash. Use did-navigate-in-page event for this purpose.",
         "returns": [
           {
             "name": "event",
@@ -1688,7 +1852,7 @@
       },
       {
         "name": "did-navigate-in-page",
-        "description": "Emitted when an in-page navigation happened. When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM <code>hashchange</code> event is triggered.",
+        "description": "Emitted when an in-page navigation happened. When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM hashchange event is triggered.",
         "returns": [
           {
             "name": "event",
@@ -1724,7 +1888,7 @@
       },
       {
         "name": "destroyed",
-        "description": "Emitted when <code>webContents</code> is destroyed."
+        "description": "Emitted when webContents is destroyed."
       },
       {
         "name": "devtools-opened",
@@ -1740,7 +1904,7 @@
       },
       {
         "name": "certificate-error",
-        "description": "Emitted when failed to verify the <code>certificate</code> for <code>url</code>. The usage is the same with <a href=\"app.md#event-certificate-error\">the <code>certificate-error</code> event of <code>app</code></a>.",
+        "description": "Emitted when failed to verify the certificate for url. The usage is the same with the certificate-error event of app.",
         "returns": [
           {
             "name": "event",
@@ -1757,7 +1921,17 @@
           },
           {
             "name": "certificate",
-            "type": "Object"
+            "type": "Object",
+            "properties": [
+              {
+                "name": "data",
+                "type": "Buffer - PEM encoded data"
+              },
+              {
+                "name": "issuerName",
+                "type": "String"
+              }
+            ]
           },
           {
             "name": "callback",
@@ -1767,7 +1941,7 @@
       },
       {
         "name": "select-client-certificate",
-        "description": "Emitted when a client certificate is requested. The usage is the same with <a href=\"app.md#event-select-client-certificate\">the <code>select-client-certificate</code> event of <code>app</code></a>.",
+        "description": "Emitted when a client certificate is requested. The usage is the same with the select-client-certificate event of app.",
         "returns": [
           {
             "name": "event",
@@ -1779,7 +1953,17 @@
           },
           {
             "name": "certificateList",
-            "type": "[Objects]"
+            "type": "[Objects]",
+            "properties": [
+              {
+                "name": "data",
+                "type": "Buffer - PEM encoded data"
+              },
+              {
+                "name": "issuerName",
+                "type": "String - Issuer&apos;s Common Name"
+              }
+            ]
           },
           {
             "name": "callback",
@@ -1789,7 +1973,7 @@
       },
       {
         "name": "login",
-        "description": "Emitted when <code>webContents</code> wants to do basic auth. The usage is the same with <a href=\"app.md#event-login\">the <code>login</code> event of <code>app</code></a>.",
+        "description": "Emitted when webContents wants to do basic auth. The usage is the same with the login event of app.",
         "returns": [
           {
             "name": "event",
@@ -1797,11 +1981,47 @@
           },
           {
             "name": "request",
-            "type": "Object"
+            "type": "Object",
+            "properties": [
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "url",
+                "type": "URL"
+              },
+              {
+                "name": "referrer",
+                "type": "URL"
+              }
+            ]
           },
           {
             "name": "authInfo",
-            "type": "Object"
+            "type": "Object",
+            "properties": [
+              {
+                "name": "isProxy",
+                "type": "Boolean"
+              },
+              {
+                "name": "scheme",
+                "type": "String"
+              },
+              {
+                "name": "host",
+                "type": "String"
+              },
+              {
+                "name": "port",
+                "type": "Integer"
+              },
+              {
+                "name": "realm",
+                "type": "String"
+              }
+            ]
           },
           {
             "name": "callback",
@@ -1811,7 +2031,7 @@
       },
       {
         "name": "found-in-page",
-        "description": "Emitted when a result is available for <a href=\"web-contents.md#webcontentsfindinpage\"><code>webContents.findInPage</code></a> request.",
+        "description": "Emitted when a result is available for webContents.findInPage request.",
         "returns": [
           {
             "name": "event",
@@ -1819,7 +2039,29 @@
           },
           {
             "name": "result",
-            "type": "Object"
+            "type": "Object",
+            "properties": [
+              {
+                "name": "requestId",
+                "type": "Integer"
+              },
+              {
+                "name": "finalUpdate",
+                "type": "Boolean - Indicates if more responses are to follow."
+              },
+              {
+                "name": "activeMatchOrdinal",
+                "type": "Integer (optional) - Position of the active match."
+              },
+              {
+                "name": "matches",
+                "type": "Integer (optional) - Number of Matches."
+              },
+              {
+                "name": "selectionArea",
+                "type": "Object (optional) - Coordinates of first match region."
+              }
+            ]
           }
         ]
       },
@@ -1833,7 +2075,7 @@
       },
       {
         "name": "did-change-theme-color",
-        "description": "Emitted when a page&apos;s theme color changes. This is usually due to encountering a meta tag:"
+        "description": "Emitted when a page's theme color changes. This is usually due to encountering a meta tag:"
       },
       {
         "name": "update-target-url",
@@ -1851,7 +2093,7 @@
       },
       {
         "name": "cursor-changed",
-        "description": "Emitted when the cursor&apos;s type changes. The <code>type</code> parameter can be <code>default</code>, <code>crosshair</code>, <code>pointer</code>, <code>text</code>, <code>wait</code>, <code>help</code>, <code>e-resize</code>, <code>n-resize</code>, <code>ne-resize</code>, <code>nw-resize</code>, <code>s-resize</code>, <code>se-resize</code>, <code>sw-resize</code>, <code>w-resize</code>, <code>ns-resize</code>, <code>ew-resize</code>, <code>nesw-resize</code>, <code>nwse-resize</code>, <code>col-resize</code>, <code>row-resize</code>, <code>m-panning</code>, <code>e-panning</code>, <code>n-panning</code>, <code>ne-panning</code>, <code>nw-panning</code>, <code>s-panning</code>, <code>se-panning</code>, <code>sw-panning</code>, <code>w-panning</code>, <code>move</code>, <code>vertical-text</code>, <code>cell</code>, <code>context-menu</code>, <code>alias</code>, <code>progress</code>, <code>nodrop</code>, <code>copy</code>, <code>none</code>, <code>not-allowed</code>, <code>zoom-in</code>, <code>zoom-out</code>, <code>grab</code>, <code>grabbing</code>, <code>custom</code>. If the <code>type</code> parameter is <code>custom</code>, the <code>image</code> parameter will hold the custom cursor image in a <code>NativeImage</code>, and the <code>scale</code> will hold scaling information for the image.",
+        "description": "Emitted when the cursor's type changes. The type parameter can be default, crosshair, pointer, text, wait, help, e-resize, n-resize, ne-resize, nw-resize, s-resize, se-resize, sw-resize, w-resize, ns-resize, ew-resize, nesw-resize, nwse-resize, col-resize, row-resize, m-panning, e-panning, n-panning, ne-panning, nw-panning, s-panning, se-panning, sw-panning, w-panning, move, vertical-text, cell, context-menu, alias, progress, nodrop, copy, none, not-allowed, zoom-in, zoom-out, grab, grabbing, custom. If the type parameter is custom, the image parameter will hold the custom cursor image in a NativeImage, and the scale will hold scaling information for the image.",
         "returns": [
           {
             "name": "event",
@@ -1873,7 +2115,7 @@
       },
       {
         "name": "context-menu",
-        "description": "The <code>mediaFlags</code> is an object with the following properties: The <code>editFlags</code> is an object with the following properties: Emitted when there is a new context menu that needs to be handled.",
+        "description": "The mediaFlags is an object with the following properties: The editFlags is an object with the following properties: Emitted when there is a new context menu that needs to be handled.",
         "returns": [
           {
             "name": "event",
@@ -1881,7 +2123,81 @@
           },
           {
             "name": "params",
-            "type": "Object"
+            "type": "Object",
+            "properties": [
+              {
+                "name": "x",
+                "type": "Integer - x coodinate"
+              },
+              {
+                "name": "y",
+                "type": "Integer - y coodinate"
+              },
+              {
+                "name": "linkURL",
+                "type": "String - URL of the link that encloses the node the context menu"
+              },
+              {
+                "name": "linkText",
+                "type": "String - Text associated with the link. May be an empty"
+              },
+              {
+                "name": "pageURL",
+                "type": "String - URL of the top level page that the context menu was"
+              },
+              {
+                "name": "frameURL",
+                "type": "String - URL of the subframe that the context menu was invoked"
+              },
+              {
+                "name": "srcURL",
+                "type": "String - Source URL for the element that the context menu"
+              },
+              {
+                "name": "mediaType",
+                "type": "String - Type of the node the context menu was invoked on. Can"
+              },
+              {
+                "name": "hasImageContent",
+                "type": "Boolean - Wether the context menu was invoked on an image"
+              },
+              {
+                "name": "isEditable",
+                "type": "Boolean - Wether the context is editable."
+              },
+              {
+                "name": "selectionText",
+                "type": "String - Text of the selection that the context menu was"
+              },
+              {
+                "name": "titleText",
+                "type": "String - Title or alt text of the selection that the context"
+              },
+              {
+                "name": "misspelledWord",
+                "type": "String - The misspelled word under the cursor, if any."
+              },
+              {
+                "name": "frameCharset",
+                "type": "String - The character encoding of the frame on which the"
+              },
+              {
+                "name": "inputFieldType",
+                "type": "String - If the context menu was invoked on an input"
+              },
+              {
+                "name": "menuSourceType",
+                "type": "String - Input source that invoked the context menu."
+              },
+              {
+                "name": "mediaFlags",
+                "type": "Object - The flags for the media element the context menu was"
+              },
+              {
+                "name": "editFlags",
+                "type": "Object - These flags indicate wether the renderer believes it is"
+              }
+            ]
           },
           {
             "name": "inError",
@@ -1962,7 +2278,7 @@
       },
       {
         "name": "select-bluetooth-device",
-        "description": "Emitted when bluetooth device needs to be selected on call to <code>navigator.bluetooth.requestDevice</code>. To use <code>navigator.bluetooth</code> api <code>webBluetooth</code> should be enabled.  If <code>event.preventDefault</code> is not called, first available device will be selected. <code>callback</code> should be called with <code>deviceId</code> to be selected, passing empty string to <code>callback</code> will cancel the request.",
+        "description": "Emitted when bluetooth device needs to be selected on call to navigator.bluetooth.requestDevice. To use navigator.bluetooth api webBluetooth should be enabled.  If event.preventDefault is not called, first available device will be selected. callback should be called with deviceId to be selected, passing empty string to callback will cancel the request.",
         "returns": [
           {
             "name": "event",
@@ -1970,11 +2286,27 @@
           },
           {
             "name": "devices",
-            "type": "[Objects]"
+            "type": "[Objects]",
+            "properties": [
+              {
+                "name": "deviceName",
+                "type": "String"
+              },
+              {
+                "name": "deviceId",
+                "type": "String"
+              }
+            ]
           },
           {
             "name": "callback",
-            "type": "Function"
+            "type": "Function",
+            "properties": [
+              {
+                "name": "deviceId",
+                "type": "String"
+              }
+            ]
           }
         ]
       }
