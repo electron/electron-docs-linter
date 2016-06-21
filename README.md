@@ -92,7 +92,6 @@ None
 ## Dev Dependencies
 
 - [electron-prebuilt](https://github.com/electron-userland/electron-prebuilt): Install electron prebuilt binaries for the command-line use using npm
-- [slug](https://github.com/dodo/node-slug): slugifies even utf-8 chars!
 - [sort-object-keys](https://github.com/keithamus/sort-object-keys): Sort an object&#39;s keys, including an optional key list
 - [standard](https://github.com/feross/standard): JavaScript Standard Style
 - [superagent](https://github.com/visionmedia/superagent): elegant & feature rich browser / node HTTP with a fluent API

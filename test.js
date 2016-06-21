@@ -1,10 +1,9 @@
 const test = require('tape')
-const superagent = require('superagent')
+// const superagent = require('superagent')
 const find = require('lodash.find')
 const apis = require('.')
 
 test('electron-apis', function (t) {
-
   t.ok(Array.isArray(apis), 'is an array')
   t.ok(apis.length >= 26, 'is not empty')
 
@@ -51,5 +50,4 @@ test('electron-apis', function (t) {
   //       t.equal(200, res.status, `has a repoUrl that actually exists: ${api.name}`)
   //     })
   // })
-
 })
