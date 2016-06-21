@@ -1,7 +1,7 @@
 {
   "name": "electron-apis",
   "version": "1.0.0",
-  "description": "A JSON object describing Electron's public APIs",
+  "description": "A JSON object describing Electron's APIs",
   "main": "apis.json",
   "scripts": {
     "build": "electron lib/main.js > apis.json",
