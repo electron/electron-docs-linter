@@ -2,7 +2,11 @@
 
 A JSON object describing [Electron's APIs](http://electron.atom.io/docs/api/).
 
-See [apis.json](/apis.json).
+See [apis.json](/apis.json) or explore the object in the node repl:
+
+```js
+npm i -g trymodule && trymodule electron-apis
+```
 
 ## Installation
 
@@ -18,6 +22,7 @@ npm install electron-apis --save
 ```js
 const apis = require('electron-apis')
 
+// `apis` is an array of API objects. To find one:
 const bw = apis.find(api => api.name === 'BrowserWindow')
 
 bw.events.length
