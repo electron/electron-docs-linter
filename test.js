@@ -38,6 +38,7 @@ test('electron-apis', function (t) {
   t.equal(properties[0].name, 'altKey', 'return objects have properties with a `name`')
   t.equal(properties[0].type, 'Boolean', 'return objects have properties with a `type`')
 
+  console.log('🎉 🙌 🍕')
   t.end()
 
   // TODO: make test async-friendly, then bring back these http checks:
