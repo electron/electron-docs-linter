@@ -4,7 +4,7 @@
     "mainProcess": true,
     "slug": "clipboard",
     "websiteUrl": "http://electron.atom.io/docs/api/clipboard",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/clipboard.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/clipboard.md",
     "type": "Object",
     "rendererProcess": true,
     "description": "Perform copy and paste operations on the system clipboard."
@@ -14,7 +14,7 @@
     "mainProcess": true,
     "slug": "crash-reporter",
     "websiteUrl": "http://electron.atom.io/docs/api/crash-reporter",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/crash-reporter.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/crash-reporter.md",
     "type": "Object",
     "rendererProcess": true,
     "description": "Submit crash reports to a remote server."
@@ -24,7 +24,7 @@
     "mainProcess": true,
     "slug": "native-image",
     "websiteUrl": "http://electron.atom.io/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/native-image.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/native-image.md",
     "type": "Object",
     "rendererProcess": true,
     "description": "Create tray, dock, and application icons using PNG or JPG files.",
@@ -37,7 +37,14 @@
       {
         "name": "toJpeg",
         "signature": "(quality)",
-        "description": "Returns a Buffer that contains the image's JPEG encoded data."
+        "description": "Returns a Buffer that contains the image's JPEG encoded data.",
+        "arguments": [
+          {
+            "name": "quality",
+            "type": "Integer (<strong>required</strong>)",
+            "description": "Between 0 - 100."
+          }
+        ]
       },
       {
         "name": "toDataURL",
@@ -47,7 +54,10 @@
       {
         "name": "getNativeHandle",
         "signature": "()",
-        "description": "Returns a Buffer that stores C pointer to underlying native handle of the image. On OS X, a pointer to NSImage instance would be returned. Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you must ensure that the associated nativeImage instance is kept around."
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Returns a Buffer that stores C pointer to underlying native handle of the image. On macOS, a pointer to NSImage instance would be returned. Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you must ensure that the associated nativeImage instance is kept around."
       },
       {
         "name": "isEmpty",
@@ -62,7 +72,13 @@
       {
         "name": "setTemplateImage",
         "signature": "(option)",
-        "description": "Marks the image as template image."
+        "description": "Marks the image as template image.",
+        "arguments": [
+          {
+            "name": "option",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isTemplateImage",
@@ -76,7 +92,7 @@
     "mainProcess": true,
     "slug": "shell",
     "websiteUrl": "http://electron.atom.io/docs/api/shell",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/shell.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/shell.md",
     "type": "Object",
     "rendererProcess": true,
     "description": "Manage files and URLs using their default applications."
@@ -86,13 +102,13 @@
     "mainProcess": true,
     "slug": "app",
     "websiteUrl": "http://electron.atom.io/docs/api/app",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/app.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/app.md",
     "type": "Object",
     "description": "Control your application's event lifecycle.",
     "events": [
       {
         "name": "will-finish-launching",
-        "description": "Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on OS X, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler."
+        "description": "Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on macOS, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler."
       },
       {
         "name": "ready",
@@ -140,7 +156,7 @@
         "name": "open-file",
         "description": "Emitted when the user wants to open a file with the application. The open-file event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. open-file is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the open-file event very early in your application startup to handle this case (even before the ready event is emitted). You should call event.preventDefault() if you want to handle this event. On Windows, you have to parse process.argv (in the main process) to get the filepath.",
         "platforms": [
-          "OS X"
+          "macOS"
         ],
         "returns": [
           {
@@ -157,7 +173,7 @@
         "name": "open-url",
         "description": "Emitted when the user wants to open a URL with the application. The URL scheme must be registered to be opened by your application. You should call event.preventDefault() if you want to handle this event.",
         "platforms": [
-          "OS X"
+          "macOS"
         ],
         "returns": [
           {
@@ -174,7 +190,7 @@
         "name": "activate",
         "description": "Emitted when the application is activated, which usually happens when the user clicks on the application's dock icon.",
         "platforms": [
-          "OS X"
+          "macOS"
         ],
         "returns": [
           {
@@ -191,7 +207,7 @@
         "name": "continue-activity",
         "description": "Emitted during Handoff when an activity from a different device wants to be resumed. You should call event.preventDefault() if you want to handle this event. A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's Info.plist under the NSUserActivityTypes key.",
         "platforms": [
-          "OS X"
+          "macOS"
         ],
         "returns": [
           {
@@ -416,7 +432,7 @@
     "mainProcess": true,
     "slug": "auto-updater",
     "websiteUrl": "http://electron.atom.io/docs/api/auto-updater",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/auto-updater.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/auto-updater.md",
     "type": "Object",
     "description": "Enable apps to automatically update themselves.",
     "events": [
@@ -475,7 +491,7 @@
     "mainProcess": true,
     "slug": "browser-window",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-window",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/browser-window.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/browser-window.md",
     "type": "Class",
     "description": "Create and control browser windows.",
     "instanceMethods": [
@@ -525,6 +541,11 @@
         "description": "Returns a boolean, whether the window is visible to the user."
       },
       {
+        "name": "isModal",
+        "signature": "()",
+        "description": "Returns whether current window is a modal window."
+      },
+      {
         "name": "maximize",
         "signature": "()",
         "description": "Maximizes the window."
@@ -557,7 +578,13 @@
       {
         "name": "setFullScreen",
         "signature": "(flag)",
-        "description": "Sets whether the window should be in fullscreen mode."
+        "description": "Sets whether the window should be in fullscreen mode.",
+        "arguments": [
+          {
+            "name": "flag",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isFullScreen",
@@ -567,12 +594,64 @@
       {
         "name": "setAspectRatio",
         "signature": "(aspectRatio[, extraSize])",
-        "description": "This will have a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size. Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view."
+        "platforms": [
+          "macOS"
+        ],
+        "description": "This will have a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size. Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.",
+        "arguments": [
+          {
+            "name": "aspectRatio",
+            "type": "The aspect ratio we want to maintain for some portion of the"
+          },
+          {
+            "name": "extraSize",
+            "type": "Object (optional)",
+            "description": "The extra size not to be included while",
+            "properties": [
+              {
+                "name": "width",
+                "type": "Integer"
+              },
+              {
+                "name": "height",
+                "type": "Integer"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "setBounds",
         "signature": "(options[, animate])",
-        "description": "Resizes and moves the window to width, height, x, y."
+        "description": "Resizes and moves the window to width, height, x, y.",
+        "arguments": [
+          {
+            "name": "options",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "x",
+                "type": "Integer"
+              },
+              {
+                "name": "y",
+                "type": "Integer"
+              },
+              {
+                "name": "width",
+                "type": "Integer"
+              },
+              {
+                "name": "height",
+                "type": "Integer"
+              }
+            ]
+          },
+          {
+            "name": "animate",
+            "type": "Boolean (optional) <em>macOS</em>"
+          }
+        ]
       },
       {
         "name": "getBounds",
@@ -582,7 +661,21 @@
       {
         "name": "setSize",
         "signature": "(width, height[, animate])",
-        "description": "Resizes the window to width and height."
+        "description": "Resizes the window to width and height.",
+        "arguments": [
+          {
+            "name": "width",
+            "type": "Integer"
+          },
+          {
+            "name": "height",
+            "type": "Integer"
+          },
+          {
+            "name": "animate",
+            "type": "Boolean (optional) <em>macOS</em>"
+          }
+        ]
       },
       {
         "name": "getSize",
@@ -592,7 +685,21 @@
       {
         "name": "setContentSize",
         "signature": "(width, height[, animate])",
-        "description": "Resizes the window's client area (e.g. the web page) to width and height."
+        "description": "Resizes the window's client area (e.g. the web page) to width and height.",
+        "arguments": [
+          {
+            "name": "width",
+            "type": "Integer"
+          },
+          {
+            "name": "height",
+            "type": "Integer"
+          },
+          {
+            "name": "animate",
+            "type": "Boolean (optional) <em>macOS</em>"
+          }
+        ]
       },
       {
         "name": "getContentSize",
@@ -602,7 +709,17 @@
       {
         "name": "setMinimumSize",
         "signature": "(width, height)",
-        "description": "Sets the minimum size of window to width and height."
+        "description": "Sets the minimum size of window to width and height.",
+        "arguments": [
+          {
+            "name": "width",
+            "type": "Integer"
+          },
+          {
+            "name": "height",
+            "type": "Integer"
+          }
+        ]
       },
       {
         "name": "getMinimumSize",
@@ -612,7 +729,17 @@
       {
         "name": "setMaximumSize",
         "signature": "(width, height)",
-        "description": "Sets the maximum size of window to width and height."
+        "description": "Sets the maximum size of window to width and height.",
+        "arguments": [
+          {
+            "name": "width",
+            "type": "Integer"
+          },
+          {
+            "name": "height",
+            "type": "Integer"
+          }
+        ]
       },
       {
         "name": "getMaximumSize",
@@ -622,7 +749,13 @@
       {
         "name": "setResizable",
         "signature": "(resizable)",
-        "description": "Sets whether the window can be manually resized by user."
+        "description": "Sets whether the window can be manually resized by user.",
+        "arguments": [
+          {
+            "name": "resizable",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isResizable",
@@ -632,37 +765,85 @@
       {
         "name": "setMovable",
         "signature": "(movable)",
-        "description": "Sets whether the window can be moved by user. On Linux does nothing."
+        "platforms": [
+          "macOS",
+          "Windows"
+        ],
+        "description": "Sets whether the window can be moved by user. On Linux does nothing.",
+        "arguments": [
+          {
+            "name": "movable",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isMovable",
         "signature": "()",
+        "platforms": [
+          "macOS",
+          "Windows"
+        ],
         "description": "Returns whether the window can be moved by user. On Linux always returns true."
       },
       {
         "name": "setMinimizable",
         "signature": "(minimizable)",
-        "description": "Sets whether the window can be manually minimized by user. On Linux does nothing."
+        "platforms": [
+          "macOS",
+          "Windows"
+        ],
+        "description": "Sets whether the window can be manually minimized by user. On Linux does nothing.",
+        "arguments": [
+          {
+            "name": "minimizable",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isMinimizable",
         "signature": "()",
+        "platforms": [
+          "macOS",
+          "Windows"
+        ],
         "description": "Returns whether the window can be manually minimized by user. On Linux always returns true."
       },
       {
         "name": "setMaximizable",
         "signature": "(maximizable)",
-        "description": "Sets whether the window can be manually maximized by user. On Linux does nothing."
+        "platforms": [
+          "macOS",
+          "Windows"
+        ],
+        "description": "Sets whether the window can be manually maximized by user. On Linux does nothing.",
+        "arguments": [
+          {
+            "name": "maximizable",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isMaximizable",
         "signature": "()",
+        "platforms": [
+          "macOS",
+          "Windows"
+        ],
         "description": "Returns whether the window can be manually maximized by user. On Linux always returns true."
       },
       {
         "name": "setFullScreenable",
         "signature": "(fullscreenable)",
-        "description": "Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window."
+        "description": "Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.",
+        "arguments": [
+          {
+            "name": "fullscreenable",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isFullScreenable",
@@ -672,17 +853,37 @@
       {
         "name": "setClosable",
         "signature": "(closable)",
-        "description": "Sets whether the window can be manually closed by user. On Linux does nothing."
+        "platforms": [
+          "macOS",
+          "Windows"
+        ],
+        "description": "Sets whether the window can be manually closed by user. On Linux does nothing.",
+        "arguments": [
+          {
+            "name": "closable",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isClosable",
         "signature": "()",
+        "platforms": [
+          "macOS",
+          "Windows"
+        ],
         "description": "Returns whether the window can be manually closed by user. On Linux always returns true."
       },
       {
         "name": "setAlwaysOnTop",
         "signature": "(flag)",
-        "description": "Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on."
+        "description": "Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.",
+        "arguments": [
+          {
+            "name": "flag",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isAlwaysOnTop",
@@ -697,7 +898,21 @@
       {
         "name": "setPosition",
         "signature": "(x, y[, animate])",
-        "description": "Moves window to x and y."
+        "description": "Moves window to x and y.",
+        "arguments": [
+          {
+            "name": "x",
+            "type": "Integer"
+          },
+          {
+            "name": "y",
+            "type": "Integer"
+          },
+          {
+            "name": "animate",
+            "type": "Boolean (optional) <em>macOS</em>"
+          }
+        ]
       },
       {
         "name": "getPosition",
@@ -707,7 +922,13 @@
       {
         "name": "setTitle",
         "signature": "(title)",
-        "description": "Changes the title of native window to title."
+        "description": "Changes the title of native window to title.",
+        "arguments": [
+          {
+            "name": "title",
+            "type": "String"
+          }
+        ]
       },
       {
         "name": "getTitle",
@@ -717,22 +938,43 @@
       {
         "name": "setSheetOffset",
         "signature": "(offsetY[, offsetX])",
-        "description": "Changes the attachment point for sheets on Mac OS X. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:"
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:"
       },
       {
         "name": "flashFrame",
         "signature": "(flag)",
-        "description": "Starts or stops flashing the window to attract user's attention."
+        "description": "Starts or stops flashing the window to attract user's attention.",
+        "arguments": [
+          {
+            "name": "flag",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "setSkipTaskbar",
         "signature": "(skip)",
-        "description": "Makes the window not show in the taskbar."
+        "description": "Makes the window not show in the taskbar.",
+        "arguments": [
+          {
+            "name": "skip",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "setKiosk",
         "signature": "(flag)",
-        "description": "Enters or leaves the kiosk mode."
+        "description": "Enters or leaves the kiosk mode.",
+        "arguments": [
+          {
+            "name": "flag",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isKiosk",
@@ -742,46 +984,104 @@
       {
         "name": "getNativeWindowHandle",
         "signature": "()",
-        "description": "Returns the platform-specific handle of the window as Buffer. The native type of the handle is HWND on Windows, NSView* on OS X, and Window (unsigned long) on Linux."
+        "description": "Returns the platform-specific handle of the window as Buffer. The native type of the handle is HWND on Windows, NSView* on macOS, and Window (unsigned long) on Linux."
       },
       {
         "name": "hookWindowMessage",
         "signature": "(message, callback)",
-        "description": "Hooks a windows message. The callback is called when the message is received in the WndProc."
+        "platforms": [
+          "Windows"
+        ],
+        "description": "Hooks a windows message. The callback is called when the message is received in the WndProc.",
+        "arguments": [
+          {
+            "name": "message",
+            "type": "Integer"
+          },
+          {
+            "name": "callback",
+            "type": "Function"
+          }
+        ]
       },
       {
         "name": "isWindowMessageHooked",
         "signature": "(message)",
-        "description": "Returns true or false depending on whether the message is hooked."
+        "platforms": [
+          "Windows"
+        ],
+        "description": "Returns true or false depending on whether the message is hooked.",
+        "arguments": [
+          {
+            "name": "message",
+            "type": "Integer"
+          }
+        ]
       },
       {
         "name": "unhookWindowMessage",
         "signature": "(message)",
-        "description": "Unhook the window message."
+        "platforms": [
+          "Windows"
+        ],
+        "description": "Unhook the window message.",
+        "arguments": [
+          {
+            "name": "message",
+            "type": "Integer"
+          }
+        ]
       },
       {
         "name": "unhookAllWindowMessages",
         "signature": "()",
+        "platforms": [
+          "Windows"
+        ],
         "description": "Unhooks all of the window messages."
       },
       {
         "name": "setRepresentedFilename",
         "signature": "(filename)",
-        "description": "Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar."
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.",
+        "arguments": [
+          {
+            "name": "filename",
+            "type": "String"
+          }
+        ]
       },
       {
         "name": "getRepresentedFilename",
         "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
         "description": "Returns the pathname of the file the window represents."
       },
       {
         "name": "setDocumentEdited",
         "signature": "(edited)",
-        "description": "Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to true."
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to true.",
+        "arguments": [
+          {
+            "name": "edited",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isDocumentEdited",
         "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
         "description": "Whether the window's document has been edited."
       },
       {
@@ -795,7 +1095,36 @@
       {
         "name": "capturePage",
         "signature": "([rect, ]callback)",
-        "description": "Captures a snapshot of the page within rect. Upon completion callback will be called with callback(image). The image is an instance of NativeImage that stores data of the snapshot. Omitting rect will capture the whole visible page."
+        "description": "Captures a snapshot of the page within rect. Upon completion callback will be called with callback(image). The image is an instance of NativeImage that stores data of the snapshot. Omitting rect will capture the whole visible page.",
+        "arguments": [
+          {
+            "name": "rect",
+            "type": "Object (optional)",
+            "description": "The area of page to be captured",
+            "properties": [
+              {
+                "name": "x",
+                "type": "Integer"
+              },
+              {
+                "name": "y",
+                "type": "Integer"
+              },
+              {
+                "name": "width",
+                "type": "Integer"
+              },
+              {
+                "name": "height",
+                "type": "Integer"
+              }
+            ]
+          },
+          {
+            "name": "callback",
+            "type": "Function"
+          }
+        ]
       },
       {
         "name": "loadURL",
@@ -810,47 +1139,164 @@
       {
         "name": "setMenu",
         "signature": "(menu)",
-        "description": "Sets the menu as the window's menu bar, setting it to null will remove the menu bar."
+        "platforms": [
+          "Linux",
+          "Windows"
+        ],
+        "description": "Sets the menu as the window's menu bar, setting it to null will remove the menu bar.",
+        "arguments": [
+          {
+            "name": "menu",
+            "type": "Menu"
+          }
+        ]
       },
       {
         "name": "setProgressBar",
         "signature": "(progress)",
-        "description": "Sets progress value in progress bar. Valid range is [0, 1.0]. Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1. On Linux platform, only supports Unity desktop environment, you need to specify the *.desktop file name to desktopName field in package.json. By default, it will assume app.getName().desktop."
+        "description": "Sets progress value in progress bar. Valid range is [0, 1.0]. Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1. On Linux platform, only supports Unity desktop environment, you need to specify the *.desktop file name to desktopName field in package.json. By default, it will assume app.getName().desktop.",
+        "arguments": [
+          {
+            "name": "progress",
+            "type": "Double"
+          }
+        ]
       },
       {
         "name": "setOverlayIcon",
         "signature": "(overlay, description)",
-        "description": "Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user."
+        "platforms": [
+          "Windows 7+"
+        ],
+        "description": "Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.",
+        "arguments": [
+          {
+            "name": "overlay",
+            "type": "<a href=\"native-image.md\">NativeImage</a>",
+            "description": "the icon to display on the bottom"
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "description": "a description that will be provided to Accessibility"
+          }
+        ]
       },
       {
         "name": "setHasShadow",
         "signature": "(hasShadow)",
-        "description": "Sets whether the window should have a shadow. On Windows and Linux does nothing."
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Sets whether the window should have a shadow. On Windows and Linux does nothing.",
+        "arguments": [
+          {
+            "name": "hasShadow",
+            "type": "(Boolean)"
+          }
+        ]
       },
       {
         "name": "hasShadow",
         "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
         "description": "Returns whether the window has a shadow. On Windows and Linux always returns true."
       },
       {
         "name": "setThumbarButtons",
         "signature": "(buttons)",
-        "description": "Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a Boolean object indicates whether the thumbnail has been added successfully. The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons. The buttons is an array of Button objects: The flags is an array that can include following Strings:"
+        "platforms": [
+          "Windows 7+"
+        ],
+        "description": "Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a Boolean object indicates whether the thumbnail has been added successfully. The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons. The buttons is an array of Button objects: The flags is an array that can include following Strings:",
+        "arguments": [
+          {
+            "name": "buttons",
+            "type": "Array"
+          },
+          {
+            "name": "Button",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "icon",
+                "type": "<a href=\"native-image.md\">NativeImage</a> - The icon showing in thumbnail"
+              },
+              {
+                "name": "click",
+                "type": "Function"
+              },
+              {
+                "name": "tooltip",
+                "type": "String (optional) - The text of the button&apos;s tooltip."
+              },
+              {
+                "name": "flags",
+                "type": "Array (optional) - Control specific states and behaviors of the"
+              }
+            ]
+          },
+          {
+            "name": "enabled",
+            "type": "- The button is active and available to the user."
+          },
+          {
+            "name": "disabled",
+            "type": "- The button is disabled. It is present, but has a visual state"
+          },
+          {
+            "name": "dismissonclick",
+            "type": "- When the button is clicked, the thumbnail window closes"
+          },
+          {
+            "name": "nobackground",
+            "type": "- Do not draw a button border, use only the image."
+          },
+          {
+            "name": "hidden",
+            "type": "- The button is not shown to the user."
+          },
+          {
+            "name": "noninteractive",
+            "type": "- The button is enabled but not interactive; no pressed"
+          }
+        ]
       },
       {
         "name": "showDefinitionForSelection",
         "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
         "description": "Same as webContents.showDefinitionForSelection()."
       },
       {
         "name": "setIcon",
         "signature": "(icon)",
-        "description": "Changes window icon."
+        "platforms": [
+          "Windows",
+          "Linux"
+        ],
+        "description": "Changes window icon.",
+        "arguments": [
+          {
+            "name": "icon",
+            "type": "<a href=\"native-image.md\">NativeImage</a>"
+          }
+        ]
       },
       {
         "name": "setAutoHideMenuBar",
         "signature": "(hide)",
-        "description": "Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single Alt key. If the menu bar is already visible, calling setAutoHideMenuBar(true) won't hide it immediately."
+        "description": "Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single Alt key. If the menu bar is already visible, calling setAutoHideMenuBar(true) won't hide it immediately.",
+        "arguments": [
+          {
+            "name": "hide",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isMenuBarAutoHide",
@@ -860,7 +1306,13 @@
       {
         "name": "setMenuBarVisibility",
         "signature": "(visible)",
-        "description": "Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single Alt key."
+        "description": "Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single Alt key.",
+        "arguments": [
+          {
+            "name": "visible",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isMenuBarVisible",
@@ -870,7 +1322,13 @@
       {
         "name": "setVisibleOnAllWorkspaces",
         "signature": "(visible)",
-        "description": "Sets whether the window should be visible on all workspaces. Note: This API does nothing on Windows."
+        "description": "Sets whether the window should be visible on all workspaces. Note: This API does nothing on Windows.",
+        "arguments": [
+          {
+            "name": "visible",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isVisibleOnAllWorkspaces",
@@ -880,12 +1338,52 @@
       {
         "name": "setIgnoreMouseEvents",
         "signature": "(ignore)",
-        "description": "Makes the window ignore all mouse events. All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events."
+        "description": "Makes the window ignore all mouse events. All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.",
+        "arguments": [
+          {
+            "name": "ignore",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "setFocusable",
         "signature": "(focusable)",
-        "description": "Changes whether the window can be focused."
+        "platforms": [
+          "Windows"
+        ],
+        "description": "Changes whether the window can be focused.",
+        "arguments": [
+          {
+            "name": "focusable",
+            "type": "Boolean"
+          }
+        ]
+      },
+      {
+        "name": "setParentWindow",
+        "signature": "(parent)",
+        "platforms": [
+          "Linux",
+          "macOS"
+        ],
+        "description": "Sets parent as current window's parent window, passing null will turn current window into a top-level window.",
+        "arguments": [
+          {
+            "name": "parent",
+            "type": "BrowserWindow"
+          }
+        ]
+      },
+      {
+        "name": "getParentWindow",
+        "signature": "()",
+        "description": "Returns the parent window."
+      },
+      {
+        "name": "getChildWindows",
+        "signature": "()",
+        "description": "Returns all child windows."
       }
     ],
     "events": [
@@ -963,13 +1461,13 @@
       },
       {
         "name": "move",
-        "description": "Emitted when the window is getting moved to a new position. Note: On OS X this event is just an alias of moved."
+        "description": "Emitted when the window is getting moved to a new position. Note: On macOS this event is just an alias of moved."
       },
       {
         "name": "moved",
         "description": "Emitted once when the window is moved to a new position.",
         "platforms": [
-          "OS X"
+          "macOS"
         ]
       },
       {
@@ -1009,21 +1507,21 @@
         "name": "scroll-touch-begin",
         "description": "Emitted when scroll wheel event phase has begun.",
         "platforms": [
-          "OS X"
+          "macOS"
         ]
       },
       {
         "name": "scroll-touch-end",
         "description": "Emitted when scroll wheel event phase has ended.",
         "platforms": [
-          "OS X"
+          "macOS"
         ]
       },
       {
         "name": "swipe",
         "description": "Emitted on 3-finger swipe. Possible directions are up, right, down, left.",
         "platforms": [
-          "OS X"
+          "macOS"
         ],
         "returns": [
           {
@@ -1043,7 +1541,7 @@
     "mainProcess": true,
     "slug": "content-tracing",
     "websiteUrl": "http://electron.atom.io/docs/api/content-tracing",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/content-tracing.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/content-tracing.md",
     "type": "Object",
     "description": "Collect tracing data from Chromium's content module for finding performance\nbottlenecks and slow operations."
   },
@@ -1052,7 +1550,7 @@
     "mainProcess": true,
     "slug": "dialog",
     "websiteUrl": "http://electron.atom.io/docs/api/dialog",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/dialog.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/dialog.md",
     "type": "Object",
     "description": "Display native system dialogs for opening and saving files, alerting, etc."
   },
@@ -1061,7 +1559,7 @@
     "mainProcess": true,
     "slug": "ipc-main",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-main",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/ipc-main.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/ipc-main.md",
     "type": "Object",
     "description": "Communicate asynchronously from the main process to renderer processes."
   },
@@ -1070,7 +1568,7 @@
     "mainProcess": true,
     "slug": "global-shortcut",
     "websiteUrl": "http://electron.atom.io/docs/api/global-shortcut",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/global-shortcut.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/global-shortcut.md",
     "type": "Object",
     "description": "Detect keyboard events when the application does not have keyboard focus."
   },
@@ -1079,24 +1577,61 @@
     "mainProcess": true,
     "slug": "menu",
     "websiteUrl": "http://electron.atom.io/docs/api/menu",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/menu.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/menu.md",
     "type": "Class",
     "description": "Create native application menus and context menus.",
     "instanceMethods": [
       {
         "name": "popup",
         "signature": "([browserWindow, x, y, positioningItem])",
-        "description": "Pops up this menu as a context menu in the browserWindow. You can optionally provide a x, y coordinate to place the menu at, otherwise it will be placed at the current mouse cursor position."
+        "description": "Pops up this menu as a context menu in the browserWindow. You can optionally provide a x, y coordinate to place the menu at, otherwise it will be placed at the current mouse cursor position.",
+        "arguments": [
+          {
+            "name": "browserWindow</code> BrowserWindow (optional) - Default is <code>null",
+            "type": "."
+          },
+          {
+            "name": "x",
+            "type": "Number (optional)",
+            "description": "Default is -1."
+          },
+          {
+            "name": "y</code> Number (<strong>required</strong> if <code>x",
+            "type": "is used)",
+            "description": "Default is -1."
+          },
+          {
+            "name": "positioningItem",
+            "type": "Number (optional) <em>macOS</em>",
+            "description": "The index of the menu item to"
+          }
+        ]
       },
       {
         "name": "append",
         "signature": "(menuItem)",
-        "description": "Appends the menuItem to the menu."
+        "description": "Appends the menuItem to the menu.",
+        "arguments": [
+          {
+            "name": "menuItem",
+            "type": "MenuItem"
+          }
+        ]
       },
       {
         "name": "insert",
         "signature": "(pos, menuItem)",
-        "description": "Inserts the menuItem to the pos position of the menu."
+        "description": "Inserts the menuItem to the pos position of the menu.",
+        "arguments": [
+          {
+            "name": "pos",
+            "type": "Integer"
+          },
+          {
+            "name": "menuItem",
+            "type": "MenuItem"
+          }
+        ]
       }
     ]
   },
@@ -1105,7 +1640,7 @@
     "mainProcess": true,
     "slug": "menu-item",
     "websiteUrl": "http://electron.atom.io/docs/api/menu-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/menu-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/menu-item.md",
     "type": "Class",
     "description": "Add items to native application menus and context menus."
   },
@@ -1114,7 +1649,7 @@
     "mainProcess": true,
     "slug": "power-monitor",
     "websiteUrl": "http://electron.atom.io/docs/api/power-monitor",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/power-monitor.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/power-monitor.md",
     "type": "Object",
     "description": "Monitor power state changes.",
     "events": [
@@ -1147,7 +1682,7 @@
     "mainProcess": true,
     "slug": "power-save-blocker",
     "websiteUrl": "http://electron.atom.io/docs/api/power-save-blocker",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/power-save-blocker.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/power-save-blocker.md",
     "type": "Object",
     "description": "Block the system from entering low-power (sleep) mode."
   },
@@ -1156,7 +1691,7 @@
     "mainProcess": true,
     "slug": "protocol",
     "websiteUrl": "http://electron.atom.io/docs/api/protocol",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/protocol.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/protocol.md",
     "type": "Object",
     "description": "Register a custom protocol and intercept existing protocol requests."
   },
@@ -1165,7 +1700,7 @@
     "mainProcess": true,
     "slug": "screen",
     "websiteUrl": "http://electron.atom.io/docs/api/screen",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/screen.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/screen.md",
     "type": "Object",
     "rendererProcess": true,
     "description": "Retrieve information about screen size, displays, cursor position, etc.",
@@ -1223,14 +1758,511 @@
     "mainProcess": true,
     "slug": "session",
     "websiteUrl": "http://electron.atom.io/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/session.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/session.md",
     "type": "Object",
     "description": "Manage browser sessions, cookies, cache, proxy settings, etc.",
     "instanceMethods": [
       {
         "name": "resolveProxy",
         "signature": "(url, callback)",
-        "description": "Resolves the proxy information for url. The callback will be called with callback(proxy) when the request is performed. Sets download saving directory. By default, the download directory will be the Downloads under the respective app folder. Emulates network with the given configuration for the session. Disables any network emulation already active for the session. Resets to the original network configuration. Sets the certificate verify proc for session, the proc will be called with proc(hostname, certificate, callback) whenever a server certificate verification is requested. Calling callback(true) accepts the certificate, calling callback(false) rejects it. Calling setCertificateVerifyProc(null) will revert back to default certificate verify proc. Sets the handler which can be used to respond to permission requests for the session. Calling callback(true) will allow the permission and callback(false) will reject it. Clears the host resolver cache. Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication. The webRequest API set allows to intercept and modify contents of a request at various stages of its lifetime. Each API accepts an optional filter and a listener, the listener will be called with listener(details) when the API's event has happened, the details is an object that describes the request. Passing null as listener will unsubscribe from the event. The filter is an object that has an urls property, which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the filter is omitted then all requests will be matched. For certain events the listener is passed with a callback, which should be called with an response object when listener has done its work. The listener will be called with listener(details, callback) when a request is about to occur. The uploadData is an array of data objects: The callback has to be called with an response object: The listener will be called with listener(details, callback) before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent. The callback has to be called with an response object: The listener will be called with listener(details) just before a request is going to be sent to the server, modifications of previous onBeforeSendHeaders response are visible by the time this listener is fired. The listener will be called with listener(details, callback) when HTTP response headers of a request have been received. The callback has to be called with an response object: The listener will be called with listener(details) when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available. The listener will be called with listener(details) when a server initiated redirect is about to occur. The listener will be called with listener(details) when a request is completed. The listener will be called with listener(details) when an error occurs. Returns an instance of protocol module for this session."
+        "description": "Resolves the proxy information for url. The callback will be called with callback(proxy) when the request is performed. Sets download saving directory. By default, the download directory will be the Downloads under the respective app folder. Emulates network with the given configuration for the session. Disables any network emulation already active for the session. Resets to the original network configuration. Sets the certificate verify proc for session, the proc will be called with proc(hostname, certificate, callback) whenever a server certificate verification is requested. Calling callback(true) accepts the certificate, calling callback(false) rejects it. Calling setCertificateVerifyProc(null) will revert back to default certificate verify proc. Sets the handler which can be used to respond to permission requests for the session. Calling callback(true) will allow the permission and callback(false) will reject it. Clears the host resolver cache. Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication. The webRequest API set allows to intercept and modify contents of a request at various stages of its lifetime. Each API accepts an optional filter and a listener, the listener will be called with listener(details) when the API's event has happened, the details is an object that describes the request. Passing null as listener will unsubscribe from the event. The filter is an object that has an urls property, which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the filter is omitted then all requests will be matched. For certain events the listener is passed with a callback, which should be called with an response object when listener has done its work. The listener will be called with listener(details, callback) when a request is about to occur. The uploadData is an array of data objects: The callback has to be called with an response object: The listener will be called with listener(details, callback) before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent. The callback has to be called with an response object: The listener will be called with listener(details) just before a request is going to be sent to the server, modifications of previous onBeforeSendHeaders response are visible by the time this listener is fired. The listener will be called with listener(details, callback) when HTTP response headers of a request have been received. The callback has to be called with an response object: The listener will be called with listener(details) when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available. The listener will be called with listener(details) when a server initiated redirect is about to occur. The listener will be called with listener(details) when a request is completed. The listener will be called with listener(details) when an error occurs. Returns an instance of protocol module for this session.",
+        "arguments": [
+          {
+            "name": "url",
+            "type": "URL"
+          },
+          {
+            "name": "callback",
+            "type": "Function"
+          },
+          {
+            "name": "path",
+            "type": "String",
+            "description": "The download location"
+          },
+          {
+            "name": "options",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "offline",
+                "type": "Boolean - Whether to emulate network outage."
+              },
+              {
+                "name": "latency",
+                "type": "Double - RTT in ms"
+              },
+              {
+                "name": "downloadThroughput",
+                "type": "Double - Download rate in Bps"
+              },
+              {
+                "name": "uploadThroughput",
+                "type": "Double - Upload rate in Bps"
+              }
+            ]
+          },
+          {
+            "name": "proc",
+            "type": "Function"
+          },
+          {
+            "name": "handler",
+            "type": "Function",
+            "properties": [
+              {
+                "name": "webContents",
+                "type": "Object - <a href=\"web-contents.md\">WebContents</a> requesting the permission."
+              },
+              {
+                "name": "permission",
+                "type": "String - Enum of &apos;media&apos;, &apos;geolocation&apos;, &apos;notifications&apos;, &apos;midiSysex&apos;,"
+              },
+              {
+                "name": "callback",
+                "type": "Function - Allow or deny the permission."
+              }
+            ]
+          },
+          {
+            "name": "callback",
+            "type": "Function (optional)",
+            "description": "Called when operation is done."
+          },
+          {
+            "name": "domains",
+            "type": "String",
+            "description": "A comma-seperated list of servers for which"
+          },
+          {
+            "name": "filter",
+            "type": "Object"
+          },
+          {
+            "name": "listener",
+            "type": "Function"
+          },
+          {
+            "name": "details",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "id",
+                "type": "Integer"
+              },
+              {
+                "name": "url",
+                "type": "String"
+              },
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "resourceType",
+                "type": "String"
+              },
+              {
+                "name": "timestamp",
+                "type": "Double"
+              },
+              {
+                "name": "uploadData",
+                "type": "Array (optional)"
+              }
+            ]
+          },
+          {
+            "name": "callback",
+            "type": "Function"
+          },
+          {
+            "name": "data",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "bytes",
+                "type": "Buffer - Content being sent."
+              },
+              {
+                "name": "file",
+                "type": "String - Path of file being uploaded."
+              }
+            ]
+          },
+          {
+            "name": "response",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "cancel",
+                "type": "Boolean (optional)"
+              },
+              {
+                "name": "redirectURL",
+                "type": "String (optional) - The original request is prevented from"
+              }
+            ]
+          },
+          {
+            "name": "filter",
+            "type": "Object"
+          },
+          {
+            "name": "listener",
+            "type": "Function"
+          },
+          {
+            "name": "details",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "id",
+                "type": "Integer"
+              },
+              {
+                "name": "url",
+                "type": "String"
+              },
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "resourceType",
+                "type": "String"
+              },
+              {
+                "name": "timestamp",
+                "type": "Double"
+              },
+              {
+                "name": "requestHeaders",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "name": "callback",
+            "type": "Function"
+          },
+          {
+            "name": "response",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "cancel",
+                "type": "Boolean (optional)"
+              },
+              {
+                "name": "requestHeaders",
+                "type": "Object (optional) - When provided, request will be made"
+              }
+            ]
+          },
+          {
+            "name": "filter",
+            "type": "Object"
+          },
+          {
+            "name": "listener",
+            "type": "Function"
+          },
+          {
+            "name": "details",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "id",
+                "type": "Integer"
+              },
+              {
+                "name": "url",
+                "type": "String"
+              },
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "resourceType",
+                "type": "String"
+              },
+              {
+                "name": "timestamp",
+                "type": "Double"
+              },
+              {
+                "name": "requestHeaders",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "name": "filter",
+            "type": "Object"
+          },
+          {
+            "name": "listener",
+            "type": "Function"
+          },
+          {
+            "name": "details",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "id",
+                "type": "String"
+              },
+              {
+                "name": "url",
+                "type": "String"
+              },
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "resourceType",
+                "type": "String"
+              },
+              {
+                "name": "timestamp",
+                "type": "Double"
+              },
+              {
+                "name": "statusLine",
+                "type": "String"
+              },
+              {
+                "name": "statusCode",
+                "type": "Integer"
+              },
+              {
+                "name": "responseHeaders",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "name": "callback",
+            "type": "Function"
+          },
+          {
+            "name": "response",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "cancel",
+                "type": "Boolean"
+              },
+              {
+                "name": "responseHeaders",
+                "type": "Object (optional) - When provided, the server is assumed"
+              },
+              {
+                "name": "statusLine",
+                "type": "String (optional) - Should be provided when overriding"
+              }
+            ]
+          },
+          {
+            "name": "filter",
+            "type": "Object"
+          },
+          {
+            "name": "listener",
+            "type": "Function"
+          },
+          {
+            "name": "details",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "id",
+                "type": "Integer"
+              },
+              {
+                "name": "url",
+                "type": "String"
+              },
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "resourceType",
+                "type": "String"
+              },
+              {
+                "name": "timestamp",
+                "type": "Double"
+              },
+              {
+                "name": "responseHeaders",
+                "type": "Object"
+              },
+              {
+                "name": "fromCache",
+                "type": "Boolean - Indicates whether the response was fetched from disk"
+              },
+              {
+                "name": "statusCode",
+                "type": "Integer"
+              },
+              {
+                "name": "statusLine",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "filter",
+            "type": "Object"
+          },
+          {
+            "name": "listener",
+            "type": "Function"
+          },
+          {
+            "name": "details",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "id",
+                "type": "String"
+              },
+              {
+                "name": "url",
+                "type": "String"
+              },
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "resourceType",
+                "type": "String"
+              },
+              {
+                "name": "timestamp",
+                "type": "Double"
+              },
+              {
+                "name": "redirectURL",
+                "type": "String"
+              },
+              {
+                "name": "statusCode",
+                "type": "Integer"
+              },
+              {
+                "name": "ip",
+                "type": "String (optional) - The server IP address that the request was"
+              },
+              {
+                "name": "fromCache",
+                "type": "Boolean"
+              },
+              {
+                "name": "responseHeaders",
+                "type": "Object"
+              }
+            ]
+          },
+          {
+            "name": "filter",
+            "type": "Object"
+          },
+          {
+            "name": "listener",
+            "type": "Function"
+          },
+          {
+            "name": "details",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "id",
+                "type": "Integer"
+              },
+              {
+                "name": "url",
+                "type": "String"
+              },
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "resourceType",
+                "type": "String"
+              },
+              {
+                "name": "timestamp",
+                "type": "Double"
+              },
+              {
+                "name": "responseHeaders",
+                "type": "Object"
+              },
+              {
+                "name": "fromCache",
+                "type": "Boolean"
+              },
+              {
+                "name": "statusCode",
+                "type": "Integer"
+              },
+              {
+                "name": "statusLine",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "filter",
+            "type": "Object"
+          },
+          {
+            "name": "listener",
+            "type": "Function"
+          },
+          {
+            "name": "details",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "id",
+                "type": "Integer"
+              },
+              {
+                "name": "url",
+                "type": "String"
+              },
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "resourceType",
+                "type": "String"
+              },
+              {
+                "name": "timestamp",
+                "type": "Double"
+              },
+              {
+                "name": "fromCache",
+                "type": "Boolean"
+              },
+              {
+                "name": "error",
+                "type": "String - The error description."
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -1239,7 +2271,7 @@
     "mainProcess": true,
     "slug": "system-preferences",
     "websiteUrl": "http://electron.atom.io/docs/api/system-preferences",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/system-preferences.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/system-preferences.md",
     "type": "Object",
     "description": "Get system preferences."
   },
@@ -1248,254 +2280,58 @@
     "mainProcess": true,
     "slug": "tray",
     "websiteUrl": "http://electron.atom.io/docs/api/tray",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/tray.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/tray.md",
     "type": "Class",
-    "description": "Add icons and context menus to the system's notification area.",
-    "events": [
-      {
-        "name": "click",
-        "description": "Emitted when the tray icon is clicked. Note: The bounds payload is only implemented on OS X and Windows.",
-        "returns": [
-          {
-            "name": "event",
-            "type": "Event",
-            "properties": [
-              {
-                "name": "altKey",
-                "type": "Boolean"
-              },
-              {
-                "name": "shiftKey",
-                "type": "Boolean"
-              },
-              {
-                "name": "ctrlKey",
-                "type": "Boolean"
-              },
-              {
-                "name": "metaKey",
-                "type": "Boolean"
-              }
-            ]
-          },
-          {
-            "name": "bounds",
-            "type": "Object",
-            "description": "the bounds of tray icon.",
-            "properties": [
-              {
-                "name": "x",
-                "type": "Integer"
-              },
-              {
-                "name": "y",
-                "type": "Integer"
-              },
-              {
-                "name": "width",
-                "type": "Integer"
-              },
-              {
-                "name": "height",
-                "type": "Integer"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "right-click",
-        "description": "Emitted when the tray icon is right clicked.",
-        "platforms": [
-          "OS X",
-          "Windows"
-        ],
-        "returns": [
-          {
-            "name": "event",
-            "type": "Event",
-            "properties": [
-              {
-                "name": "altKey",
-                "type": "Boolean"
-              },
-              {
-                "name": "shiftKey",
-                "type": "Boolean"
-              },
-              {
-                "name": "ctrlKey",
-                "type": "Boolean"
-              },
-              {
-                "name": "metaKey",
-                "type": "Boolean"
-              }
-            ]
-          },
-          {
-            "name": "bounds",
-            "type": "Object",
-            "description": "the bounds of tray icon.",
-            "properties": [
-              {
-                "name": "x",
-                "type": "Integer"
-              },
-              {
-                "name": "y",
-                "type": "Integer"
-              },
-              {
-                "name": "width",
-                "type": "Integer"
-              },
-              {
-                "name": "height",
-                "type": "Integer"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "double-click",
-        "description": "Emitted when the tray icon is double clicked.",
-        "platforms": [
-          "OS X",
-          "Windows"
-        ],
-        "returns": [
-          {
-            "name": "event",
-            "type": "Event",
-            "properties": [
-              {
-                "name": "altKey",
-                "type": "Boolean"
-              },
-              {
-                "name": "shiftKey",
-                "type": "Boolean"
-              },
-              {
-                "name": "ctrlKey",
-                "type": "Boolean"
-              },
-              {
-                "name": "metaKey",
-                "type": "Boolean"
-              }
-            ]
-          },
-          {
-            "name": "bounds",
-            "type": "Object",
-            "description": "the bounds of tray icon",
-            "properties": [
-              {
-                "name": "x",
-                "type": "Integer"
-              },
-              {
-                "name": "y",
-                "type": "Integer"
-              },
-              {
-                "name": "width",
-                "type": "Integer"
-              },
-              {
-                "name": "height",
-                "type": "Integer"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "balloon-show",
-        "description": "Emitted when the tray balloon shows.",
-        "platforms": [
-          "Windows"
-        ]
-      },
-      {
-        "name": "balloon-click",
-        "description": "Emitted when the tray balloon is clicked.",
-        "platforms": [
-          "Windows"
-        ]
-      },
-      {
-        "name": "balloon-closed",
-        "description": "Emitted when the tray balloon is closed because of timeout or user manually closes it.",
-        "platforms": [
-          "Windows"
-        ]
-      },
-      {
-        "name": "drop",
-        "description": "Emitted when any dragged items are dropped on the tray icon.",
-        "platforms": [
-          "OS X"
-        ]
-      },
-      {
-        "name": "drop-files",
-        "description": "Emitted when dragged files are dropped in the tray icon.",
-        "platforms": [
-          "OS X"
-        ],
-        "returns": [
-          {
-            "name": "files",
-            "type": "Array",
-            "description": "the file path of dropped files."
-          }
-        ]
-      },
-      {
-        "name": "drag-enter",
-        "description": "Emitted when a drag operation enters the tray icon.",
-        "platforms": [
-          "OS X"
-        ]
-      },
-      {
-        "name": "drag-leave",
-        "description": "Emitted when a drag operation exits the tray icon.",
-        "platforms": [
-          "OS X"
-        ]
-      },
-      {
-        "name": "drag-end",
-        "description": "Emitted when a drag operation ends on the tray or ends at another location.",
-        "platforms": [
-          "OS X"
-        ]
-      }
-    ]
+    "description": "Add icons and context menus to the system's notification area."
   },
   {
     "name": "webContents",
     "mainProcess": true,
     "slug": "web-contents",
     "websiteUrl": "http://electron.atom.io/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/web-contents.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/web-contents.md",
     "type": "Object",
     "description": "Render and control web pages.",
     "instanceMethods": [
       {
         "name": "loadURL",
         "signature": "(url[, options])",
-        "description": "Loads the url in the window, the url must contain the protocol prefix, e.g. the http:// or file://. If the load should bypass http cache then use the pragma header to achieve it."
+        "description": "Loads the url in the window, the url must contain the protocol prefix, e.g. the http:// or file://. If the load should bypass http cache then use the pragma header to achieve it.",
+        "arguments": [
+          {
+            "name": "url",
+            "type": "URL"
+          },
+          {
+            "name": "options",
+            "type": "Object (optional)",
+            "properties": [
+              {
+                "name": "httpReferrer",
+                "type": "String - A HTTP Referrer url."
+              },
+              {
+                "name": "userAgent",
+                "type": "String - A user agent originating the request."
+              },
+              {
+                "name": "extraHeaders",
+                "type": "String - Extra headers separated by &quot;\\n&quot;"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "downloadURL",
         "signature": "(url)",
-        "description": "Initiates a download of the resource at url without navigating. The will-download event of session will be triggered."
+        "description": "Initiates a download of the resource at url without navigating. The will-download event of session will be triggered.",
+        "arguments": [
+          {
+            "name": "url",
+            "type": "URL"
+          }
+        ]
       },
       {
         "name": "getURL",
@@ -1550,7 +2386,13 @@
       {
         "name": "canGoToOffset",
         "signature": "(offset)",
-        "description": "Returns whether the web page can go to offset."
+        "description": "Returns whether the web page can go to offset.",
+        "arguments": [
+          {
+            "name": "offset",
+            "type": "Integer"
+          }
+        ]
       },
       {
         "name": "clearHistory",
@@ -1570,12 +2412,24 @@
       {
         "name": "goToIndex",
         "signature": "(index)",
-        "description": "Navigates browser to the specified absolute web page index."
+        "description": "Navigates browser to the specified absolute web page index.",
+        "arguments": [
+          {
+            "name": "index",
+            "type": "Integer"
+          }
+        ]
       },
       {
         "name": "goToOffset",
         "signature": "(offset)",
-        "description": "Navigates to the specified offset from the \"current entry\"."
+        "description": "Navigates to the specified offset from the \"current entry\".",
+        "arguments": [
+          {
+            "name": "offset",
+            "type": "Integer"
+          }
+        ]
       },
       {
         "name": "isCrashed",
@@ -1585,7 +2439,13 @@
       {
         "name": "setUserAgent",
         "signature": "(userAgent)",
-        "description": "Overrides the user agent for this web page."
+        "description": "Overrides the user agent for this web page.",
+        "arguments": [
+          {
+            "name": "userAgent",
+            "type": "String"
+          }
+        ]
       },
       {
         "name": "getUserAgent",
@@ -1595,17 +2455,49 @@
       {
         "name": "insertCSS",
         "signature": "(css)",
-        "description": "Injects CSS into the current web page."
+        "description": "Injects CSS into the current web page.",
+        "arguments": [
+          {
+            "name": "css",
+            "type": "String"
+          }
+        ]
       },
       {
         "name": "executeJavaScript",
         "signature": "(code[, userGesture, callback])",
-        "description": "Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation."
+        "description": "Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation.",
+        "arguments": [
+          {
+            "name": "code",
+            "type": "String"
+          },
+          {
+            "name": "userGesture",
+            "type": "Boolean (optional)"
+          },
+          {
+            "name": "callback",
+            "type": "Function (optional)",
+            "description": "Called after script has been executed.",
+            "properties": [
+              {
+                "name": "result"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "setAudioMuted",
         "signature": "(muted)",
-        "description": "Mute the audio on the current web page."
+        "description": "Mute the audio on the current web page.",
+        "arguments": [
+          {
+            "name": "muted",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "isAudioMuted",
@@ -1660,62 +2552,218 @@
       {
         "name": "replace",
         "signature": "(text)",
-        "description": "Executes the editing command replace in web page."
+        "description": "Executes the editing command replace in web page.",
+        "arguments": [
+          {
+            "name": "text",
+            "type": "String"
+          }
+        ]
       },
       {
         "name": "replaceMisspelling",
         "signature": "(text)",
-        "description": "Executes the editing command replaceMisspelling in web page."
+        "description": "Executes the editing command replaceMisspelling in web page.",
+        "arguments": [
+          {
+            "name": "text",
+            "type": "String"
+          }
+        ]
       },
       {
         "name": "insertText",
         "signature": "(text)",
-        "description": "Inserts text to the focused element."
+        "description": "Inserts text to the focused element.",
+        "arguments": [
+          {
+            "name": "text",
+            "type": "String"
+          }
+        ]
       },
       {
         "name": "findInPage",
         "signature": "(text[, options])",
-        "description": "Starts a request to find all matches for the text in the web page and returns an Integer representing the request id used for the request. The result of the request can be obtained by subscribing to found-in-page event."
+        "description": "Starts a request to find all matches for the text in the web page and returns an Integer representing the request id used for the request. The result of the request can be obtained by subscribing to found-in-page event.",
+        "arguments": [
+          {
+            "name": "text",
+            "type": "String",
+            "description": "Content to be searched, must not be empty."
+          },
+          {
+            "name": "options",
+            "type": "Object (optional)",
+            "properties": [
+              {
+                "name": "forward</code> Boolean - Whether to search forward or backward, defaults to <code>true",
+                "type": "."
+              },
+              {
+                "name": "findNext",
+                "type": "Boolean - Whether the operation is first request or a follow up,"
+              },
+              {
+                "name": "matchCase",
+                "type": "Boolean - Whether search should be case-sensitive,"
+              },
+              {
+                "name": "wordStart",
+                "type": "Boolean - Whether to look only at the start of words."
+              },
+              {
+                "name": "medialCapitalAsWordStart</code> Boolean - When combined with <code>wordStart",
+                "type": ","
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "stopFindInPage",
         "signature": "(action)",
-        "description": "Stops any findInPage request for the webContents with the provided action."
+        "description": "Stops any findInPage request for the webContents with the provided action.",
+        "arguments": [
+          {
+            "name": "action",
+            "type": "String",
+            "description": "Specifies the action to take place when ending",
+            "properties": [
+              {
+                "name": "clearSelection",
+                "type": "- Translate the selection into a normal selection."
+              },
+              {
+                "name": "keepSelection",
+                "type": "- Clear the selection."
+              },
+              {
+                "name": "activateSelection",
+                "type": "- Focus and click the selection node."
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "hasServiceWorker",
         "signature": "(callback)",
-        "description": "Checks if any ServiceWorker is registered and returns a boolean as response to callback."
+        "description": "Checks if any ServiceWorker is registered and returns a boolean as response to callback.",
+        "arguments": [
+          {
+            "name": "callback",
+            "type": "Function"
+          }
+        ]
       },
       {
         "name": "unregisterServiceWorker",
         "signature": "(callback)",
-        "description": "Unregisters any ServiceWorker if present and returns a boolean as response to callback when the JS promise is fulfilled or false when the JS promise is rejected."
+        "description": "Unregisters any ServiceWorker if present and returns a boolean as response to callback when the JS promise is fulfilled or false when the JS promise is rejected.",
+        "arguments": [
+          {
+            "name": "callback",
+            "type": "Function"
+          }
+        ]
       },
       {
         "name": "print",
         "signature": "([options])",
-        "description": "Prints window's web page. When silent is set to false, Electron will pick up system's default printer and default settings for printing. Calling window.print() in web page is equivalent to calling webContents.print({silent: false, printBackground: false}). Note: On Windows, the print API relies on pdf.dll. If your application doesn't need the print feature, you can safely remove pdf.dll to reduce binary size."
+        "description": "Prints window's web page. When silent is set to false, Electron will pick up system's default printer and default settings for printing. Calling window.print() in web page is equivalent to calling webContents.print({silent: false, printBackground: false}). Note: On Windows, the print API relies on pdf.dll. If your application doesn't need the print feature, you can safely remove pdf.dll to reduce binary size.",
+        "arguments": [
+          {
+            "name": "options",
+            "type": "Object (optional)",
+            "properties": [
+              {
+                "name": "silent</code> Boolean - Don&apos;t ask user for print settings. Default is <code>false",
+                "type": "."
+              },
+              {
+                "name": "printBackground",
+                "type": "Boolean - Also prints the background color and image of"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "printToPDF",
         "signature": "(options, callback)",
-        "description": "Prints window's web page as PDF with Chromium's preview printing custom settings. The callback will be called with callback(error, data) on completion. The data is a Buffer that contains the generated PDF data. By default, an empty options will be regarded as: An example of webContents.printToPDF:"
+        "description": "Prints window's web page as PDF with Chromium's preview printing custom settings. The callback will be called with callback(error, data) on completion. The data is a Buffer that contains the generated PDF data. By default, an empty options will be regarded as: An example of webContents.printToPDF:",
+        "arguments": [
+          {
+            "name": "options",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "marginsType",
+                "type": "Integer - Specifies the type of margins to use. Uses 0 for"
+              },
+              {
+                "name": "pageSize</code> String - Specify page size of the generated PDF. Can be <code>A3",
+                "type": ","
+              },
+              {
+                "name": "printBackground",
+                "type": "Boolean - Whether to print CSS backgrounds."
+              },
+              {
+                "name": "printSelectionOnly",
+                "type": "Boolean - Whether to print selection only."
+              },
+              {
+                "name": "landscape</code> Boolean - <code>true</code> for landscape, <code>false",
+                "type": "for portrait."
+              }
+            ]
+          },
+          {
+            "name": "callback",
+            "type": "Function"
+          }
+        ]
       },
       {
         "name": "addWorkSpace",
         "signature": "(path)",
-        "description": "Adds the specified path to DevTools workspace. Must be used after DevTools creation:"
+        "description": "Adds the specified path to DevTools workspace. Must be used after DevTools creation:",
+        "arguments": [
+          {
+            "name": "path",
+            "type": "String"
+          }
+        ]
       },
       {
         "name": "removeWorkSpace",
         "signature": "(path)",
-        "description": "Removes the specified path from DevTools workspace."
+        "description": "Removes the specified path from DevTools workspace.",
+        "arguments": [
+          {
+            "name": "path",
+            "type": "String"
+          }
+        ]
       },
       {
         "name": "openDevTools",
         "signature": "([options])",
-        "description": "Opens the devtools."
+        "description": "Opens the devtools.",
+        "arguments": [
+          {
+            "name": "options",
+            "type": "Object (optional)",
+            "properties": [
+              {
+                "name": "mode",
+                "type": "String - Opens the devtools with specified dock state, can be"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "closeDevTools",
@@ -1740,7 +2788,17 @@
       {
         "name": "inspectElement",
         "signature": "(x, y)",
-        "description": "Starts inspecting element at position (x, y)."
+        "description": "Starts inspecting element at position (x, y).",
+        "arguments": [
+          {
+            "name": "x",
+            "type": "Integer"
+          },
+          {
+            "name": "y",
+            "type": "Integer"
+          }
+        ]
       },
       {
         "name": "inspectServiceWorker",
@@ -1750,12 +2808,112 @@
       {
         "name": "send",
         "signature": "(channel[, arg1][, arg2][, ...])",
-        "description": "Send an asynchronous message to renderer process via channel, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included. The renderer process can handle the message by listening to channel with the ipcRenderer module. An example of sending messages from the main process to the renderer process:"
+        "description": "Send an asynchronous message to renderer process via channel, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included. The renderer process can handle the message by listening to channel with the ipcRenderer module. An example of sending messages from the main process to the renderer process:",
+        "arguments": [
+          {
+            "name": "channel",
+            "type": "String"
+          },
+          {
+            "name": "arg",
+            "type": "(optional)"
+          }
+        ]
       },
       {
         "name": "enableDeviceEmulation",
         "signature": "(parameters)",
-        "description": "parameters Object, properties: Enable device emulation with the given parameters."
+        "description": "parameters Object, properties: Enable device emulation with the given parameters.",
+        "arguments": [
+          {
+            "name": "screenPosition",
+            "type": "String",
+            "description": "Specify the screen type to emulate",
+            "properties": [
+              {
+                "name": "desktop"
+              },
+              {
+                "name": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "screenSize",
+            "type": "Object",
+            "description": "Set the emulated screen size (screenPosition == mobile)",
+            "properties": [
+              {
+                "name": "width",
+                "type": "Integer - Set the emulated screen width"
+              },
+              {
+                "name": "height",
+                "type": "Integer - Set the emulated screen height"
+              }
+            ]
+          },
+          {
+            "name": "viewPosition",
+            "type": "Object",
+            "description": "Position the view on the screen",
+            "properties": [
+              {
+                "name": "x",
+                "type": "Integer - Set the x axis offset from top left corner"
+              },
+              {
+                "name": "y",
+                "type": "Integer - Set the y axis offset from top left corner"
+              }
+            ]
+          },
+          {
+            "name": "deviceScaleFactor",
+            "type": "Integer",
+            "description": "Set the device scale factor (if zero defaults to"
+          },
+          {
+            "name": "viewSize",
+            "type": "Object",
+            "description": "Set the emulated view size (empty means no override)",
+            "properties": [
+              {
+                "name": "width",
+                "type": "Integer - Set the emulated view width"
+              },
+              {
+                "name": "height",
+                "type": "Integer - Set the emulated view height"
+              }
+            ]
+          },
+          {
+            "name": "fitToView",
+            "type": "Boolean",
+            "description": "Whether emulated view should be scaled down if"
+          },
+          {
+            "name": "offset",
+            "type": "Object",
+            "description": "Offset of the emulated view inside available space (not in",
+            "properties": [
+              {
+                "name": "x",
+                "type": "Float - Set the x axis offset from top left corner"
+              },
+              {
+                "name": "y",
+                "type": "Float - Set the y axis offset from top left corner"
+              }
+            ]
+          },
+          {
+            "name": "scale",
+            "type": "Float",
+            "description": "Scale of emulated view inside available space (not in fit to"
+          }
+        ]
       },
       {
         "name": "disableDeviceEmulation",
@@ -1765,12 +2923,102 @@
       {
         "name": "sendInputEvent",
         "signature": "(event)",
-        "description": "Sends an input event to the page. For keyboard events, the event object also have following properties: For mouse events, the event object also have following properties: For the mouseWheel event, the event object also have following properties:"
+        "description": "Sends an input event to the page. For keyboard events, the event object also have following properties: For mouse events, the event object also have following properties: For the mouseWheel event, the event object also have following properties:",
+        "arguments": [
+          {
+            "name": "event",
+            "type": "Object",
+            "properties": [
+              {
+                "name": "type</code> String (<strong>required</strong>) - The type of the event, can be <code>mouseDown",
+                "type": ","
+              },
+              {
+                "name": "modifiers",
+                "type": "Array - An array of modifiers of the event, can"
+              }
+            ]
+          },
+          {
+            "name": "keyCode",
+            "type": "String (<strong>required</strong>)",
+            "description": "The character that will be sent"
+          },
+          {
+            "name": "x",
+            "type": "Integer (<strong>required</strong>)"
+          },
+          {
+            "name": "y",
+            "type": "Integer (<strong>required</strong>)"
+          },
+          {
+            "name": "button</code> String - The button pressed, can be <code>left</code>, <code>middle</code>, <code>right"
+          },
+          {
+            "name": "globalX",
+            "type": "Integer"
+          },
+          {
+            "name": "globalY",
+            "type": "Integer"
+          },
+          {
+            "name": "movementX",
+            "type": "Integer"
+          },
+          {
+            "name": "movementY",
+            "type": "Integer"
+          },
+          {
+            "name": "clickCount",
+            "type": "Integer"
+          },
+          {
+            "name": "deltaX",
+            "type": "Integer"
+          },
+          {
+            "name": "deltaY",
+            "type": "Integer"
+          },
+          {
+            "name": "wheelTicksX",
+            "type": "Integer"
+          },
+          {
+            "name": "wheelTicksY",
+            "type": "Integer"
+          },
+          {
+            "name": "accelerationRatioX",
+            "type": "Integer"
+          },
+          {
+            "name": "accelerationRatioY",
+            "type": "Integer"
+          },
+          {
+            "name": "hasPreciseScrollingDeltas",
+            "type": "Boolean"
+          },
+          {
+            "name": "canScroll",
+            "type": "Boolean"
+          }
+        ]
       },
       {
         "name": "beginFrameSubscription",
         "signature": "(callback)",
-        "description": "Begin subscribing for presentation events and captured frames, the callback will be called with callback(frameBuffer) when there is a presentation event. The frameBuffer is a Buffer that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format)."
+        "description": "Begin subscribing for presentation events and captured frames, the callback will be called with callback(frameBuffer) when there is a presentation event. The frameBuffer is a Buffer that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).",
+        "arguments": [
+          {
+            "name": "callback",
+            "type": "Function"
+          }
+        ]
       },
       {
         "name": "endFrameSubscription",
@@ -1780,11 +3028,50 @@
       {
         "name": "savePage",
         "signature": "(fullPath, saveType, callback)",
-        "description": "Returns true if the process of saving page has been initiated successfully."
+        "description": "Returns true if the process of saving page has been initiated successfully.",
+        "arguments": [
+          {
+            "name": "fullPath",
+            "type": "String",
+            "description": "The full file path."
+          },
+          {
+            "name": "saveType",
+            "type": "String",
+            "description": "Specify the save type.",
+            "properties": [
+              {
+                "name": "HTMLOnly",
+                "type": "- Save only the HTML of the page."
+              },
+              {
+                "name": "HTMLComplete",
+                "type": "- Save complete-html page."
+              },
+              {
+                "name": "MHTML",
+                "type": "- Save complete-html page as MHTML."
+              }
+            ]
+          },
+          {
+            "name": "callback</code> Function - <code>(error) =&gt; {}",
+            "type": ".",
+            "properties": [
+              {
+                "name": "error",
+                "type": "Error"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "showDefinitionForSelection",
         "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
         "description": "Shows pop-up dictionary that searches the selected word on the page."
       }
     ],
@@ -1963,9 +3250,8 @@
             "type": "String"
           },
           {
-            "name": "disposition",
-            "type": "String",
-            "description": "Can be <code>default</code>, <code>foreground-tab</code>, <code>background-tab</code>,"
+            "name": "disposition</code> String - Can be <code>default</code>, <code>foreground-tab</code>, <code>background-tab",
+            "type": ","
           },
           {
             "name": "options",
@@ -2279,11 +3565,11 @@
             "properties": [
               {
                 "name": "x",
-                "type": "Integer - x coodinate"
+                "type": "Integer - x coordinate"
               },
               {
                 "name": "y",
-                "type": "Integer - y coodinate"
+                "type": "Integer - y coordinate"
               },
               {
                 "name": "linkURL",
@@ -2469,7 +3755,7 @@
     "mainProcess": true,
     "slug": "process",
     "websiteUrl": "http://electron.atom.io/docs/api/process",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/process.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/process.md",
     "type": "Object",
     "description": "Extensions to process object.",
     "events": [
@@ -2484,7 +3770,7 @@
     "rendererProcess": true,
     "slug": "desktop-capturer",
     "websiteUrl": "http://electron.atom.io/docs/api/desktop-capturer",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/desktop-capturer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/desktop-capturer.md",
     "type": "Object",
     "description": "List getUserMedia sources for capturing audio, video, and images from a\nmicrophone, camera, or screen."
   },
@@ -2493,7 +3779,7 @@
     "rendererProcess": true,
     "slug": "ipc-renderer",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-renderer",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/ipc-renderer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/ipc-renderer.md",
     "type": "Object",
     "description": "Communicate asynchronously from a renderer process to the main process."
   },
@@ -2502,7 +3788,7 @@
     "rendererProcess": true,
     "slug": "remote",
     "websiteUrl": "http://electron.atom.io/docs/api/remote",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/remote.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/remote.md",
     "type": "Object",
     "description": "Use main process modules from the renderer process."
   },
@@ -2511,7 +3797,7 @@
     "rendererProcess": true,
     "slug": "web-frame",
     "websiteUrl": "http://electron.atom.io/docs/api/web-frame",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.3/docs/api/web-frame.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/web-frame.md",
     "type": "Object",
     "description": "Customize the rendering of the current web page."
   }

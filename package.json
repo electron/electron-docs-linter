@@ -29,7 +29,7 @@
   "devDependencies": {
     "decamelize": "^1.2.0",
     "electron-docs": "^1.0.4",
-    "electron-prebuilt": "^1.2.2",
+    "electron-prebuilt": "^1.2.4",
     "lodash.find": "^4.3.0",
     "marky-markdown-lite": "^1.1.0",
     "omit-empty": "^0.4.1",
