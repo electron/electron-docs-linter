@@ -31,35 +31,43 @@
     "instanceMethods": [
       {
         "name": "toPng",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns a Buffer that contains the image's PNG encoded data."
       },
       {
         "name": "toJpeg",
-        "signature": "(quality)"
+        "signature": "(quality)",
+        "description": "Returns a Buffer that contains the image's JPEG encoded data."
       },
       {
         "name": "toDataURL",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns the data URL of the image."
       },
       {
         "name": "getNativeHandle",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns a Buffer that stores C pointer to underlying native handle of the image. On OS X, a pointer to NSImage instance would be returned. Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you must ensure that the associated nativeImage instance is kept around."
       },
       {
         "name": "isEmpty",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns a boolean whether the image is empty."
       },
       {
         "name": "getSize",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns the size of the image."
       },
       {
         "name": "setTemplateImage",
-        "signature": "(option)"
+        "signature": "(option)",
+        "description": "Marks the image as template image."
       },
       {
         "name": "isTemplateImage",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns a boolean whether the image is a template image."
       }
     ]
   },
@@ -473,247 +481,308 @@
     "instanceMethods": [
       {
         "name": "destroy",
-        "signature": "()"
+        "signature": "()",
+        "description": "Force closing the window, the unload and beforeunload event won't be emitted for the web page, and close event will also not be emitted for this window, but it guarantees the closed event will be emitted."
       },
       {
         "name": "close",
-        "signature": "()"
+        "signature": "()",
+        "description": "Try to close the window, this has the same effect with user manually clicking the close button of the window. The web page may cancel the close though, see the close event."
       },
       {
         "name": "focus",
-        "signature": "()"
+        "signature": "()",
+        "description": "Focus on the window."
       },
       {
         "name": "blur",
-        "signature": "()"
+        "signature": "()",
+        "description": "Remove focus on the window."
       },
       {
         "name": "isFocused",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns a boolean, whether the window is focused."
       },
       {
         "name": "show",
-        "signature": "()"
+        "signature": "()",
+        "description": "Shows and gives focus to the window."
       },
       {
         "name": "showInactive",
-        "signature": "()"
+        "signature": "()",
+        "description": "Shows the window but doesn't focus on it."
       },
       {
         "name": "hide",
-        "signature": "()"
+        "signature": "()",
+        "description": "Hides the window."
       },
       {
         "name": "isVisible",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns a boolean, whether the window is visible to the user."
       },
       {
         "name": "maximize",
-        "signature": "()"
+        "signature": "()",
+        "description": "Maximizes the window."
       },
       {
         "name": "unmaximize",
-        "signature": "()"
+        "signature": "()",
+        "description": "Unmaximizes the window."
       },
       {
         "name": "isMaximized",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns a boolean, whether the window is maximized."
       },
       {
         "name": "minimize",
-        "signature": "()"
+        "signature": "()",
+        "description": "Minimizes the window. On some platforms the minimized window will be shown in the Dock."
       },
       {
         "name": "restore",
-        "signature": "()"
+        "signature": "()",
+        "description": "Restores the window from minimized state to its previous state."
       },
       {
         "name": "isMinimized",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns a boolean, whether the window is minimized."
       },
       {
         "name": "setFullScreen",
-        "signature": "(flag)"
+        "signature": "(flag)",
+        "description": "Sets whether the window should be in fullscreen mode."
       },
       {
         "name": "isFullScreen",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns a boolean, whether the window is in fullscreen mode."
       },
       {
         "name": "setAspectRatio",
-        "signature": "(aspectRatio[, extraSize])"
+        "signature": "(aspectRatio[, extraSize])",
+        "description": "This will have a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size. Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view."
       },
       {
         "name": "setBounds",
-        "signature": "(options[, animate])"
+        "signature": "(options[, animate])",
+        "description": "Resizes and moves the window to width, height, x, y."
       },
       {
         "name": "getBounds",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns an object that contains window's width, height, x and y values."
       },
       {
         "name": "setSize",
-        "signature": "(width, height[, animate])"
+        "signature": "(width, height[, animate])",
+        "description": "Resizes the window to width and height."
       },
       {
         "name": "getSize",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns an array that contains window's width and height."
       },
       {
         "name": "setContentSize",
-        "signature": "(width, height[, animate])"
+        "signature": "(width, height[, animate])",
+        "description": "Resizes the window's client area (e.g. the web page) to width and height."
       },
       {
         "name": "getContentSize",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns an array that contains window's client area's width and height."
       },
       {
         "name": "setMinimumSize",
-        "signature": "(width, height)"
+        "signature": "(width, height)",
+        "description": "Sets the minimum size of window to width and height."
       },
       {
         "name": "getMinimumSize",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns an array that contains window's minimum width and height."
       },
       {
         "name": "setMaximumSize",
-        "signature": "(width, height)"
+        "signature": "(width, height)",
+        "description": "Sets the maximum size of window to width and height."
       },
       {
         "name": "getMaximumSize",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns an array that contains window's maximum width and height."
       },
       {
         "name": "setResizable",
-        "signature": "(resizable)"
+        "signature": "(resizable)",
+        "description": "Sets whether the window can be manually resized by user."
       },
       {
         "name": "isResizable",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the window can be manually resized by user."
       },
       {
         "name": "setMovable",
-        "signature": "(movable)"
+        "signature": "(movable)",
+        "description": "Sets whether the window can be moved by user. On Linux does nothing."
       },
       {
         "name": "isMovable",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the window can be moved by user. On Linux always returns true."
       },
       {
         "name": "setMinimizable",
-        "signature": "(minimizable)"
+        "signature": "(minimizable)",
+        "description": "Sets whether the window can be manually minimized by user. On Linux does nothing."
       },
       {
         "name": "isMinimizable",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the window can be manually minimized by user. On Linux always returns true."
       },
       {
         "name": "setMaximizable",
-        "signature": "(maximizable)"
+        "signature": "(maximizable)",
+        "description": "Sets whether the window can be manually maximized by user. On Linux does nothing."
       },
       {
         "name": "isMaximizable",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the window can be manually maximized by user. On Linux always returns true."
       },
       {
         "name": "setFullScreenable",
-        "signature": "(fullscreenable)"
+        "signature": "(fullscreenable)",
+        "description": "Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window."
       },
       {
         "name": "isFullScreenable",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the maximize/zoom window button toggles fullscreen mode or maximizes the window."
       },
       {
         "name": "setClosable",
-        "signature": "(closable)"
+        "signature": "(closable)",
+        "description": "Sets whether the window can be manually closed by user. On Linux does nothing."
       },
       {
         "name": "isClosable",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the window can be manually closed by user. On Linux always returns true."
       },
       {
         "name": "setAlwaysOnTop",
-        "signature": "(flag)"
+        "signature": "(flag)",
+        "description": "Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on."
       },
       {
         "name": "isAlwaysOnTop",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the window is always on top of other windows."
       },
       {
         "name": "center",
-        "signature": "()"
+        "signature": "()",
+        "description": "Moves window to the center of the screen."
       },
       {
         "name": "setPosition",
-        "signature": "(x, y[, animate])"
+        "signature": "(x, y[, animate])",
+        "description": "Moves window to x and y."
       },
       {
         "name": "getPosition",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns an array that contains window's current position."
       },
       {
         "name": "setTitle",
-        "signature": "(title)"
+        "signature": "(title)",
+        "description": "Changes the title of native window to title."
       },
       {
         "name": "getTitle",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns the title of the native window. Note: The title of web page can be different from the title of the native window."
       },
       {
         "name": "setSheetOffset",
-        "signature": "(offsetY[, offsetX])"
+        "signature": "(offsetY[, offsetX])",
+        "description": "Changes the attachment point for sheets on Mac OS X. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:"
       },
       {
         "name": "flashFrame",
-        "signature": "(flag)"
+        "signature": "(flag)",
+        "description": "Starts or stops flashing the window to attract user's attention."
       },
       {
         "name": "setSkipTaskbar",
-        "signature": "(skip)"
+        "signature": "(skip)",
+        "description": "Makes the window not show in the taskbar."
       },
       {
         "name": "setKiosk",
-        "signature": "(flag)"
+        "signature": "(flag)",
+        "description": "Enters or leaves the kiosk mode."
       },
       {
         "name": "isKiosk",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the window is in kiosk mode."
       },
       {
         "name": "getNativeWindowHandle",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns the platform-specific handle of the window as Buffer. The native type of the handle is HWND on Windows, NSView* on OS X, and Window (unsigned long) on Linux."
       },
       {
         "name": "hookWindowMessage",
-        "signature": "(message, callback)"
+        "signature": "(message, callback)",
+        "description": "Hooks a windows message. The callback is called when the message is received in the WndProc."
       },
       {
         "name": "isWindowMessageHooked",
-        "signature": "(message)"
+        "signature": "(message)",
+        "description": "Returns true or false depending on whether the message is hooked."
       },
       {
         "name": "unhookWindowMessage",
-        "signature": "(message)"
+        "signature": "(message)",
+        "description": "Unhook the window message."
       },
       {
         "name": "unhookAllWindowMessages",
-        "signature": "()"
+        "signature": "()",
+        "description": "Unhooks all of the window messages."
       },
       {
         "name": "setRepresentedFilename",
-        "signature": "(filename)"
+        "signature": "(filename)",
+        "description": "Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar."
       },
       {
         "name": "getRepresentedFilename",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns the pathname of the file the window represents."
       },
       {
         "name": "setDocumentEdited",
-        "signature": "(edited)"
+        "signature": "(edited)",
+        "description": "Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to true."
       },
       {
         "name": "isDocumentEdited",
-        "signature": "()"
+        "signature": "()",
+        "description": "Whether the window's document has been edited."
       },
       {
         "name": "focusOnWebView",
@@ -725,79 +794,98 @@
       },
       {
         "name": "capturePage",
-        "signature": "([rect, ]callback)"
+        "signature": "([rect, ]callback)",
+        "description": "Captures a snapshot of the page within rect. Upon completion callback will be called with callback(image). The image is an instance of NativeImage that stores data of the snapshot. Omitting rect will capture the whole visible page."
       },
       {
         "name": "loadURL",
-        "signature": "(url[, options])"
+        "signature": "(url[, options])",
+        "description": "Same as webContents.loadURL(url[, options])."
       },
       {
         "name": "reload",
-        "signature": "()"
+        "signature": "()",
+        "description": "Same as webContents.reload."
       },
       {
         "name": "setMenu",
-        "signature": "(menu)"
+        "signature": "(menu)",
+        "description": "Sets the menu as the window's menu bar, setting it to null will remove the menu bar."
       },
       {
         "name": "setProgressBar",
-        "signature": "(progress)"
+        "signature": "(progress)",
+        "description": "Sets progress value in progress bar. Valid range is [0, 1.0]. Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1. On Linux platform, only supports Unity desktop environment, you need to specify the *.desktop file name to desktopName field in package.json. By default, it will assume app.getName().desktop."
       },
       {
         "name": "setOverlayIcon",
-        "signature": "(overlay, description)"
+        "signature": "(overlay, description)",
+        "description": "Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user."
       },
       {
         "name": "setHasShadow",
-        "signature": "(hasShadow)"
+        "signature": "(hasShadow)",
+        "description": "Sets whether the window should have a shadow. On Windows and Linux does nothing."
       },
       {
         "name": "hasShadow",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the window has a shadow. On Windows and Linux always returns true."
       },
       {
         "name": "setThumbarButtons",
-        "signature": "(buttons)"
+        "signature": "(buttons)",
+        "description": "Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a Boolean object indicates whether the thumbnail has been added successfully. The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons. The buttons is an array of Button objects: The flags is an array that can include following Strings:"
       },
       {
         "name": "showDefinitionForSelection",
-        "signature": "()"
+        "signature": "()",
+        "description": "Same as webContents.showDefinitionForSelection()."
       },
       {
         "name": "setIcon",
-        "signature": "(icon)"
+        "signature": "(icon)",
+        "description": "Changes window icon."
       },
       {
         "name": "setAutoHideMenuBar",
-        "signature": "(hide)"
+        "signature": "(hide)",
+        "description": "Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single Alt key. If the menu bar is already visible, calling setAutoHideMenuBar(true) won't hide it immediately."
       },
       {
         "name": "isMenuBarAutoHide",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether menu bar automatically hides itself."
       },
       {
         "name": "setMenuBarVisibility",
-        "signature": "(visible)"
+        "signature": "(visible)",
+        "description": "Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single Alt key."
       },
       {
         "name": "isMenuBarVisible",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the menu bar is visible."
       },
       {
         "name": "setVisibleOnAllWorkspaces",
-        "signature": "(visible)"
+        "signature": "(visible)",
+        "description": "Sets whether the window should be visible on all workspaces. Note: This API does nothing on Windows."
       },
       {
         "name": "isVisibleOnAllWorkspaces",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the window is visible on all workspaces. Note: This API always returns false on Windows."
       },
       {
         "name": "setIgnoreMouseEvents",
-        "signature": "(ignore)"
+        "signature": "(ignore)",
+        "description": "Makes the window ignore all mouse events. All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events."
       },
       {
         "name": "setFocusable",
-        "signature": "(focusable)"
+        "signature": "(focusable)",
+        "description": "Changes whether the window can be focused."
       }
     ],
     "events": [
@@ -997,15 +1085,18 @@
     "instanceMethods": [
       {
         "name": "popup",
-        "signature": "([browserWindow, x, y, positioningItem])"
+        "signature": "([browserWindow, x, y, positioningItem])",
+        "description": "Pops up this menu as a context menu in the browserWindow. You can optionally provide a x, y coordinate to place the menu at, otherwise it will be placed at the current mouse cursor position."
       },
       {
         "name": "append",
-        "signature": "(menuItem)"
+        "signature": "(menuItem)",
+        "description": "Appends the menuItem to the menu."
       },
       {
         "name": "insert",
-        "signature": "(pos, menuItem)"
+        "signature": "(pos, menuItem)",
+        "description": "Inserts the menuItem to the pos position of the menu."
       }
     ]
   },
@@ -1138,7 +1229,8 @@
     "instanceMethods": [
       {
         "name": "resolveProxy",
-        "signature": "(url, callback)"
+        "signature": "(url, callback)",
+        "description": "Resolves the proxy information for url. The callback will be called with callback(proxy) when the request is performed. Sets download saving directory. By default, the download directory will be the Downloads under the respective app folder. Emulates network with the given configuration for the session. Disables any network emulation already active for the session. Resets to the original network configuration. Sets the certificate verify proc for session, the proc will be called with proc(hostname, certificate, callback) whenever a server certificate verification is requested. Calling callback(true) accepts the certificate, calling callback(false) rejects it. Calling setCertificateVerifyProc(null) will revert back to default certificate verify proc. Sets the handler which can be used to respond to permission requests for the session. Calling callback(true) will allow the permission and callback(false) will reject it. Clears the host resolver cache. Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication. The webRequest API set allows to intercept and modify contents of a request at various stages of its lifetime. Each API accepts an optional filter and a listener, the listener will be called with listener(details) when the API's event has happened, the details is an object that describes the request. Passing null as listener will unsubscribe from the event. The filter is an object that has an urls property, which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the filter is omitted then all requests will be matched. For certain events the listener is passed with a callback, which should be called with an response object when listener has done its work. The listener will be called with listener(details, callback) when a request is about to occur. The uploadData is an array of data objects: The callback has to be called with an response object: The listener will be called with listener(details, callback) before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent. The callback has to be called with an response object: The listener will be called with listener(details) just before a request is going to be sent to the server, modifications of previous onBeforeSendHeaders response are visible by the time this listener is fired. The listener will be called with listener(details, callback) when HTTP response headers of a request have been received. The callback has to be called with an response object: The listener will be called with listener(details) when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available. The listener will be called with listener(details) when a server initiated redirect is about to occur. The listener will be called with listener(details) when a request is completed. The listener will be called with listener(details) when an error occurs. Returns an instance of protocol module for this session."
       }
     ]
   },
@@ -1397,243 +1489,303 @@
     "instanceMethods": [
       {
         "name": "loadURL",
-        "signature": "(url[, options])"
+        "signature": "(url[, options])",
+        "description": "Loads the url in the window, the url must contain the protocol prefix, e.g. the http:// or file://. If the load should bypass http cache then use the pragma header to achieve it."
       },
       {
         "name": "downloadURL",
-        "signature": "(url)"
+        "signature": "(url)",
+        "description": "Initiates a download of the resource at url without navigating. The will-download event of session will be triggered."
       },
       {
         "name": "getURL",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns URL of the current web page."
       },
       {
         "name": "getTitle",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns the title of the current web page."
       },
       {
         "name": "isLoading",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether web page is still loading resources."
       },
       {
         "name": "isLoadingMainFrame",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the main frame (and not just iframes or frames within it) is still loading."
       },
       {
         "name": "isWaitingForResponse",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the web page is waiting for a first-response from the main resource of the page."
       },
       {
         "name": "stop",
-        "signature": "()"
+        "signature": "()",
+        "description": "Stops any pending navigation."
       },
       {
         "name": "reload",
-        "signature": "()"
+        "signature": "()",
+        "description": "Reloads the current web page."
       },
       {
         "name": "reloadIgnoringCache",
-        "signature": "()"
+        "signature": "()",
+        "description": "Reloads current page and ignores cache."
       },
       {
         "name": "canGoBack",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the browser can go back to previous web page."
       },
       {
         "name": "canGoForward",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the browser can go forward to next web page."
       },
       {
         "name": "canGoToOffset",
-        "signature": "(offset)"
+        "signature": "(offset)",
+        "description": "Returns whether the web page can go to offset."
       },
       {
         "name": "clearHistory",
-        "signature": "()"
+        "signature": "()",
+        "description": "Clears the navigation history."
       },
       {
         "name": "goBack",
-        "signature": "()"
+        "signature": "()",
+        "description": "Makes the browser go back a web page."
       },
       {
         "name": "goForward",
-        "signature": "()"
+        "signature": "()",
+        "description": "Makes the browser go forward a web page."
       },
       {
         "name": "goToIndex",
-        "signature": "(index)"
+        "signature": "(index)",
+        "description": "Navigates browser to the specified absolute web page index."
       },
       {
         "name": "goToOffset",
-        "signature": "(offset)"
+        "signature": "(offset)",
+        "description": "Navigates to the specified offset from the \"current entry\"."
       },
       {
         "name": "isCrashed",
-        "signature": "()"
+        "signature": "()",
+        "description": "Whether the renderer process has crashed."
       },
       {
         "name": "setUserAgent",
-        "signature": "(userAgent)"
+        "signature": "(userAgent)",
+        "description": "Overrides the user agent for this web page."
       },
       {
         "name": "getUserAgent",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns a String representing the user agent for this web page."
       },
       {
         "name": "insertCSS",
-        "signature": "(css)"
+        "signature": "(css)",
+        "description": "Injects CSS into the current web page."
       },
       {
         "name": "executeJavaScript",
-        "signature": "(code[, userGesture, callback])"
+        "signature": "(code[, userGesture, callback])",
+        "description": "Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation."
       },
       {
         "name": "setAudioMuted",
-        "signature": "(muted)"
+        "signature": "(muted)",
+        "description": "Mute the audio on the current web page."
       },
       {
         "name": "isAudioMuted",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether this page has been muted."
       },
       {
         "name": "undo",
-        "signature": "()"
+        "signature": "()",
+        "description": "Executes the editing command undo in web page."
       },
       {
         "name": "redo",
-        "signature": "()"
+        "signature": "()",
+        "description": "Executes the editing command redo in web page."
       },
       {
         "name": "cut",
-        "signature": "()"
+        "signature": "()",
+        "description": "Executes the editing command cut in web page."
       },
       {
         "name": "copy",
-        "signature": "()"
+        "signature": "()",
+        "description": "Executes the editing command copy in web page."
       },
       {
         "name": "paste",
-        "signature": "()"
+        "signature": "()",
+        "description": "Executes the editing command paste in web page."
       },
       {
         "name": "pasteAndMatchStyle",
-        "signature": "()"
+        "signature": "()",
+        "description": "Executes the editing command pasteAndMatchStyle in web page."
       },
       {
         "name": "delete",
-        "signature": "()"
+        "signature": "()",
+        "description": "Executes the editing command delete in web page."
       },
       {
         "name": "selectAll",
-        "signature": "()"
+        "signature": "()",
+        "description": "Executes the editing command selectAll in web page."
       },
       {
         "name": "unselect",
-        "signature": "()"
+        "signature": "()",
+        "description": "Executes the editing command unselect in web page."
       },
       {
         "name": "replace",
-        "signature": "(text)"
+        "signature": "(text)",
+        "description": "Executes the editing command replace in web page."
       },
       {
         "name": "replaceMisspelling",
-        "signature": "(text)"
+        "signature": "(text)",
+        "description": "Executes the editing command replaceMisspelling in web page."
       },
       {
         "name": "insertText",
-        "signature": "(text)"
+        "signature": "(text)",
+        "description": "Inserts text to the focused element."
       },
       {
         "name": "findInPage",
-        "signature": "(text[, options])"
+        "signature": "(text[, options])",
+        "description": "Starts a request to find all matches for the text in the web page and returns an Integer representing the request id used for the request. The result of the request can be obtained by subscribing to found-in-page event."
       },
       {
         "name": "stopFindInPage",
-        "signature": "(action)"
+        "signature": "(action)",
+        "description": "Stops any findInPage request for the webContents with the provided action."
       },
       {
         "name": "hasServiceWorker",
-        "signature": "(callback)"
+        "signature": "(callback)",
+        "description": "Checks if any ServiceWorker is registered and returns a boolean as response to callback."
       },
       {
         "name": "unregisterServiceWorker",
-        "signature": "(callback)"
+        "signature": "(callback)",
+        "description": "Unregisters any ServiceWorker if present and returns a boolean as response to callback when the JS promise is fulfilled or false when the JS promise is rejected."
       },
       {
         "name": "print",
-        "signature": "([options])"
+        "signature": "([options])",
+        "description": "Prints window's web page. When silent is set to false, Electron will pick up system's default printer and default settings for printing. Calling window.print() in web page is equivalent to calling webContents.print({silent: false, printBackground: false}). Note: On Windows, the print API relies on pdf.dll. If your application doesn't need the print feature, you can safely remove pdf.dll to reduce binary size."
       },
       {
         "name": "printToPDF",
-        "signature": "(options, callback)"
+        "signature": "(options, callback)",
+        "description": "Prints window's web page as PDF with Chromium's preview printing custom settings. The callback will be called with callback(error, data) on completion. The data is a Buffer that contains the generated PDF data. By default, an empty options will be regarded as: An example of webContents.printToPDF:"
       },
       {
         "name": "addWorkSpace",
-        "signature": "(path)"
+        "signature": "(path)",
+        "description": "Adds the specified path to DevTools workspace. Must be used after DevTools creation:"
       },
       {
         "name": "removeWorkSpace",
-        "signature": "(path)"
+        "signature": "(path)",
+        "description": "Removes the specified path from DevTools workspace."
       },
       {
         "name": "openDevTools",
-        "signature": "([options])"
+        "signature": "([options])",
+        "description": "Opens the devtools."
       },
       {
         "name": "closeDevTools",
-        "signature": "()"
+        "signature": "()",
+        "description": "Closes the devtools."
       },
       {
         "name": "isDevToolsOpened",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the devtools is opened."
       },
       {
         "name": "isDevToolsFocused",
-        "signature": "()"
+        "signature": "()",
+        "description": "Returns whether the devtools view is focused ."
       },
       {
         "name": "toggleDevTools",
-        "signature": "()"
+        "signature": "()",
+        "description": "Toggles the developer tools."
       },
       {
         "name": "inspectElement",
-        "signature": "(x, y)"
+        "signature": "(x, y)",
+        "description": "Starts inspecting element at position (x, y)."
       },
       {
         "name": "inspectServiceWorker",
-        "signature": "()"
+        "signature": "()",
+        "description": "Opens the developer tools for the service worker context."
       },
       {
         "name": "send",
-        "signature": "(channel[, arg1][, arg2][, ...])"
+        "signature": "(channel[, arg1][, arg2][, ...])",
+        "description": "Send an asynchronous message to renderer process via channel, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included. The renderer process can handle the message by listening to channel with the ipcRenderer module. An example of sending messages from the main process to the renderer process:"
       },
       {
         "name": "enableDeviceEmulation",
-        "signature": "(parameters)"
+        "signature": "(parameters)",
+        "description": "parameters Object, properties: Enable device emulation with the given parameters."
       },
       {
         "name": "disableDeviceEmulation",
-        "signature": "()"
+        "signature": "()",
+        "description": "Disable device emulation enabled by webContents.enableDeviceEmulation."
       },
       {
         "name": "sendInputEvent",
-        "signature": "(event)"
+        "signature": "(event)",
+        "description": "Sends an input event to the page. For keyboard events, the event object also have following properties: For mouse events, the event object also have following properties: For the mouseWheel event, the event object also have following properties:"
       },
       {
         "name": "beginFrameSubscription",
-        "signature": "(callback)"
+        "signature": "(callback)",
+        "description": "Begin subscribing for presentation events and captured frames, the callback will be called with callback(frameBuffer) when there is a presentation event. The frameBuffer is a Buffer that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format)."
       },
       {
         "name": "endFrameSubscription",
-        "signature": "()"
+        "signature": "()",
+        "description": "End subscribing for frame presentation events."
       },
       {
         "name": "savePage",
-        "signature": "(fullPath, saveType, callback)"
+        "signature": "(fullPath, saveType, callback)",
+        "description": "Returns true if the process of saving page has been initiated successfully."
       },
       {
         "name": "showDefinitionForSelection",
-        "signature": "()"
+        "signature": "()",
+        "description": "Shows pop-up dictionary that searches the selected word on the page."
       }
     ],
     "events": [

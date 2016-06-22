@@ -18,6 +18,7 @@ test('electron-apis', function (t) {
   var im = find(BrowserWindow.instanceMethods, {name: 'setContentSize'})
   t.equal(im.name, 'setContentSize', 'instance methods have a `name`')
   t.equal(im.signature, '(width, height[, animate])', 'instance methods have a `signature`')
+  t.ok(im.description.includes('Resizes the window'), 'instance methods have a `description`')
 
   t.comment('Events')
   var app = find(apis, {name: 'app'})
