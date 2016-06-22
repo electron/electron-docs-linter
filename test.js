@@ -21,7 +21,7 @@ test('electron-apis', function (t) {
 
   t.comment('Events')
   var app = find(apis, {name: 'app'})
-  t.ok(app.events.length > 10, 'app has a bunch of events')
+  t.ok(app.events.length > 10, '`app` API has a bunch of events')
 
   var event = find(app.events, {name: 'quit'})
   t.equal(event.description, 'Emitted when the application is quitting.', 'events have a `description`')
@@ -34,9 +34,9 @@ test('electron-apis', function (t) {
 
   // events: properties
   var Tray = find(apis, {name: 'Tray'})
-  var props = find(Tray.events, {name: 'right-click'}).returns[0].properties
-  t.equal(props[0].name, 'altKey', 'return objects have properties with a `name`')
-  t.equal(props[0].type, 'Boolean', 'return objects have properties with a `type`')
+  var properties = find(Tray.events, {name: 'right-click'}).returns[0].properties
+  t.equal(properties[0].name, 'altKey', 'return objects have properties with a `name`')
+  t.equal(properties[0].type, 'Boolean', 'return objects have properties with a `type`')
 
   t.end()
 
