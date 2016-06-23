@@ -6,6 +6,5 @@ const names = require('../lib/names.json')
 
 fetchDocs().then(function (docs) {
   var apis = names.map(props => new API(props, docs))
-
   process.stdout.write(JSON.stringify(apis, null, 2))
 })

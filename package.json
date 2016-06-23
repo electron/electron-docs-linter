@@ -5,7 +5,7 @@
   "main": "apis.json",
   "scripts": {
     "build": "./script/build.js > apis.json",
-    "test": "mocha && standard"
+    "test": "npm run build && mocha && standard"
   },
   "repository": "https://github.com/zeke/electron-apis",
   "keywords": [
@@ -38,5 +38,8 @@
     "env": {
       "mocha": true
     }
+  },
+  "dependencies": {
+    "lodash.pick": "^4.2.1"
   }
 }

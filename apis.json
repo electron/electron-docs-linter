@@ -1,33 +1,33 @@
 [
   {
     "name": "clipboard",
-    "rendererProcess": true,
+    "description": "Perform copy and paste operations on the system clipboard.",
     "mainProcess": true,
+    "rendererProcess": true,
+    "type": "Object",
     "slug": "clipboard",
     "websiteUrl": "http://electron.atom.io/docs/api/clipboard",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/clipboard.md",
-    "type": "Object",
-    "description": "Perform copy and paste operations on the system clipboard."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/clipboard.md"
   },
   {
     "name": "crashReporter",
-    "rendererProcess": true,
+    "description": "Submit crash reports to a remote server.",
     "mainProcess": true,
+    "rendererProcess": true,
+    "type": "Object",
     "slug": "crash-reporter",
     "websiteUrl": "http://electron.atom.io/docs/api/crash-reporter",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/crash-reporter.md",
-    "type": "Object",
-    "description": "Submit crash reports to a remote server."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/crash-reporter.md"
   },
   {
     "name": "nativeImage",
-    "rendererProcess": true,
+    "description": "Create tray, dock, and application icons using PNG or JPG files.",
     "mainProcess": true,
+    "rendererProcess": true,
+    "type": "Object",
     "slug": "native-image",
     "websiteUrl": "http://electron.atom.io/docs/api/native-image",
     "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/native-image.md",
-    "type": "Object",
-    "description": "Create tray, dock, and application icons using PNG or JPG files.",
     "instanceMethods": [
       {
         "name": "toPNG",
@@ -41,8 +41,8 @@
         "arguments": [
           {
             "name": "quality",
-            "type": "Integer (<strong>required</strong>)",
-            "description": "Between 0 - 100."
+            "type": "Integer",
+            "description": " (<strong>required</strong>) - Between 0 - 100."
           }
         ]
       },
@@ -89,22 +89,22 @@
   },
   {
     "name": "shell",
-    "rendererProcess": true,
+    "description": "Manage files and URLs using their default applications.",
     "mainProcess": true,
+    "rendererProcess": true,
+    "type": "Object",
     "slug": "shell",
     "websiteUrl": "http://electron.atom.io/docs/api/shell",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/shell.md",
-    "type": "Object",
-    "description": "Manage files and URLs using their default applications."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/shell.md"
   },
   {
     "name": "app",
+    "description": "Control your application's event lifecycle.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "app",
     "websiteUrl": "http://electron.atom.io/docs/api/app",
     "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/app.md",
-    "type": "Object",
-    "description": "Control your application's event lifecycle.",
     "events": [
       {
         "name": "will-finish-launching",
@@ -292,7 +292,7 @@
           },
           {
             "name": "webContents",
-            "type": "<a href=\"web-contents.md\">WebContents</a>"
+            "type": "WebContents"
           },
           {
             "name": "url",
@@ -305,17 +305,7 @@
           },
           {
             "name": "certificate",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "data",
-                "type": "Buffer - PEM encoded data"
-              },
-              {
-                "name": "issuerName",
-                "type": "String"
-              }
-            ]
+            "type": "Object"
           },
           {
             "name": "callback",
@@ -333,25 +323,11 @@
           },
           {
             "name": "webContents",
-            "type": "<a href=\"web-contents.md\">WebContents</a>"
+            "type": "WebContents"
           },
           {
             "name": "url",
             "type": "URL"
-          },
-          {
-            "name": "certificateList",
-            "type": "[Objects]",
-            "properties": [
-              {
-                "name": "data",
-                "type": "Buffer - PEM encoded data"
-              },
-              {
-                "name": "issuerName",
-                "type": "String - Issuer&apos;s Common Name"
-              }
-            ]
           },
           {
             "name": "callback",
@@ -369,51 +345,15 @@
           },
           {
             "name": "webContents",
-            "type": "<a href=\"web-contents.md\">WebContents</a>"
+            "type": "WebContents"
           },
           {
             "name": "request",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "method",
-                "type": "String"
-              },
-              {
-                "name": "url",
-                "type": "URL"
-              },
-              {
-                "name": "referrer",
-                "type": "URL"
-              }
-            ]
+            "type": "Object"
           },
           {
             "name": "authInfo",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "isProxy",
-                "type": "Boolean"
-              },
-              {
-                "name": "scheme",
-                "type": "String"
-              },
-              {
-                "name": "host",
-                "type": "String"
-              },
-              {
-                "name": "port",
-                "type": "Integer"
-              },
-              {
-                "name": "realm",
-                "type": "String"
-              }
-            ]
+            "type": "Object"
           },
           {
             "name": "callback",
@@ -429,12 +369,12 @@
   },
   {
     "name": "autoUpdater",
+    "description": "Enable apps to automatically update themselves.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "auto-updater",
     "websiteUrl": "http://electron.atom.io/docs/api/auto-updater",
     "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/auto-updater.md",
-    "type": "Object",
-    "description": "Enable apps to automatically update themselves.",
     "events": [
       {
         "name": "error",
@@ -488,12 +428,161 @@
   },
   {
     "name": "BrowserWindow",
+    "description": "Create and control browser windows.",
     "mainProcess": true,
+    "type": "Class",
     "slug": "browser-window",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-window",
     "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/browser-window.md",
-    "type": "Class",
-    "description": "Create and control browser windows.",
+    "events": [
+      {
+        "name": "page-title-updated",
+        "description": "Emitted when the document changed its title, calling event.preventDefault() would prevent the native window's title to change.",
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event"
+          }
+        ]
+      },
+      {
+        "name": "close",
+        "description": "Emitted when the window is going to be closed. It's emitted before the beforeunload and unload event of the DOM. Calling event.preventDefault() will cancel the close. Usually you would want to use the beforeunload handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than undefined would cancel the close. For example:",
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event"
+          }
+        ]
+      },
+      {
+        "name": "closed",
+        "description": "Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it anymore."
+      },
+      {
+        "name": "unresponsive",
+        "description": "Emitted when the web page becomes unresponsive."
+      },
+      {
+        "name": "responsive",
+        "description": "Emitted when the unresponsive web page becomes responsive again."
+      },
+      {
+        "name": "blur",
+        "description": "Emitted when the window loses focus."
+      },
+      {
+        "name": "focus",
+        "description": "Emitted when the window gains focus."
+      },
+      {
+        "name": "show",
+        "description": "Emitted when the window is shown."
+      },
+      {
+        "name": "hide",
+        "description": "Emitted when the window is hidden."
+      },
+      {
+        "name": "ready-to-show",
+        "description": "Emitted when the web page has been rendered and window can be displayed without visual flash."
+      },
+      {
+        "name": "maximize",
+        "description": "Emitted when window is maximized."
+      },
+      {
+        "name": "unmaximize",
+        "description": "Emitted when the window exits from maximized state."
+      },
+      {
+        "name": "minimize",
+        "description": "Emitted when the window is minimized."
+      },
+      {
+        "name": "restore",
+        "description": "Emitted when the window is restored from minimized state."
+      },
+      {
+        "name": "resize",
+        "description": "Emitted when the window is getting resized."
+      },
+      {
+        "name": "move",
+        "description": "Emitted when the window is getting moved to a new position. Note: On macOS this event is just an alias of moved."
+      },
+      {
+        "name": "moved",
+        "description": "Emitted once when the window is moved to a new position.",
+        "platforms": [
+          "macOS"
+        ]
+      },
+      {
+        "name": "enter-full-screen",
+        "description": "Emitted when the window enters full screen state."
+      },
+      {
+        "name": "leave-full-screen",
+        "description": "Emitted when the window leaves full screen state."
+      },
+      {
+        "name": "enter-html-full-screen",
+        "description": "Emitted when the window enters full screen state triggered by html api."
+      },
+      {
+        "name": "leave-html-full-screen",
+        "description": "Emitted when the window leaves full screen state triggered by html api."
+      },
+      {
+        "name": "app-command",
+        "description": "Emitted when an App Command is invoked. These are typically related to keyboard media keys or browser commands, as well as the \"Back\" button built into some mice on Windows. Commands are lowercased with underscores replaced with hyphens and the APPCOMMAND_ prefix stripped off. e.g. APPCOMMAND_BROWSER_BACKWARD is emitted as browser-backward.",
+        "platforms": [
+          "Windows"
+        ],
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event"
+          },
+          {
+            "name": "command",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "scroll-touch-begin",
+        "description": "Emitted when scroll wheel event phase has begun.",
+        "platforms": [
+          "macOS"
+        ]
+      },
+      {
+        "name": "scroll-touch-end",
+        "description": "Emitted when scroll wheel event phase has ended.",
+        "platforms": [
+          "macOS"
+        ]
+      },
+      {
+        "name": "swipe",
+        "description": "Emitted on 3-finger swipe. Possible directions are up, right, down, left.",
+        "platforms": [
+          "macOS"
+        ],
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event"
+          },
+          {
+            "name": "direction",
+            "type": "String"
+          }
+        ]
+      }
+    ],
     "instanceMethods": [
       {
         "name": "destroy",
@@ -601,22 +690,13 @@
         "arguments": [
           {
             "name": "aspectRatio",
-            "type": "The aspect ratio we want to maintain for some portion of the"
+            "type": "The",
+            "description": " aspect ratio we want to maintain for some portion of the"
           },
           {
             "name": "extraSize",
-            "type": "Object (optional)",
-            "description": "The extra size not to be included while",
-            "properties": [
-              {
-                "name": "width",
-                "type": "Integer"
-              },
-              {
-                "name": "height",
-                "type": "Integer"
-              }
-            ]
+            "type": "Object",
+            "description": " (optional) - The extra size not to be included while"
           }
         ]
       },
@@ -627,29 +707,12 @@
         "arguments": [
           {
             "name": "options",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "x",
-                "type": "Integer"
-              },
-              {
-                "name": "y",
-                "type": "Integer"
-              },
-              {
-                "name": "width",
-                "type": "Integer"
-              },
-              {
-                "name": "height",
-                "type": "Integer"
-              }
-            ]
+            "type": "Object"
           },
           {
             "name": "animate",
-            "type": "Boolean (optional) <em>macOS</em>"
+            "type": "Boolean",
+            "description": " (optional) <em>macOS</em>"
           }
         ]
       },
@@ -673,7 +736,8 @@
           },
           {
             "name": "animate",
-            "type": "Boolean (optional) <em>macOS</em>"
+            "type": "Boolean",
+            "description": " (optional) <em>macOS</em>"
           }
         ]
       },
@@ -697,7 +761,8 @@
           },
           {
             "name": "animate",
-            "type": "Boolean (optional) <em>macOS</em>"
+            "type": "Boolean",
+            "description": " (optional) <em>macOS</em>"
           }
         ]
       },
@@ -910,7 +975,8 @@
           },
           {
             "name": "animate",
-            "type": "Boolean (optional) <em>macOS</em>"
+            "type": "Boolean",
+            "description": " (optional) <em>macOS</em>"
           }
         ]
       },
@@ -1099,26 +1165,8 @@
         "arguments": [
           {
             "name": "rect",
-            "type": "Object (optional)",
-            "description": "The area of page to be captured",
-            "properties": [
-              {
-                "name": "x",
-                "type": "Integer"
-              },
-              {
-                "name": "y",
-                "type": "Integer"
-              },
-              {
-                "name": "width",
-                "type": "Integer"
-              },
-              {
-                "name": "height",
-                "type": "Integer"
-              }
-            ]
+            "type": "Object",
+            "description": " (optional) - The area of page to be captured"
           },
           {
             "name": "callback",
@@ -1172,7 +1220,7 @@
         "arguments": [
           {
             "name": "overlay",
-            "type": "<a href=\"native-image.md\">NativeImage</a>",
+            "type": "NativeImage",
             "description": "the icon to display on the bottom"
           },
           {
@@ -1188,13 +1236,7 @@
         "platforms": [
           "macOS"
         ],
-        "description": "Sets whether the window should have a shadow. On Windows and Linux does nothing.",
-        "arguments": [
-          {
-            "name": "hasShadow",
-            "type": "(Boolean)"
-          }
-        ]
+        "description": "Sets whether the window should have a shadow. On Windows and Linux does nothing."
       },
       {
         "name": "hasShadow",
@@ -1218,49 +1260,7 @@
           },
           {
             "name": "Button",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "icon",
-                "type": "<a href=\"native-image.md\">NativeImage</a> - The icon showing in thumbnail"
-              },
-              {
-                "name": "click",
-                "type": "Function"
-              },
-              {
-                "name": "tooltip",
-                "type": "String (optional) - The text of the button&apos;s tooltip."
-              },
-              {
-                "name": "flags",
-                "type": "Array (optional) - Control specific states and behaviors of the"
-              }
-            ]
-          },
-          {
-            "name": "enabled",
-            "type": "- The button is active and available to the user."
-          },
-          {
-            "name": "disabled",
-            "type": "- The button is disabled. It is present, but has a visual state"
-          },
-          {
-            "name": "dismissonclick",
-            "type": "- When the button is clicked, the thumbnail window closes"
-          },
-          {
-            "name": "nobackground",
-            "type": "- Do not draw a button border, use only the image."
-          },
-          {
-            "name": "hidden",
-            "type": "- The button is not shown to the user."
-          },
-          {
-            "name": "noninteractive",
-            "type": "- The button is enabled but not interactive; no pressed"
+            "type": "Object"
           }
         ]
       },
@@ -1283,7 +1283,7 @@
         "arguments": [
           {
             "name": "icon",
-            "type": "<a href=\"native-image.md\">NativeImage</a>"
+            "type": "NativeImage"
           }
         ]
       },
@@ -1394,201 +1394,52 @@
         "signature": "()",
         "description": "Returns all child windows."
       }
-    ],
-    "events": [
-      {
-        "name": "page-title-updated",
-        "description": "Emitted when the document changed its title, calling event.preventDefault() would prevent the native window's title to change.",
-        "returns": [
-          {
-            "name": "event",
-            "type": "Event"
-          }
-        ]
-      },
-      {
-        "name": "close",
-        "description": "Emitted when the window is going to be closed. It's emitted before the beforeunload and unload event of the DOM. Calling event.preventDefault() will cancel the close. Usually you would want to use the beforeunload handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than undefined would cancel the close. For example:",
-        "returns": [
-          {
-            "name": "event",
-            "type": "Event"
-          }
-        ]
-      },
-      {
-        "name": "closed",
-        "description": "Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it anymore."
-      },
-      {
-        "name": "unresponsive",
-        "description": "Emitted when the web page becomes unresponsive."
-      },
-      {
-        "name": "responsive",
-        "description": "Emitted when the unresponsive web page becomes responsive again."
-      },
-      {
-        "name": "blur",
-        "description": "Emitted when the window loses focus."
-      },
-      {
-        "name": "focus",
-        "description": "Emitted when the window gains focus."
-      },
-      {
-        "name": "show",
-        "description": "Emitted when the window is shown."
-      },
-      {
-        "name": "hide",
-        "description": "Emitted when the window is hidden."
-      },
-      {
-        "name": "ready-to-show",
-        "description": "Emitted when the web page has been rendered and window can be displayed without visual flash."
-      },
-      {
-        "name": "maximize",
-        "description": "Emitted when window is maximized."
-      },
-      {
-        "name": "unmaximize",
-        "description": "Emitted when the window exits from maximized state."
-      },
-      {
-        "name": "minimize",
-        "description": "Emitted when the window is minimized."
-      },
-      {
-        "name": "restore",
-        "description": "Emitted when the window is restored from minimized state."
-      },
-      {
-        "name": "resize",
-        "description": "Emitted when the window is getting resized."
-      },
-      {
-        "name": "move",
-        "description": "Emitted when the window is getting moved to a new position. Note: On macOS this event is just an alias of moved."
-      },
-      {
-        "name": "moved",
-        "description": "Emitted once when the window is moved to a new position.",
-        "platforms": [
-          "macOS"
-        ]
-      },
-      {
-        "name": "enter-full-screen",
-        "description": "Emitted when the window enters full screen state."
-      },
-      {
-        "name": "leave-full-screen",
-        "description": "Emitted when the window leaves full screen state."
-      },
-      {
-        "name": "enter-html-full-screen",
-        "description": "Emitted when the window enters full screen state triggered by html api."
-      },
-      {
-        "name": "leave-html-full-screen",
-        "description": "Emitted when the window leaves full screen state triggered by html api."
-      },
-      {
-        "name": "app-command",
-        "description": "Emitted when an App Command is invoked. These are typically related to keyboard media keys or browser commands, as well as the \"Back\" button built into some mice on Windows. Commands are lowercased with underscores replaced with hyphens and the APPCOMMAND_ prefix stripped off. e.g. APPCOMMAND_BROWSER_BACKWARD is emitted as browser-backward.",
-        "platforms": [
-          "Windows"
-        ],
-        "returns": [
-          {
-            "name": "event",
-            "type": "Event"
-          },
-          {
-            "name": "command",
-            "type": "String"
-          }
-        ]
-      },
-      {
-        "name": "scroll-touch-begin",
-        "description": "Emitted when scroll wheel event phase has begun.",
-        "platforms": [
-          "macOS"
-        ]
-      },
-      {
-        "name": "scroll-touch-end",
-        "description": "Emitted when scroll wheel event phase has ended.",
-        "platforms": [
-          "macOS"
-        ]
-      },
-      {
-        "name": "swipe",
-        "description": "Emitted on 3-finger swipe. Possible directions are up, right, down, left.",
-        "platforms": [
-          "macOS"
-        ],
-        "returns": [
-          {
-            "name": "event",
-            "type": "Event"
-          },
-          {
-            "name": "direction",
-            "type": "String"
-          }
-        ]
-      }
     ]
   },
   {
     "name": "contentTracing",
+    "description": "Collect tracing data from Chromium's content module for finding performance\nbottlenecks and slow operations.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "content-tracing",
     "websiteUrl": "http://electron.atom.io/docs/api/content-tracing",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/content-tracing.md",
-    "type": "Object",
-    "description": "Collect tracing data from Chromium's content module for finding performance\nbottlenecks and slow operations."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/content-tracing.md"
   },
   {
     "name": "dialog",
+    "description": "Display native system dialogs for opening and saving files, alerting, etc.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "dialog",
     "websiteUrl": "http://electron.atom.io/docs/api/dialog",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/dialog.md",
-    "type": "Object",
-    "description": "Display native system dialogs for opening and saving files, alerting, etc."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/dialog.md"
   },
   {
     "name": "ipcMain",
+    "description": "Communicate asynchronously from the main process to renderer processes.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "ipc-main",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-main",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/ipc-main.md",
-    "type": "Object",
-    "description": "Communicate asynchronously from the main process to renderer processes."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/ipc-main.md"
   },
   {
     "name": "globalShortcut",
+    "description": "Detect keyboard events when the application does not have keyboard focus.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "global-shortcut",
     "websiteUrl": "http://electron.atom.io/docs/api/global-shortcut",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/global-shortcut.md",
-    "type": "Object",
-    "description": "Detect keyboard events when the application does not have keyboard focus."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/global-shortcut.md"
   },
   {
     "name": "Menu",
+    "description": "Create native application menus and context menus.",
     "mainProcess": true,
+    "type": "Class",
     "slug": "menu",
     "websiteUrl": "http://electron.atom.io/docs/api/menu",
     "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/menu.md",
-    "type": "Class",
-    "description": "Create native application menus and context menus.",
     "instanceMethods": [
       {
         "name": "popup",
@@ -1596,23 +1447,24 @@
         "description": "Pops up this menu as a context menu in the browserWindow. You can optionally provide a x, y coordinate to place the menu at, otherwise it will be placed at the current mouse cursor position.",
         "arguments": [
           {
-            "name": "browserWindow</code> BrowserWindow (optional) - Default is <code>null",
-            "type": "."
+            "name": "browserWindow",
+            "type": "BrowserWindow",
+            "description": " (optional) - Default is <code>null</code>."
           },
           {
             "name": "x",
-            "type": "Number (optional)",
-            "description": "Default is -1."
+            "type": "Number",
+            "description": " (optional) - Default is -1."
           },
           {
-            "name": "y</code> Number (<strong>required</strong> if <code>x",
-            "type": "is used)",
-            "description": "Default is -1."
+            "name": "y",
+            "type": "Number",
+            "description": " (<strong>required</strong> if <code>x</code> is used) - Default is -1."
           },
           {
             "name": "positioningItem",
-            "type": "Number (optional) <em>macOS</em>",
-            "description": "The index of the menu item to"
+            "type": "Number",
+            "description": " (optional) <em>macOS</em> - The index of the menu item to"
           }
         ]
       },
@@ -1646,21 +1498,21 @@
   },
   {
     "name": "MenuItem",
+    "description": "Add items to native application menus and context menus.",
     "mainProcess": true,
+    "type": "Class",
     "slug": "menu-item",
     "websiteUrl": "http://electron.atom.io/docs/api/menu-item",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/menu-item.md",
-    "type": "Class",
-    "description": "Add items to native application menus and context menus."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/menu-item.md"
   },
   {
     "name": "powerMonitor",
+    "description": "Monitor power state changes.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "power-monitor",
     "websiteUrl": "http://electron.atom.io/docs/api/power-monitor",
     "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/power-monitor.md",
-    "type": "Object",
-    "description": "Monitor power state changes.",
     "events": [
       {
         "name": "suspend",
@@ -1688,31 +1540,31 @@
   },
   {
     "name": "powerSaveBlocker",
+    "description": "Block the system from entering low-power (sleep) mode.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "power-save-blocker",
     "websiteUrl": "http://electron.atom.io/docs/api/power-save-blocker",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/power-save-blocker.md",
-    "type": "Object",
-    "description": "Block the system from entering low-power (sleep) mode."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/power-save-blocker.md"
   },
   {
     "name": "protocol",
+    "description": "Register a custom protocol and intercept existing protocol requests.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "protocol",
     "websiteUrl": "http://electron.atom.io/docs/api/protocol",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/protocol.md",
-    "type": "Object",
-    "description": "Register a custom protocol and intercept existing protocol requests."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/protocol.md"
   },
   {
     "name": "screen",
-    "rendererProcess": true,
+    "description": "Retrieve information about screen size, displays, cursor position, etc.",
     "mainProcess": true,
+    "rendererProcess": true,
+    "type": "Object",
     "slug": "screen",
     "websiteUrl": "http://electron.atom.io/docs/api/screen",
     "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/screen.md",
-    "type": "Object",
-    "description": "Retrieve information about screen size, displays, cursor position, etc.",
     "events": [
       {
         "name": "display-added",
@@ -1764,822 +1616,39 @@
   },
   {
     "name": "session",
+    "description": "Manage browser sessions, cookies, cache, proxy settings, etc.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "session",
     "websiteUrl": "http://electron.atom.io/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/session.md",
-    "type": "Object",
-    "description": "Manage browser sessions, cookies, cache, proxy settings, etc."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/session.md"
   },
   {
     "name": "systemPreferences",
+    "description": "Get system preferences.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "system-preferences",
     "websiteUrl": "http://electron.atom.io/docs/api/system-preferences",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/system-preferences.md",
-    "type": "Object",
-    "description": "Get system preferences."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/system-preferences.md"
   },
   {
     "name": "Tray",
+    "description": "Add icons and context menus to the system's notification area.",
     "mainProcess": true,
+    "type": "Class",
     "slug": "tray",
     "websiteUrl": "http://electron.atom.io/docs/api/tray",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/tray.md",
-    "type": "Class",
-    "description": "Add icons and context menus to the system's notification area."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/tray.md"
   },
   {
     "name": "webContents",
+    "description": "Render and control web pages.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "web-contents",
     "websiteUrl": "http://electron.atom.io/docs/api/web-contents",
     "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/web-contents.md",
-    "type": "Object",
-    "description": "Render and control web pages.",
-    "instanceMethods": [
-      {
-        "name": "loadURL",
-        "signature": "(url[, options])",
-        "description": "Loads the url in the window, the url must contain the protocol prefix, e.g. the http:// or file://. If the load should bypass http cache then use the pragma header to achieve it.",
-        "arguments": [
-          {
-            "name": "url",
-            "type": "URL"
-          },
-          {
-            "name": "options",
-            "type": "Object (optional)",
-            "properties": [
-              {
-                "name": "httpReferrer",
-                "type": "String - A HTTP Referrer url."
-              },
-              {
-                "name": "userAgent",
-                "type": "String - A user agent originating the request."
-              },
-              {
-                "name": "extraHeaders",
-                "type": "String - Extra headers separated by &quot;\\n&quot;"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "downloadURL",
-        "signature": "(url)",
-        "description": "Initiates a download of the resource at url without navigating. The will-download event of session will be triggered.",
-        "arguments": [
-          {
-            "name": "url",
-            "type": "URL"
-          }
-        ]
-      },
-      {
-        "name": "getURL",
-        "signature": "()",
-        "description": "Returns URL of the current web page."
-      },
-      {
-        "name": "getTitle",
-        "signature": "()",
-        "description": "Returns the title of the current web page."
-      },
-      {
-        "name": "isLoading",
-        "signature": "()",
-        "description": "Returns whether web page is still loading resources."
-      },
-      {
-        "name": "isLoadingMainFrame",
-        "signature": "()",
-        "description": "Returns whether the main frame (and not just iframes or frames within it) is still loading."
-      },
-      {
-        "name": "isWaitingForResponse",
-        "signature": "()",
-        "description": "Returns whether the web page is waiting for a first-response from the main resource of the page."
-      },
-      {
-        "name": "stop",
-        "signature": "()",
-        "description": "Stops any pending navigation."
-      },
-      {
-        "name": "reload",
-        "signature": "()",
-        "description": "Reloads the current web page."
-      },
-      {
-        "name": "reloadIgnoringCache",
-        "signature": "()",
-        "description": "Reloads current page and ignores cache."
-      },
-      {
-        "name": "canGoBack",
-        "signature": "()",
-        "description": "Returns whether the browser can go back to previous web page."
-      },
-      {
-        "name": "canGoForward",
-        "signature": "()",
-        "description": "Returns whether the browser can go forward to next web page."
-      },
-      {
-        "name": "canGoToOffset",
-        "signature": "(offset)",
-        "description": "Returns whether the web page can go to offset.",
-        "arguments": [
-          {
-            "name": "offset",
-            "type": "Integer"
-          }
-        ]
-      },
-      {
-        "name": "clearHistory",
-        "signature": "()",
-        "description": "Clears the navigation history."
-      },
-      {
-        "name": "goBack",
-        "signature": "()",
-        "description": "Makes the browser go back a web page."
-      },
-      {
-        "name": "goForward",
-        "signature": "()",
-        "description": "Makes the browser go forward a web page."
-      },
-      {
-        "name": "goToIndex",
-        "signature": "(index)",
-        "description": "Navigates browser to the specified absolute web page index.",
-        "arguments": [
-          {
-            "name": "index",
-            "type": "Integer"
-          }
-        ]
-      },
-      {
-        "name": "goToOffset",
-        "signature": "(offset)",
-        "description": "Navigates to the specified offset from the \"current entry\".",
-        "arguments": [
-          {
-            "name": "offset",
-            "type": "Integer"
-          }
-        ]
-      },
-      {
-        "name": "isCrashed",
-        "signature": "()",
-        "description": "Whether the renderer process has crashed."
-      },
-      {
-        "name": "setUserAgent",
-        "signature": "(userAgent)",
-        "description": "Overrides the user agent for this web page.",
-        "arguments": [
-          {
-            "name": "userAgent",
-            "type": "String"
-          }
-        ]
-      },
-      {
-        "name": "getUserAgent",
-        "signature": "()",
-        "description": "Returns a String representing the user agent for this web page."
-      },
-      {
-        "name": "insertCSS",
-        "signature": "(css)",
-        "description": "Injects CSS into the current web page.",
-        "arguments": [
-          {
-            "name": "css",
-            "type": "String"
-          }
-        ]
-      },
-      {
-        "name": "executeJavaScript",
-        "signature": "(code[, userGesture, callback])",
-        "description": "Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation.",
-        "arguments": [
-          {
-            "name": "code",
-            "type": "String"
-          },
-          {
-            "name": "userGesture",
-            "type": "Boolean (optional)"
-          },
-          {
-            "name": "callback",
-            "type": "Function (optional)",
-            "description": "Called after script has been executed.",
-            "properties": [
-              {
-                "name": "result"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "setAudioMuted",
-        "signature": "(muted)",
-        "description": "Mute the audio on the current web page.",
-        "arguments": [
-          {
-            "name": "muted",
-            "type": "Boolean"
-          }
-        ]
-      },
-      {
-        "name": "isAudioMuted",
-        "signature": "()",
-        "description": "Returns whether this page has been muted."
-      },
-      {
-        "name": "undo",
-        "signature": "()",
-        "description": "Executes the editing command undo in web page."
-      },
-      {
-        "name": "redo",
-        "signature": "()",
-        "description": "Executes the editing command redo in web page."
-      },
-      {
-        "name": "cut",
-        "signature": "()",
-        "description": "Executes the editing command cut in web page."
-      },
-      {
-        "name": "copy",
-        "signature": "()",
-        "description": "Executes the editing command copy in web page."
-      },
-      {
-        "name": "paste",
-        "signature": "()",
-        "description": "Executes the editing command paste in web page."
-      },
-      {
-        "name": "pasteAndMatchStyle",
-        "signature": "()",
-        "description": "Executes the editing command pasteAndMatchStyle in web page."
-      },
-      {
-        "name": "delete",
-        "signature": "()",
-        "description": "Executes the editing command delete in web page."
-      },
-      {
-        "name": "selectAll",
-        "signature": "()",
-        "description": "Executes the editing command selectAll in web page."
-      },
-      {
-        "name": "unselect",
-        "signature": "()",
-        "description": "Executes the editing command unselect in web page."
-      },
-      {
-        "name": "replace",
-        "signature": "(text)",
-        "description": "Executes the editing command replace in web page.",
-        "arguments": [
-          {
-            "name": "text",
-            "type": "String"
-          }
-        ]
-      },
-      {
-        "name": "replaceMisspelling",
-        "signature": "(text)",
-        "description": "Executes the editing command replaceMisspelling in web page.",
-        "arguments": [
-          {
-            "name": "text",
-            "type": "String"
-          }
-        ]
-      },
-      {
-        "name": "insertText",
-        "signature": "(text)",
-        "description": "Inserts text to the focused element.",
-        "arguments": [
-          {
-            "name": "text",
-            "type": "String"
-          }
-        ]
-      },
-      {
-        "name": "findInPage",
-        "signature": "(text[, options])",
-        "description": "Starts a request to find all matches for the text in the web page and returns an Integer representing the request id used for the request. The result of the request can be obtained by subscribing to found-in-page event.",
-        "arguments": [
-          {
-            "name": "text",
-            "type": "String",
-            "description": "Content to be searched, must not be empty."
-          },
-          {
-            "name": "options",
-            "type": "Object (optional)",
-            "properties": [
-              {
-                "name": "forward</code> Boolean - Whether to search forward or backward, defaults to <code>true",
-                "type": "."
-              },
-              {
-                "name": "findNext",
-                "type": "Boolean - Whether the operation is first request or a follow up,"
-              },
-              {
-                "name": "matchCase",
-                "type": "Boolean - Whether search should be case-sensitive,"
-              },
-              {
-                "name": "wordStart",
-                "type": "Boolean - Whether to look only at the start of words."
-              },
-              {
-                "name": "medialCapitalAsWordStart</code> Boolean - When combined with <code>wordStart",
-                "type": ","
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "stopFindInPage",
-        "signature": "(action)",
-        "description": "Stops any findInPage request for the webContents with the provided action.",
-        "arguments": [
-          {
-            "name": "action",
-            "type": "String",
-            "description": "Specifies the action to take place when ending",
-            "properties": [
-              {
-                "name": "clearSelection",
-                "type": "- Translate the selection into a normal selection."
-              },
-              {
-                "name": "keepSelection",
-                "type": "- Clear the selection."
-              },
-              {
-                "name": "activateSelection",
-                "type": "- Focus and click the selection node."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "hasServiceWorker",
-        "signature": "(callback)",
-        "description": "Checks if any ServiceWorker is registered and returns a boolean as response to callback.",
-        "arguments": [
-          {
-            "name": "callback",
-            "type": "Function"
-          }
-        ]
-      },
-      {
-        "name": "unregisterServiceWorker",
-        "signature": "(callback)",
-        "description": "Unregisters any ServiceWorker if present and returns a boolean as response to callback when the JS promise is fulfilled or false when the JS promise is rejected.",
-        "arguments": [
-          {
-            "name": "callback",
-            "type": "Function"
-          }
-        ]
-      },
-      {
-        "name": "print",
-        "signature": "([options])",
-        "description": "Prints window's web page. When silent is set to false, Electron will pick up system's default printer and default settings for printing. Calling window.print() in web page is equivalent to calling webContents.print({silent: false, printBackground: false}). Note: On Windows, the print API relies on pdf.dll. If your application doesn't need the print feature, you can safely remove pdf.dll to reduce binary size.",
-        "arguments": [
-          {
-            "name": "options",
-            "type": "Object (optional)",
-            "properties": [
-              {
-                "name": "silent</code> Boolean - Don&apos;t ask user for print settings. Default is <code>false",
-                "type": "."
-              },
-              {
-                "name": "printBackground",
-                "type": "Boolean - Also prints the background color and image of"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "printToPDF",
-        "signature": "(options, callback)",
-        "description": "Prints window's web page as PDF with Chromium's preview printing custom settings. The callback will be called with callback(error, data) on completion. The data is a Buffer that contains the generated PDF data. By default, an empty options will be regarded as: An example of webContents.printToPDF:",
-        "arguments": [
-          {
-            "name": "options",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "marginsType",
-                "type": "Integer - Specifies the type of margins to use. Uses 0 for"
-              },
-              {
-                "name": "pageSize</code> String - Specify page size of the generated PDF. Can be <code>A3",
-                "type": ","
-              },
-              {
-                "name": "printBackground",
-                "type": "Boolean - Whether to print CSS backgrounds."
-              },
-              {
-                "name": "printSelectionOnly",
-                "type": "Boolean - Whether to print selection only."
-              },
-              {
-                "name": "landscape</code> Boolean - <code>true</code> for landscape, <code>false",
-                "type": "for portrait."
-              }
-            ]
-          },
-          {
-            "name": "callback",
-            "type": "Function"
-          }
-        ]
-      },
-      {
-        "name": "addWorkSpace",
-        "signature": "(path)",
-        "description": "Adds the specified path to DevTools workspace. Must be used after DevTools creation:",
-        "arguments": [
-          {
-            "name": "path",
-            "type": "String"
-          }
-        ]
-      },
-      {
-        "name": "removeWorkSpace",
-        "signature": "(path)",
-        "description": "Removes the specified path from DevTools workspace.",
-        "arguments": [
-          {
-            "name": "path",
-            "type": "String"
-          }
-        ]
-      },
-      {
-        "name": "openDevTools",
-        "signature": "([options])",
-        "description": "Opens the devtools.",
-        "arguments": [
-          {
-            "name": "options",
-            "type": "Object (optional)",
-            "properties": [
-              {
-                "name": "mode",
-                "type": "String - Opens the devtools with specified dock state, can be"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "closeDevTools",
-        "signature": "()",
-        "description": "Closes the devtools."
-      },
-      {
-        "name": "isDevToolsOpened",
-        "signature": "()",
-        "description": "Returns whether the devtools is opened."
-      },
-      {
-        "name": "isDevToolsFocused",
-        "signature": "()",
-        "description": "Returns whether the devtools view is focused ."
-      },
-      {
-        "name": "toggleDevTools",
-        "signature": "()",
-        "description": "Toggles the developer tools."
-      },
-      {
-        "name": "inspectElement",
-        "signature": "(x, y)",
-        "description": "Starts inspecting element at position (x, y).",
-        "arguments": [
-          {
-            "name": "x",
-            "type": "Integer"
-          },
-          {
-            "name": "y",
-            "type": "Integer"
-          }
-        ]
-      },
-      {
-        "name": "inspectServiceWorker",
-        "signature": "()",
-        "description": "Opens the developer tools for the service worker context."
-      },
-      {
-        "name": "send",
-        "signature": "(channel[, arg1][, arg2][, ...])",
-        "description": "Send an asynchronous message to renderer process via channel, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included. The renderer process can handle the message by listening to channel with the ipcRenderer module. An example of sending messages from the main process to the renderer process:",
-        "arguments": [
-          {
-            "name": "channel",
-            "type": "String"
-          },
-          {
-            "name": "arg",
-            "type": "(optional)"
-          }
-        ]
-      },
-      {
-        "name": "enableDeviceEmulation",
-        "signature": "(parameters)",
-        "description": "parameters Object, properties: Enable device emulation with the given parameters.",
-        "arguments": [
-          {
-            "name": "screenPosition",
-            "type": "String",
-            "description": "Specify the screen type to emulate",
-            "properties": [
-              {
-                "name": "desktop"
-              },
-              {
-                "name": "mobile"
-              }
-            ]
-          },
-          {
-            "name": "screenSize",
-            "type": "Object",
-            "description": "Set the emulated screen size (screenPosition == mobile)",
-            "properties": [
-              {
-                "name": "width",
-                "type": "Integer - Set the emulated screen width"
-              },
-              {
-                "name": "height",
-                "type": "Integer - Set the emulated screen height"
-              }
-            ]
-          },
-          {
-            "name": "viewPosition",
-            "type": "Object",
-            "description": "Position the view on the screen",
-            "properties": [
-              {
-                "name": "x",
-                "type": "Integer - Set the x axis offset from top left corner"
-              },
-              {
-                "name": "y",
-                "type": "Integer - Set the y axis offset from top left corner"
-              }
-            ]
-          },
-          {
-            "name": "deviceScaleFactor",
-            "type": "Integer",
-            "description": "Set the device scale factor (if zero defaults to"
-          },
-          {
-            "name": "viewSize",
-            "type": "Object",
-            "description": "Set the emulated view size (empty means no override)",
-            "properties": [
-              {
-                "name": "width",
-                "type": "Integer - Set the emulated view width"
-              },
-              {
-                "name": "height",
-                "type": "Integer - Set the emulated view height"
-              }
-            ]
-          },
-          {
-            "name": "fitToView",
-            "type": "Boolean",
-            "description": "Whether emulated view should be scaled down if"
-          },
-          {
-            "name": "offset",
-            "type": "Object",
-            "description": "Offset of the emulated view inside available space (not in",
-            "properties": [
-              {
-                "name": "x",
-                "type": "Float - Set the x axis offset from top left corner"
-              },
-              {
-                "name": "y",
-                "type": "Float - Set the y axis offset from top left corner"
-              }
-            ]
-          },
-          {
-            "name": "scale",
-            "type": "Float",
-            "description": "Scale of emulated view inside available space (not in fit to"
-          }
-        ]
-      },
-      {
-        "name": "disableDeviceEmulation",
-        "signature": "()",
-        "description": "Disable device emulation enabled by webContents.enableDeviceEmulation."
-      },
-      {
-        "name": "sendInputEvent",
-        "signature": "(event)",
-        "description": "Sends an input event to the page. For keyboard events, the event object also have following properties: For mouse events, the event object also have following properties: For the mouseWheel event, the event object also have following properties:",
-        "arguments": [
-          {
-            "name": "event",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "type</code> String (<strong>required</strong>) - The type of the event, can be <code>mouseDown",
-                "type": ","
-              },
-              {
-                "name": "modifiers",
-                "type": "Array - An array of modifiers of the event, can"
-              }
-            ]
-          },
-          {
-            "name": "keyCode",
-            "type": "String (<strong>required</strong>)",
-            "description": "The character that will be sent"
-          },
-          {
-            "name": "x",
-            "type": "Integer (<strong>required</strong>)"
-          },
-          {
-            "name": "y",
-            "type": "Integer (<strong>required</strong>)"
-          },
-          {
-            "name": "button</code> String - The button pressed, can be <code>left</code>, <code>middle</code>, <code>right"
-          },
-          {
-            "name": "globalX",
-            "type": "Integer"
-          },
-          {
-            "name": "globalY",
-            "type": "Integer"
-          },
-          {
-            "name": "movementX",
-            "type": "Integer"
-          },
-          {
-            "name": "movementY",
-            "type": "Integer"
-          },
-          {
-            "name": "clickCount",
-            "type": "Integer"
-          },
-          {
-            "name": "deltaX",
-            "type": "Integer"
-          },
-          {
-            "name": "deltaY",
-            "type": "Integer"
-          },
-          {
-            "name": "wheelTicksX",
-            "type": "Integer"
-          },
-          {
-            "name": "wheelTicksY",
-            "type": "Integer"
-          },
-          {
-            "name": "accelerationRatioX",
-            "type": "Integer"
-          },
-          {
-            "name": "accelerationRatioY",
-            "type": "Integer"
-          },
-          {
-            "name": "hasPreciseScrollingDeltas",
-            "type": "Boolean"
-          },
-          {
-            "name": "canScroll",
-            "type": "Boolean"
-          }
-        ]
-      },
-      {
-        "name": "beginFrameSubscription",
-        "signature": "(callback)",
-        "description": "Begin subscribing for presentation events and captured frames, the callback will be called with callback(frameBuffer) when there is a presentation event. The frameBuffer is a Buffer that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).",
-        "arguments": [
-          {
-            "name": "callback",
-            "type": "Function"
-          }
-        ]
-      },
-      {
-        "name": "endFrameSubscription",
-        "signature": "()",
-        "description": "End subscribing for frame presentation events."
-      },
-      {
-        "name": "savePage",
-        "signature": "(fullPath, saveType, callback)",
-        "description": "Returns true if the process of saving page has been initiated successfully.",
-        "arguments": [
-          {
-            "name": "fullPath",
-            "type": "String",
-            "description": "The full file path."
-          },
-          {
-            "name": "saveType",
-            "type": "String",
-            "description": "Specify the save type.",
-            "properties": [
-              {
-                "name": "HTMLOnly",
-                "type": "- Save only the HTML of the page."
-              },
-              {
-                "name": "HTMLComplete",
-                "type": "- Save complete-html page."
-              },
-              {
-                "name": "MHTML",
-                "type": "- Save complete-html page as MHTML."
-              }
-            ]
-          },
-          {
-            "name": "callback</code> Function - <code>(error) =&gt; {}",
-            "type": ".",
-            "properties": [
-              {
-                "name": "error",
-                "type": "Error"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "showDefinitionForSelection",
-        "signature": "()",
-        "platforms": [
-          "macOS"
-        ],
-        "description": "Shows pop-up dictionary that searches the selected word on the page."
-      }
-    ],
     "events": [
       {
         "name": "did-finish-load",
@@ -2755,8 +1824,9 @@
             "type": "String"
           },
           {
-            "name": "disposition</code> String - Can be <code>default</code>, <code>foreground-tab</code>, <code>background-tab",
-            "type": ","
+            "name": "disposition",
+            "type": "String",
+            "description": "Can be <code>default</code>, <code>foreground-tab</code>, <code>background-tab</code>,"
           },
           {
             "name": "options",
@@ -2864,17 +1934,7 @@
           },
           {
             "name": "certificate",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "data",
-                "type": "Buffer - PEM encoded data"
-              },
-              {
-                "name": "issuerName",
-                "type": "String"
-              }
-            ]
+            "type": "Object"
           },
           {
             "name": "callback",
@@ -2895,20 +1955,6 @@
             "type": "URL"
           },
           {
-            "name": "certificateList",
-            "type": "[Objects]",
-            "properties": [
-              {
-                "name": "data",
-                "type": "Buffer - PEM encoded data"
-              },
-              {
-                "name": "issuerName",
-                "type": "String - Issuer&apos;s Common Name"
-              }
-            ]
-          },
-          {
             "name": "callback",
             "type": "Function"
           }
@@ -2924,47 +1970,11 @@
           },
           {
             "name": "request",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "method",
-                "type": "String"
-              },
-              {
-                "name": "url",
-                "type": "URL"
-              },
-              {
-                "name": "referrer",
-                "type": "URL"
-              }
-            ]
+            "type": "Object"
           },
           {
             "name": "authInfo",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "isProxy",
-                "type": "Boolean"
-              },
-              {
-                "name": "scheme",
-                "type": "String"
-              },
-              {
-                "name": "host",
-                "type": "String"
-              },
-              {
-                "name": "port",
-                "type": "Integer"
-              },
-              {
-                "name": "realm",
-                "type": "String"
-              }
-            ]
+            "type": "Object"
           },
           {
             "name": "callback",
@@ -2982,29 +1992,7 @@
           },
           {
             "name": "result",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "requestId",
-                "type": "Integer"
-              },
-              {
-                "name": "finalUpdate",
-                "type": "Boolean - Indicates if more responses are to follow."
-              },
-              {
-                "name": "activeMatchOrdinal",
-                "type": "Integer (optional) - Position of the active match."
-              },
-              {
-                "name": "matches",
-                "type": "Integer (optional) - Number of Matches."
-              },
-              {
-                "name": "selectionArea",
-                "type": "Object (optional) - Coordinates of first match region."
-              }
-            ]
+            "type": "Object"
           }
         ]
       },
@@ -3048,11 +2036,13 @@
           },
           {
             "name": "image",
-            "type": "NativeImage (optional)"
+            "type": "NativeImage",
+            "description": " (optional)"
           },
           {
             "name": "scale",
-            "type": "Float (optional)"
+            "type": "Float",
+            "description": " (optional)"
           }
         ]
       },
@@ -3066,81 +2056,7 @@
           },
           {
             "name": "params",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "x",
-                "type": "Integer - x coordinate"
-              },
-              {
-                "name": "y",
-                "type": "Integer - y coordinate"
-              },
-              {
-                "name": "linkURL",
-                "type": "String - URL of the link that encloses the node the context menu"
-              },
-              {
-                "name": "linkText",
-                "type": "String - Text associated with the link. May be an empty"
-              },
-              {
-                "name": "pageURL",
-                "type": "String - URL of the top level page that the context menu was"
-              },
-              {
-                "name": "frameURL",
-                "type": "String - URL of the subframe that the context menu was invoked"
-              },
-              {
-                "name": "srcURL",
-                "type": "String - Source URL for the element that the context menu"
-              },
-              {
-                "name": "mediaType",
-                "type": "String - Type of the node the context menu was invoked on. Can"
-              },
-              {
-                "name": "hasImageContent",
-                "type": "Boolean - Wether the context menu was invoked on an image"
-              },
-              {
-                "name": "isEditable",
-                "type": "Boolean - Wether the context is editable."
-              },
-              {
-                "name": "selectionText",
-                "type": "String - Text of the selection that the context menu was"
-              },
-              {
-                "name": "titleText",
-                "type": "String - Title or alt text of the selection that the context"
-              },
-              {
-                "name": "misspelledWord",
-                "type": "String - The misspelled word under the cursor, if any."
-              },
-              {
-                "name": "frameCharset",
-                "type": "String - The character encoding of the frame on which the"
-              },
-              {
-                "name": "inputFieldType",
-                "type": "String - If the context menu was invoked on an input"
-              },
-              {
-                "name": "menuSourceType",
-                "type": "String - Input source that invoked the context menu."
-              },
-              {
-                "name": "mediaFlags",
-                "type": "Object - The flags for the media element the context menu was"
-              },
-              {
-                "name": "editFlags",
-                "type": "Object - These flags indicate wether the renderer believes it is"
-              }
-            ]
+            "type": "Object"
           },
           {
             "name": "inError",
@@ -3228,41 +2144,639 @@
             "type": "Event"
           },
           {
-            "name": "devices",
-            "type": "[Objects]",
-            "properties": [
-              {
-                "name": "deviceName",
-                "type": "String"
-              },
-              {
-                "name": "deviceId",
-                "type": "String"
-              }
-            ]
+            "name": "callback",
+            "type": "Function"
+          }
+        ]
+      }
+    ],
+    "instanceMethods": [
+      {
+        "name": "loadURL",
+        "signature": "(url[, options])",
+        "description": "Loads the url in the window, the url must contain the protocol prefix, e.g. the http:// or file://. If the load should bypass http cache then use the pragma header to achieve it.",
+        "arguments": [
+          {
+            "name": "url",
+            "type": "URL"
+          },
+          {
+            "name": "options",
+            "type": "Object",
+            "description": " (optional)"
+          }
+        ]
+      },
+      {
+        "name": "downloadURL",
+        "signature": "(url)",
+        "description": "Initiates a download of the resource at url without navigating. The will-download event of session will be triggered.",
+        "arguments": [
+          {
+            "name": "url",
+            "type": "URL"
+          }
+        ]
+      },
+      {
+        "name": "getURL",
+        "signature": "()",
+        "description": "Returns URL of the current web page."
+      },
+      {
+        "name": "getTitle",
+        "signature": "()",
+        "description": "Returns the title of the current web page."
+      },
+      {
+        "name": "isLoading",
+        "signature": "()",
+        "description": "Returns whether web page is still loading resources."
+      },
+      {
+        "name": "isLoadingMainFrame",
+        "signature": "()",
+        "description": "Returns whether the main frame (and not just iframes or frames within it) is still loading."
+      },
+      {
+        "name": "isWaitingForResponse",
+        "signature": "()",
+        "description": "Returns whether the web page is waiting for a first-response from the main resource of the page."
+      },
+      {
+        "name": "stop",
+        "signature": "()",
+        "description": "Stops any pending navigation."
+      },
+      {
+        "name": "reload",
+        "signature": "()",
+        "description": "Reloads the current web page."
+      },
+      {
+        "name": "reloadIgnoringCache",
+        "signature": "()",
+        "description": "Reloads current page and ignores cache."
+      },
+      {
+        "name": "canGoBack",
+        "signature": "()",
+        "description": "Returns whether the browser can go back to previous web page."
+      },
+      {
+        "name": "canGoForward",
+        "signature": "()",
+        "description": "Returns whether the browser can go forward to next web page."
+      },
+      {
+        "name": "canGoToOffset",
+        "signature": "(offset)",
+        "description": "Returns whether the web page can go to offset.",
+        "arguments": [
+          {
+            "name": "offset",
+            "type": "Integer"
+          }
+        ]
+      },
+      {
+        "name": "clearHistory",
+        "signature": "()",
+        "description": "Clears the navigation history."
+      },
+      {
+        "name": "goBack",
+        "signature": "()",
+        "description": "Makes the browser go back a web page."
+      },
+      {
+        "name": "goForward",
+        "signature": "()",
+        "description": "Makes the browser go forward a web page."
+      },
+      {
+        "name": "goToIndex",
+        "signature": "(index)",
+        "description": "Navigates browser to the specified absolute web page index.",
+        "arguments": [
+          {
+            "name": "index",
+            "type": "Integer"
+          }
+        ]
+      },
+      {
+        "name": "goToOffset",
+        "signature": "(offset)",
+        "description": "Navigates to the specified offset from the \"current entry\".",
+        "arguments": [
+          {
+            "name": "offset",
+            "type": "Integer"
+          }
+        ]
+      },
+      {
+        "name": "isCrashed",
+        "signature": "()",
+        "description": "Whether the renderer process has crashed."
+      },
+      {
+        "name": "setUserAgent",
+        "signature": "(userAgent)",
+        "description": "Overrides the user agent for this web page.",
+        "arguments": [
+          {
+            "name": "userAgent",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "getUserAgent",
+        "signature": "()",
+        "description": "Returns a String representing the user agent for this web page."
+      },
+      {
+        "name": "insertCSS",
+        "signature": "(css)",
+        "description": "Injects CSS into the current web page.",
+        "arguments": [
+          {
+            "name": "css",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "executeJavaScript",
+        "signature": "(code[, userGesture, callback])",
+        "description": "Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation.",
+        "arguments": [
+          {
+            "name": "code",
+            "type": "String"
+          },
+          {
+            "name": "userGesture",
+            "type": "Boolean",
+            "description": " (optional)"
           },
           {
             "name": "callback",
             "type": "Function",
-            "properties": [
-              {
-                "name": "deviceId",
-                "type": "String"
-              }
-            ]
+            "description": " (optional) - Called after script has been executed."
           }
         ]
+      },
+      {
+        "name": "setAudioMuted",
+        "signature": "(muted)",
+        "description": "Mute the audio on the current web page.",
+        "arguments": [
+          {
+            "name": "muted",
+            "type": "Boolean"
+          }
+        ]
+      },
+      {
+        "name": "isAudioMuted",
+        "signature": "()",
+        "description": "Returns whether this page has been muted."
+      },
+      {
+        "name": "undo",
+        "signature": "()",
+        "description": "Executes the editing command undo in web page."
+      },
+      {
+        "name": "redo",
+        "signature": "()",
+        "description": "Executes the editing command redo in web page."
+      },
+      {
+        "name": "cut",
+        "signature": "()",
+        "description": "Executes the editing command cut in web page."
+      },
+      {
+        "name": "copy",
+        "signature": "()",
+        "description": "Executes the editing command copy in web page."
+      },
+      {
+        "name": "paste",
+        "signature": "()",
+        "description": "Executes the editing command paste in web page."
+      },
+      {
+        "name": "pasteAndMatchStyle",
+        "signature": "()",
+        "description": "Executes the editing command pasteAndMatchStyle in web page."
+      },
+      {
+        "name": "delete",
+        "signature": "()",
+        "description": "Executes the editing command delete in web page."
+      },
+      {
+        "name": "selectAll",
+        "signature": "()",
+        "description": "Executes the editing command selectAll in web page."
+      },
+      {
+        "name": "unselect",
+        "signature": "()",
+        "description": "Executes the editing command unselect in web page."
+      },
+      {
+        "name": "replace",
+        "signature": "(text)",
+        "description": "Executes the editing command replace in web page.",
+        "arguments": [
+          {
+            "name": "text",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "replaceMisspelling",
+        "signature": "(text)",
+        "description": "Executes the editing command replaceMisspelling in web page.",
+        "arguments": [
+          {
+            "name": "text",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "insertText",
+        "signature": "(text)",
+        "description": "Inserts text to the focused element.",
+        "arguments": [
+          {
+            "name": "text",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "findInPage",
+        "signature": "(text[, options])",
+        "description": "Starts a request to find all matches for the text in the web page and returns an Integer representing the request id used for the request. The result of the request can be obtained by subscribing to found-in-page event.",
+        "arguments": [
+          {
+            "name": "text",
+            "type": "String",
+            "description": "Content to be searched, must not be empty."
+          },
+          {
+            "name": "options",
+            "type": "Object",
+            "description": " (optional)"
+          }
+        ]
+      },
+      {
+        "name": "stopFindInPage",
+        "signature": "(action)",
+        "description": "Stops any findInPage request for the webContents with the provided action.",
+        "arguments": [
+          {
+            "name": "action",
+            "type": "String",
+            "description": "Specifies the action to take place when ending"
+          }
+        ]
+      },
+      {
+        "name": "hasServiceWorker",
+        "signature": "(callback)",
+        "description": "Checks if any ServiceWorker is registered and returns a boolean as response to callback.",
+        "arguments": [
+          {
+            "name": "callback",
+            "type": "Function"
+          }
+        ]
+      },
+      {
+        "name": "unregisterServiceWorker",
+        "signature": "(callback)",
+        "description": "Unregisters any ServiceWorker if present and returns a boolean as response to callback when the JS promise is fulfilled or false when the JS promise is rejected.",
+        "arguments": [
+          {
+            "name": "callback",
+            "type": "Function"
+          }
+        ]
+      },
+      {
+        "name": "print",
+        "signature": "([options])",
+        "description": "Prints window's web page. When silent is set to false, Electron will pick up system's default printer and default settings for printing. Calling window.print() in web page is equivalent to calling webContents.print({silent: false, printBackground: false}). Note: On Windows, the print API relies on pdf.dll. If your application doesn't need the print feature, you can safely remove pdf.dll to reduce binary size.",
+        "arguments": [
+          {
+            "name": "options",
+            "type": "Object",
+            "description": " (optional)"
+          }
+        ]
+      },
+      {
+        "name": "printToPDF",
+        "signature": "(options, callback)",
+        "description": "Prints window's web page as PDF with Chromium's preview printing custom settings. The callback will be called with callback(error, data) on completion. The data is a Buffer that contains the generated PDF data. By default, an empty options will be regarded as: An example of webContents.printToPDF:",
+        "arguments": [
+          {
+            "name": "options",
+            "type": "Object"
+          },
+          {
+            "name": "callback",
+            "type": "Function"
+          }
+        ]
+      },
+      {
+        "name": "addWorkSpace",
+        "signature": "(path)",
+        "description": "Adds the specified path to DevTools workspace. Must be used after DevTools creation:",
+        "arguments": [
+          {
+            "name": "path",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "removeWorkSpace",
+        "signature": "(path)",
+        "description": "Removes the specified path from DevTools workspace.",
+        "arguments": [
+          {
+            "name": "path",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "openDevTools",
+        "signature": "([options])",
+        "description": "Opens the devtools.",
+        "arguments": [
+          {
+            "name": "options",
+            "type": "Object",
+            "description": " (optional)"
+          }
+        ]
+      },
+      {
+        "name": "closeDevTools",
+        "signature": "()",
+        "description": "Closes the devtools."
+      },
+      {
+        "name": "isDevToolsOpened",
+        "signature": "()",
+        "description": "Returns whether the devtools is opened."
+      },
+      {
+        "name": "isDevToolsFocused",
+        "signature": "()",
+        "description": "Returns whether the devtools view is focused ."
+      },
+      {
+        "name": "toggleDevTools",
+        "signature": "()",
+        "description": "Toggles the developer tools."
+      },
+      {
+        "name": "inspectElement",
+        "signature": "(x, y)",
+        "description": "Starts inspecting element at position (x, y).",
+        "arguments": [
+          {
+            "name": "x",
+            "type": "Integer"
+          },
+          {
+            "name": "y",
+            "type": "Integer"
+          }
+        ]
+      },
+      {
+        "name": "inspectServiceWorker",
+        "signature": "()",
+        "description": "Opens the developer tools for the service worker context."
+      },
+      {
+        "name": "send",
+        "signature": "(channel[, arg1][, arg2][, ...])",
+        "description": "Send an asynchronous message to renderer process via channel, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included. The renderer process can handle the message by listening to channel with the ipcRenderer module. An example of sending messages from the main process to the renderer process:",
+        "arguments": [
+          {
+            "name": "channel",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "enableDeviceEmulation",
+        "signature": "(parameters)",
+        "description": "parameters Object, properties: Enable device emulation with the given parameters.",
+        "arguments": [
+          {
+            "name": "screenPosition",
+            "type": "String",
+            "description": "Specify the screen type to emulate"
+          },
+          {
+            "name": "screenSize",
+            "type": "Object",
+            "description": "Set the emulated screen size (screenPosition == mobile)"
+          },
+          {
+            "name": "viewPosition",
+            "type": "Object",
+            "description": "Position the view on the screen"
+          },
+          {
+            "name": "deviceScaleFactor",
+            "type": "Integer",
+            "description": "Set the device scale factor (if zero defaults to"
+          },
+          {
+            "name": "viewSize",
+            "type": "Object",
+            "description": "Set the emulated view size (empty means no override)"
+          },
+          {
+            "name": "fitToView",
+            "type": "Boolean",
+            "description": "Whether emulated view should be scaled down if"
+          },
+          {
+            "name": "offset",
+            "type": "Object",
+            "description": "Offset of the emulated view inside available space (not in"
+          },
+          {
+            "name": "scale",
+            "type": "Float",
+            "description": "Scale of emulated view inside available space (not in fit to"
+          }
+        ]
+      },
+      {
+        "name": "disableDeviceEmulation",
+        "signature": "()",
+        "description": "Disable device emulation enabled by webContents.enableDeviceEmulation."
+      },
+      {
+        "name": "sendInputEvent",
+        "signature": "(event)",
+        "description": "Sends an input event to the page. For keyboard events, the event object also have following properties: For mouse events, the event object also have following properties: For the mouseWheel event, the event object also have following properties:",
+        "arguments": [
+          {
+            "name": "event",
+            "type": "Object"
+          },
+          {
+            "name": "keyCode",
+            "type": "String",
+            "description": " (<strong>required</strong>) - The character that will be sent"
+          },
+          {
+            "name": "x",
+            "type": "Integer",
+            "description": " (<strong>required</strong>)"
+          },
+          {
+            "name": "y",
+            "type": "Integer",
+            "description": " (<strong>required</strong>)"
+          },
+          {
+            "name": "button",
+            "type": "String",
+            "description": "The button pressed, can be <code>left</code>, <code>middle</code>, <code>right</code>"
+          },
+          {
+            "name": "globalX",
+            "type": "Integer"
+          },
+          {
+            "name": "globalY",
+            "type": "Integer"
+          },
+          {
+            "name": "movementX",
+            "type": "Integer"
+          },
+          {
+            "name": "movementY",
+            "type": "Integer"
+          },
+          {
+            "name": "clickCount",
+            "type": "Integer"
+          },
+          {
+            "name": "deltaX",
+            "type": "Integer"
+          },
+          {
+            "name": "deltaY",
+            "type": "Integer"
+          },
+          {
+            "name": "wheelTicksX",
+            "type": "Integer"
+          },
+          {
+            "name": "wheelTicksY",
+            "type": "Integer"
+          },
+          {
+            "name": "accelerationRatioX",
+            "type": "Integer"
+          },
+          {
+            "name": "accelerationRatioY",
+            "type": "Integer"
+          },
+          {
+            "name": "hasPreciseScrollingDeltas",
+            "type": "Boolean"
+          },
+          {
+            "name": "canScroll",
+            "type": "Boolean"
+          }
+        ]
+      },
+      {
+        "name": "beginFrameSubscription",
+        "signature": "(callback)",
+        "description": "Begin subscribing for presentation events and captured frames, the callback will be called with callback(frameBuffer) when there is a presentation event. The frameBuffer is a Buffer that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).",
+        "arguments": [
+          {
+            "name": "callback",
+            "type": "Function"
+          }
+        ]
+      },
+      {
+        "name": "endFrameSubscription",
+        "signature": "()",
+        "description": "End subscribing for frame presentation events."
+      },
+      {
+        "name": "savePage",
+        "signature": "(fullPath, saveType, callback)",
+        "description": "Returns true if the process of saving page has been initiated successfully.",
+        "arguments": [
+          {
+            "name": "fullPath",
+            "type": "String",
+            "description": "The full file path."
+          },
+          {
+            "name": "saveType",
+            "type": "String",
+            "description": "Specify the save type."
+          },
+          {
+            "name": "callback",
+            "type": "Function",
+            "description": "<code>(error) =&gt; {}</code>."
+          }
+        ]
+      },
+      {
+        "name": "showDefinitionForSelection",
+        "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Shows pop-up dictionary that searches the selected word on the page."
       }
     ]
   },
   {
     "name": "process",
+    "description": "Extensions to process object.",
     "mainProcess": true,
+    "type": "Object",
     "slug": "process",
     "websiteUrl": "http://electron.atom.io/docs/api/process",
     "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/process.md",
-    "type": "Object",
-    "description": "Extensions to process object.",
     "events": [
       {
         "name": "loaded",
@@ -3272,38 +2786,38 @@
   },
   {
     "name": "desktopCapturer",
+    "description": "List getUserMedia sources for capturing audio, video, and images from a\nmicrophone, camera, or screen.",
     "rendererProcess": true,
+    "type": "Object",
     "slug": "desktop-capturer",
     "websiteUrl": "http://electron.atom.io/docs/api/desktop-capturer",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/desktop-capturer.md",
-    "type": "Object",
-    "description": "List getUserMedia sources for capturing audio, video, and images from a\nmicrophone, camera, or screen."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/desktop-capturer.md"
   },
   {
     "name": "ipcRenderer",
+    "description": "Communicate asynchronously from a renderer process to the main process.",
     "rendererProcess": true,
+    "type": "Object",
     "slug": "ipc-renderer",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-renderer",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/ipc-renderer.md",
-    "type": "Object",
-    "description": "Communicate asynchronously from a renderer process to the main process."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/ipc-renderer.md"
   },
   {
     "name": "remote",
+    "description": "Use main process modules from the renderer process.",
     "rendererProcess": true,
+    "type": "Object",
     "slug": "remote",
     "websiteUrl": "http://electron.atom.io/docs/api/remote",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/remote.md",
-    "type": "Object",
-    "description": "Use main process modules from the renderer process."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/remote.md"
   },
   {
     "name": "webFrame",
+    "description": "Customize the rendering of the current web page.",
     "rendererProcess": true,
+    "type": "Object",
     "slug": "web-frame",
     "websiteUrl": "http://electron.atom.io/docs/api/web-frame",
-    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/web-frame.md",
-    "type": "Object",
-    "description": "Customize the rendering of the current web page."
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/web-frame.md"
   }
 ]
