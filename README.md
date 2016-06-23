@@ -94,7 +94,6 @@ None
 - [electron-prebuilt](https://github.com/electron-userland/electron-prebuilt): Install electron prebuilt binaries for the command-line use using npm
 - [sort-object-keys](https://github.com/keithamus/sort-object-keys): Sort an object&#39;s keys, including an optional key list
 - [standard](https://github.com/feross/standard): JavaScript Standard Style
-- [superagent](https://github.com/visionmedia/superagent): elegant & feature rich browser / node HTTP with a fluent API
 - [tap-spec](https://github.com/scottcorgan/tap-spec): Formatted TAP output like Mocha's spec reporter
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 - [decamelize](https://github.com/sindresorhus/decamelize): Convert a camelized string into a lowercased one with a custom separator: unicornRainbow → unicorn_rainbow
