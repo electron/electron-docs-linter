@@ -4,12 +4,9 @@
   "description": "A JSON object describing Electron's APIs",
   "main": "apis.json",
   "scripts": {
-    "build": "electron lib/main.js > apis.json",
-    "debug": "electron lib/main.js --debug",
+    "build": "./script/build.js > apis.json",
     "pretest": "npm run build",
-    "test": "mocha && standard",
-    "repl": "electron --interactive",
-    "update-electron": "npm rm --save-dev electron-prebuilt && npm i --save-dev electron-prebuilt"
+    "test": "mocha && standard"
   },
   "repository": "https://github.com/zeke/electron-apis",
   "keywords": [
@@ -18,7 +15,8 @@
     "json",
     "schema",
     "documentation",
-    "api"
+    "api",
+    "markdown"
   ],
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)",
   "license": "MIT",
@@ -30,7 +28,6 @@
     "chai": "^3.5.0",
     "decamelize": "^1.2.0",
     "electron-docs": "^1.0.4",
-    "electron-prebuilt": "^1.2.4",
     "heads": "^1.1.0",
     "lodash.find": "^4.3.0",
     "marky-markdown-lite": "^1.1.0",

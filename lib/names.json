@@ -1,0 +1,111 @@
+[
+  {
+    "name": "clipboard",
+    "rendererProcess": true,
+    "mainProcess": true
+  },
+  {
+    "name": "crashReporter",
+    "rendererProcess": true,
+    "mainProcess": true
+  },
+  {
+    "name": "nativeImage",
+    "rendererProcess": true,
+    "mainProcess": true
+  },
+  {
+    "name": "shell",
+    "rendererProcess": true,
+    "mainProcess": true
+  },
+  {
+    "name": "app",
+    "mainProcess": true
+  },
+  {
+    "name": "autoUpdater",
+    "mainProcess": true
+  },
+  {
+    "name": "BrowserWindow",
+    "mainProcess": true
+  },
+  {
+    "name": "contentTracing",
+    "mainProcess": true
+  },
+  {
+    "name": "dialog",
+    "mainProcess": true
+  },
+  {
+    "name": "ipcMain",
+    "mainProcess": true
+  },
+  {
+    "name": "globalShortcut",
+    "mainProcess": true
+  },
+  {
+    "name": "Menu",
+    "mainProcess": true
+  },
+  {
+    "name": "MenuItem",
+    "mainProcess": true
+  },
+  {
+    "name": "powerMonitor",
+    "mainProcess": true
+  },
+  {
+    "name": "powerSaveBlocker",
+    "mainProcess": true
+  },
+  {
+    "name": "protocol",
+    "mainProcess": true
+  },
+  {
+    "name": "screen",
+    "rendererProcess": true,
+    "mainProcess": true
+  },
+  {
+    "name": "session",
+    "mainProcess": true
+  },
+  {
+    "name": "systemPreferences",
+    "mainProcess": true
+  },
+  {
+    "name": "Tray",
+    "mainProcess": true
+  },
+  {
+    "name": "webContents",
+    "mainProcess": true
+  },
+  {
+    "name": "process",
+    "mainProcess": true
+  },
+  {
+    "name": "desktopCapturer",
+    "rendererProcess": true
+  },
+  {
+    "name": "ipcRenderer",
+    "rendererProcess": true
+  },
+  {
+    "name": "remote",
+    "rendererProcess": true
+  },
+  {
+    "name": "webFrame",
+    "rendererProcess": true
+  }
+]

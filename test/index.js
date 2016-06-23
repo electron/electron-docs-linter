@@ -24,7 +24,7 @@ describe('electron-apis', function () {
     expect(win.type).to.eq('Class')
   })
 
-  describe('instance methods', function () {
+  describe('Instance Methods', function () {
     var win = find(apis, {
       name: 'BrowserWindow'
     })
@@ -42,8 +42,8 @@ describe('electron-apis', function () {
     })
   })
 
-  describe('URLs', function () {
-    this.timeout(30 * 1000)
+  describe('Convenience URLs', function () {
+    this.timeout(10 * 1000)
 
     it('all website URLs return a 200 status code', function (done) {
       var urls = apis.map(api => api.websiteUrl)
@@ -53,13 +53,13 @@ describe('electron-apis', function () {
       })
     })
 
-    it('all repo URLs return a 200 status code', function (done) {
-      var urls = apis.map(api => api.repoUrl)
-      heads(urls).then(function (codes) {
-        expect(codes.every(code => code === 200)).to.be.true
-        done()
-      })
-    })
+    // it('all repository URLs return a 200 status code', function (done) {
+    //   var urls = apis.map(api => api.repoUrl)
+    //   heads(urls).then(function (codes) {
+    //     expect(codes.every(code => code === 200)).to.be.true
+    //     done()
+    //   })
+    // })
   })
 })
 

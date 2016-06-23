@@ -1,41 +1,41 @@
 [
   {
     "name": "clipboard",
+    "rendererProcess": true,
     "mainProcess": true,
     "slug": "clipboard",
     "websiteUrl": "http://electron.atom.io/docs/api/clipboard",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/clipboard.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/clipboard.md",
     "type": "Object",
-    "rendererProcess": true,
     "description": "Perform copy and paste operations on the system clipboard."
   },
   {
     "name": "crashReporter",
+    "rendererProcess": true,
     "mainProcess": true,
     "slug": "crash-reporter",
     "websiteUrl": "http://electron.atom.io/docs/api/crash-reporter",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/crash-reporter.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/crash-reporter.md",
     "type": "Object",
-    "rendererProcess": true,
     "description": "Submit crash reports to a remote server."
   },
   {
     "name": "nativeImage",
+    "rendererProcess": true,
     "mainProcess": true,
     "slug": "native-image",
     "websiteUrl": "http://electron.atom.io/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/native-image.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/native-image.md",
     "type": "Object",
-    "rendererProcess": true,
     "description": "Create tray, dock, and application icons using PNG or JPG files.",
     "instanceMethods": [
       {
-        "name": "toPng",
+        "name": "toPNG",
         "signature": "()",
         "description": "Returns a Buffer that contains the image's PNG encoded data."
       },
       {
-        "name": "toJpeg",
+        "name": "toJPEG",
         "signature": "(quality)",
         "description": "Returns a Buffer that contains the image's JPEG encoded data.",
         "arguments": [
@@ -89,12 +89,12 @@
   },
   {
     "name": "shell",
+    "rendererProcess": true,
     "mainProcess": true,
     "slug": "shell",
     "websiteUrl": "http://electron.atom.io/docs/api/shell",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/shell.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/shell.md",
     "type": "Object",
-    "rendererProcess": true,
     "description": "Manage files and URLs using their default applications."
   },
   {
@@ -102,7 +102,7 @@
     "mainProcess": true,
     "slug": "app",
     "websiteUrl": "http://electron.atom.io/docs/api/app",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/app.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/app.md",
     "type": "Object",
     "description": "Control your application's event lifecycle.",
     "events": [
@@ -432,7 +432,7 @@
     "mainProcess": true,
     "slug": "auto-updater",
     "websiteUrl": "http://electron.atom.io/docs/api/auto-updater",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/auto-updater.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/auto-updater.md",
     "type": "Object",
     "description": "Enable apps to automatically update themselves.",
     "events": [
@@ -491,7 +491,7 @@
     "mainProcess": true,
     "slug": "browser-window",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-window",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/browser-window.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/browser-window.md",
     "type": "Class",
     "description": "Create and control browser windows.",
     "instanceMethods": [
@@ -1347,6 +1347,15 @@
         ]
       },
       {
+        "name": "setContentProtection",
+        "signature": "(enable)",
+        "platforms": [
+          "macOS",
+          "Windows"
+        ],
+        "description": "Prevents the window contents from being captured by other apps. On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with WDA_MONITOR."
+      },
+      {
         "name": "setFocusable",
         "signature": "(focusable)",
         "platforms": [
@@ -1541,7 +1550,7 @@
     "mainProcess": true,
     "slug": "content-tracing",
     "websiteUrl": "http://electron.atom.io/docs/api/content-tracing",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/content-tracing.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/content-tracing.md",
     "type": "Object",
     "description": "Collect tracing data from Chromium's content module for finding performance\nbottlenecks and slow operations."
   },
@@ -1550,7 +1559,7 @@
     "mainProcess": true,
     "slug": "dialog",
     "websiteUrl": "http://electron.atom.io/docs/api/dialog",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/dialog.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/dialog.md",
     "type": "Object",
     "description": "Display native system dialogs for opening and saving files, alerting, etc."
   },
@@ -1559,7 +1568,7 @@
     "mainProcess": true,
     "slug": "ipc-main",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-main",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/ipc-main.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/ipc-main.md",
     "type": "Object",
     "description": "Communicate asynchronously from the main process to renderer processes."
   },
@@ -1568,7 +1577,7 @@
     "mainProcess": true,
     "slug": "global-shortcut",
     "websiteUrl": "http://electron.atom.io/docs/api/global-shortcut",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/global-shortcut.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/global-shortcut.md",
     "type": "Object",
     "description": "Detect keyboard events when the application does not have keyboard focus."
   },
@@ -1577,7 +1586,7 @@
     "mainProcess": true,
     "slug": "menu",
     "websiteUrl": "http://electron.atom.io/docs/api/menu",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/menu.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/menu.md",
     "type": "Class",
     "description": "Create native application menus and context menus.",
     "instanceMethods": [
@@ -1640,7 +1649,7 @@
     "mainProcess": true,
     "slug": "menu-item",
     "websiteUrl": "http://electron.atom.io/docs/api/menu-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/menu-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/menu-item.md",
     "type": "Class",
     "description": "Add items to native application menus and context menus."
   },
@@ -1649,7 +1658,7 @@
     "mainProcess": true,
     "slug": "power-monitor",
     "websiteUrl": "http://electron.atom.io/docs/api/power-monitor",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/power-monitor.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/power-monitor.md",
     "type": "Object",
     "description": "Monitor power state changes.",
     "events": [
@@ -1682,7 +1691,7 @@
     "mainProcess": true,
     "slug": "power-save-blocker",
     "websiteUrl": "http://electron.atom.io/docs/api/power-save-blocker",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/power-save-blocker.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/power-save-blocker.md",
     "type": "Object",
     "description": "Block the system from entering low-power (sleep) mode."
   },
@@ -1691,18 +1700,18 @@
     "mainProcess": true,
     "slug": "protocol",
     "websiteUrl": "http://electron.atom.io/docs/api/protocol",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/protocol.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/protocol.md",
     "type": "Object",
     "description": "Register a custom protocol and intercept existing protocol requests."
   },
   {
     "name": "screen",
+    "rendererProcess": true,
     "mainProcess": true,
     "slug": "screen",
     "websiteUrl": "http://electron.atom.io/docs/api/screen",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/screen.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/screen.md",
     "type": "Object",
-    "rendererProcess": true,
     "description": "Retrieve information about screen size, displays, cursor position, etc.",
     "events": [
       {
@@ -1758,520 +1767,16 @@
     "mainProcess": true,
     "slug": "session",
     "websiteUrl": "http://electron.atom.io/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/session.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/session.md",
     "type": "Object",
-    "description": "Manage browser sessions, cookies, cache, proxy settings, etc.",
-    "instanceMethods": [
-      {
-        "name": "resolveProxy",
-        "signature": "(url, callback)",
-        "description": "Resolves the proxy information for url. The callback will be called with callback(proxy) when the request is performed. Sets download saving directory. By default, the download directory will be the Downloads under the respective app folder. Emulates network with the given configuration for the session. Disables any network emulation already active for the session. Resets to the original network configuration. Sets the certificate verify proc for session, the proc will be called with proc(hostname, certificate, callback) whenever a server certificate verification is requested. Calling callback(true) accepts the certificate, calling callback(false) rejects it. Calling setCertificateVerifyProc(null) will revert back to default certificate verify proc. Sets the handler which can be used to respond to permission requests for the session. Calling callback(true) will allow the permission and callback(false) will reject it. Clears the host resolver cache. Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication. The webRequest API set allows to intercept and modify contents of a request at various stages of its lifetime. Each API accepts an optional filter and a listener, the listener will be called with listener(details) when the API's event has happened, the details is an object that describes the request. Passing null as listener will unsubscribe from the event. The filter is an object that has an urls property, which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the filter is omitted then all requests will be matched. For certain events the listener is passed with a callback, which should be called with an response object when listener has done its work. The listener will be called with listener(details, callback) when a request is about to occur. The uploadData is an array of data objects: The callback has to be called with an response object: The listener will be called with listener(details, callback) before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent. The callback has to be called with an response object: The listener will be called with listener(details) just before a request is going to be sent to the server, modifications of previous onBeforeSendHeaders response are visible by the time this listener is fired. The listener will be called with listener(details, callback) when HTTP response headers of a request have been received. The callback has to be called with an response object: The listener will be called with listener(details) when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available. The listener will be called with listener(details) when a server initiated redirect is about to occur. The listener will be called with listener(details) when a request is completed. The listener will be called with listener(details) when an error occurs. Returns an instance of protocol module for this session.",
-        "arguments": [
-          {
-            "name": "url",
-            "type": "URL"
-          },
-          {
-            "name": "callback",
-            "type": "Function"
-          },
-          {
-            "name": "path",
-            "type": "String",
-            "description": "The download location"
-          },
-          {
-            "name": "options",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "offline",
-                "type": "Boolean - Whether to emulate network outage."
-              },
-              {
-                "name": "latency",
-                "type": "Double - RTT in ms"
-              },
-              {
-                "name": "downloadThroughput",
-                "type": "Double - Download rate in Bps"
-              },
-              {
-                "name": "uploadThroughput",
-                "type": "Double - Upload rate in Bps"
-              }
-            ]
-          },
-          {
-            "name": "proc",
-            "type": "Function"
-          },
-          {
-            "name": "handler",
-            "type": "Function",
-            "properties": [
-              {
-                "name": "webContents",
-                "type": "Object - <a href=\"web-contents.md\">WebContents</a> requesting the permission."
-              },
-              {
-                "name": "permission",
-                "type": "String - Enum of &apos;media&apos;, &apos;geolocation&apos;, &apos;notifications&apos;, &apos;midiSysex&apos;,"
-              },
-              {
-                "name": "callback",
-                "type": "Function - Allow or deny the permission."
-              }
-            ]
-          },
-          {
-            "name": "callback",
-            "type": "Function (optional)",
-            "description": "Called when operation is done."
-          },
-          {
-            "name": "domains",
-            "type": "String",
-            "description": "A comma-seperated list of servers for which"
-          },
-          {
-            "name": "filter",
-            "type": "Object"
-          },
-          {
-            "name": "listener",
-            "type": "Function"
-          },
-          {
-            "name": "details",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "id",
-                "type": "Integer"
-              },
-              {
-                "name": "url",
-                "type": "String"
-              },
-              {
-                "name": "method",
-                "type": "String"
-              },
-              {
-                "name": "resourceType",
-                "type": "String"
-              },
-              {
-                "name": "timestamp",
-                "type": "Double"
-              },
-              {
-                "name": "uploadData",
-                "type": "Array (optional)"
-              }
-            ]
-          },
-          {
-            "name": "callback",
-            "type": "Function"
-          },
-          {
-            "name": "data",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "bytes",
-                "type": "Buffer - Content being sent."
-              },
-              {
-                "name": "file",
-                "type": "String - Path of file being uploaded."
-              }
-            ]
-          },
-          {
-            "name": "response",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "cancel",
-                "type": "Boolean (optional)"
-              },
-              {
-                "name": "redirectURL",
-                "type": "String (optional) - The original request is prevented from"
-              }
-            ]
-          },
-          {
-            "name": "filter",
-            "type": "Object"
-          },
-          {
-            "name": "listener",
-            "type": "Function"
-          },
-          {
-            "name": "details",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "id",
-                "type": "Integer"
-              },
-              {
-                "name": "url",
-                "type": "String"
-              },
-              {
-                "name": "method",
-                "type": "String"
-              },
-              {
-                "name": "resourceType",
-                "type": "String"
-              },
-              {
-                "name": "timestamp",
-                "type": "Double"
-              },
-              {
-                "name": "requestHeaders",
-                "type": "Object"
-              }
-            ]
-          },
-          {
-            "name": "callback",
-            "type": "Function"
-          },
-          {
-            "name": "response",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "cancel",
-                "type": "Boolean (optional)"
-              },
-              {
-                "name": "requestHeaders",
-                "type": "Object (optional) - When provided, request will be made"
-              }
-            ]
-          },
-          {
-            "name": "filter",
-            "type": "Object"
-          },
-          {
-            "name": "listener",
-            "type": "Function"
-          },
-          {
-            "name": "details",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "id",
-                "type": "Integer"
-              },
-              {
-                "name": "url",
-                "type": "String"
-              },
-              {
-                "name": "method",
-                "type": "String"
-              },
-              {
-                "name": "resourceType",
-                "type": "String"
-              },
-              {
-                "name": "timestamp",
-                "type": "Double"
-              },
-              {
-                "name": "requestHeaders",
-                "type": "Object"
-              }
-            ]
-          },
-          {
-            "name": "filter",
-            "type": "Object"
-          },
-          {
-            "name": "listener",
-            "type": "Function"
-          },
-          {
-            "name": "details",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "id",
-                "type": "String"
-              },
-              {
-                "name": "url",
-                "type": "String"
-              },
-              {
-                "name": "method",
-                "type": "String"
-              },
-              {
-                "name": "resourceType",
-                "type": "String"
-              },
-              {
-                "name": "timestamp",
-                "type": "Double"
-              },
-              {
-                "name": "statusLine",
-                "type": "String"
-              },
-              {
-                "name": "statusCode",
-                "type": "Integer"
-              },
-              {
-                "name": "responseHeaders",
-                "type": "Object"
-              }
-            ]
-          },
-          {
-            "name": "callback",
-            "type": "Function"
-          },
-          {
-            "name": "response",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "cancel",
-                "type": "Boolean"
-              },
-              {
-                "name": "responseHeaders",
-                "type": "Object (optional) - When provided, the server is assumed"
-              },
-              {
-                "name": "statusLine",
-                "type": "String (optional) - Should be provided when overriding"
-              }
-            ]
-          },
-          {
-            "name": "filter",
-            "type": "Object"
-          },
-          {
-            "name": "listener",
-            "type": "Function"
-          },
-          {
-            "name": "details",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "id",
-                "type": "Integer"
-              },
-              {
-                "name": "url",
-                "type": "String"
-              },
-              {
-                "name": "method",
-                "type": "String"
-              },
-              {
-                "name": "resourceType",
-                "type": "String"
-              },
-              {
-                "name": "timestamp",
-                "type": "Double"
-              },
-              {
-                "name": "responseHeaders",
-                "type": "Object"
-              },
-              {
-                "name": "fromCache",
-                "type": "Boolean - Indicates whether the response was fetched from disk"
-              },
-              {
-                "name": "statusCode",
-                "type": "Integer"
-              },
-              {
-                "name": "statusLine",
-                "type": "String"
-              }
-            ]
-          },
-          {
-            "name": "filter",
-            "type": "Object"
-          },
-          {
-            "name": "listener",
-            "type": "Function"
-          },
-          {
-            "name": "details",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "id",
-                "type": "String"
-              },
-              {
-                "name": "url",
-                "type": "String"
-              },
-              {
-                "name": "method",
-                "type": "String"
-              },
-              {
-                "name": "resourceType",
-                "type": "String"
-              },
-              {
-                "name": "timestamp",
-                "type": "Double"
-              },
-              {
-                "name": "redirectURL",
-                "type": "String"
-              },
-              {
-                "name": "statusCode",
-                "type": "Integer"
-              },
-              {
-                "name": "ip",
-                "type": "String (optional) - The server IP address that the request was"
-              },
-              {
-                "name": "fromCache",
-                "type": "Boolean"
-              },
-              {
-                "name": "responseHeaders",
-                "type": "Object"
-              }
-            ]
-          },
-          {
-            "name": "filter",
-            "type": "Object"
-          },
-          {
-            "name": "listener",
-            "type": "Function"
-          },
-          {
-            "name": "details",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "id",
-                "type": "Integer"
-              },
-              {
-                "name": "url",
-                "type": "String"
-              },
-              {
-                "name": "method",
-                "type": "String"
-              },
-              {
-                "name": "resourceType",
-                "type": "String"
-              },
-              {
-                "name": "timestamp",
-                "type": "Double"
-              },
-              {
-                "name": "responseHeaders",
-                "type": "Object"
-              },
-              {
-                "name": "fromCache",
-                "type": "Boolean"
-              },
-              {
-                "name": "statusCode",
-                "type": "Integer"
-              },
-              {
-                "name": "statusLine",
-                "type": "String"
-              }
-            ]
-          },
-          {
-            "name": "filter",
-            "type": "Object"
-          },
-          {
-            "name": "listener",
-            "type": "Function"
-          },
-          {
-            "name": "details",
-            "type": "Object",
-            "properties": [
-              {
-                "name": "id",
-                "type": "Integer"
-              },
-              {
-                "name": "url",
-                "type": "String"
-              },
-              {
-                "name": "method",
-                "type": "String"
-              },
-              {
-                "name": "resourceType",
-                "type": "String"
-              },
-              {
-                "name": "timestamp",
-                "type": "Double"
-              },
-              {
-                "name": "fromCache",
-                "type": "Boolean"
-              },
-              {
-                "name": "error",
-                "type": "String - The error description."
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "description": "Manage browser sessions, cookies, cache, proxy settings, etc."
   },
   {
     "name": "systemPreferences",
     "mainProcess": true,
     "slug": "system-preferences",
     "websiteUrl": "http://electron.atom.io/docs/api/system-preferences",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/system-preferences.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/system-preferences.md",
     "type": "Object",
     "description": "Get system preferences."
   },
@@ -2280,7 +1785,7 @@
     "mainProcess": true,
     "slug": "tray",
     "websiteUrl": "http://electron.atom.io/docs/api/tray",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/tray.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/tray.md",
     "type": "Class",
     "description": "Add icons and context menus to the system's notification area."
   },
@@ -2289,7 +1794,7 @@
     "mainProcess": true,
     "slug": "web-contents",
     "websiteUrl": "http://electron.atom.io/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/web-contents.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/web-contents.md",
     "type": "Object",
     "description": "Render and control web pages.",
     "instanceMethods": [
@@ -3755,7 +3260,7 @@
     "mainProcess": true,
     "slug": "process",
     "websiteUrl": "http://electron.atom.io/docs/api/process",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/process.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/process.md",
     "type": "Object",
     "description": "Extensions to process object.",
     "events": [
@@ -3770,7 +3275,7 @@
     "rendererProcess": true,
     "slug": "desktop-capturer",
     "websiteUrl": "http://electron.atom.io/docs/api/desktop-capturer",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/desktop-capturer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/desktop-capturer.md",
     "type": "Object",
     "description": "List getUserMedia sources for capturing audio, video, and images from a\nmicrophone, camera, or screen."
   },
@@ -3779,7 +3284,7 @@
     "rendererProcess": true,
     "slug": "ipc-renderer",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-renderer",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/ipc-renderer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/ipc-renderer.md",
     "type": "Object",
     "description": "Communicate asynchronously from a renderer process to the main process."
   },
@@ -3788,7 +3293,7 @@
     "rendererProcess": true,
     "slug": "remote",
     "websiteUrl": "http://electron.atom.io/docs/api/remote",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/remote.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/remote.md",
     "type": "Object",
     "description": "Use main process modules from the renderer process."
   },
@@ -3797,7 +3302,7 @@
     "rendererProcess": true,
     "slug": "web-frame",
     "websiteUrl": "http://electron.atom.io/docs/api/web-frame",
-    "repoUrl": "https://github.com/electron/electron/blob/v1.2.4/docs/api/web-frame.md",
+    "repoUrl": "https://github.com/electron/electron/blob/vundefined/docs/api/web-frame.md",
     "type": "Object",
     "description": "Customize the rendering of the current web page."
   }
