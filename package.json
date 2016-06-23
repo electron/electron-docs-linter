@@ -5,7 +5,6 @@
   "main": "apis.json",
   "scripts": {
     "build": "./script/build.js > apis.json",
-    "pretest": "npm run build",
     "test": "mocha && standard"
   },
   "repository": "https://github.com/zeke/electron-apis",
