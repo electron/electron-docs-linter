@@ -49,16 +49,15 @@ bw.instanceMethods[20]
 
 ## How It Works
 
-The build script uses Electron to open a
-browser window and inspect the properties of the `electron` and `electron.remote`
-objects. The result is a collection of the names of all the
+The build script starts with [a list of all the API names](/lib/names.json)
+as well as booleans indicating if they're available on the
 [Main Process](https://github.com/electron/electron/blob/master/docs/tutorial/quick-start.md)
-and
+or the
 [Renderer Process](https://github.com/electron/electron/blob/master/docs/tutorial/quick-start.md)
-APIs.
+(or both).
 
-For each API name found, its structure is inferred by parsing its
-raw markdown documentation from the [electron repo](https://github.com/electron/electron/tree/master/docs/api).
+Each API's structure is inferred by parsing its raw markdown documentation from
+the [electron repo](https://github.com/electron/electron/tree/master/docs/api).
 The [electron-docs](https://github.com/zeke/electron-docs) module abstracts away
 the challenges of fetching those files in bulk.
 
@@ -83,7 +82,7 @@ metadata for each API, where appropriate:
 - instance methods
 - events
 - website URL
-- github repo URL
+- GitHub repository URL
 
 ## Dependencies
 
@@ -91,13 +90,15 @@ None
 
 ## Dev Dependencies
 
-- [electron-prebuilt](https://github.com/electron-userland/electron-prebuilt): Install electron prebuilt binaries for the command-line use using npm
-- [sort-object-keys](https://github.com/keithamus/sort-object-keys): Sort an object&#39;s keys, including an optional key list
-- [standard](https://github.com/feross/standard): JavaScript Standard Style
-- [tap-spec](https://github.com/scottcorgan/tap-spec): Formatted TAP output like Mocha's spec reporter
-- [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
+- [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
 - [decamelize](https://github.com/sindresorhus/decamelize): Convert a camelized string into a lowercased one with a custom separator: unicornRainbow → unicorn_rainbow
+- [electron-docs](https://github.com/zeke/electron-docs): Fetch Electron documentation as raw markdown strings
+- [heads](https://github.com/zeke/heads): Make parallel HEAD requests for an array of URLs and get back their HTTP status codes.
 - [lodash.find](https://github.com/lodash/lodash): The lodash method `_.find` exported as a module.
+- [marky-markdown-lite](https://github.com/zeke/marky-markdown-lite): A version of marky-markdown that does less
+- [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
+- [omit-empty](https://github.com/jonschlinkert/omit-empty): Recursively omit empty properties from an object. Omits empty objects, arrays, strings or zero.
+- [standard](https://github.com/feross/standard): JavaScript Standard Style
 
 
 ## Related
