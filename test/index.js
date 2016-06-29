@@ -75,17 +75,19 @@ describe('apis', function () {
       expect(event.returns[0].type).to.eq('Event')
     })
 
-    they('sometimes have a platform array', function () {
+    they('sometimes have a platforms array', function () {
       var event = find(app.events, {name: 'open-file'})
       expect(event.platforms[0]).to.eq('macOS')
     })
 
-  // they('sometimes have an array of returned properties', function () {
-  //   var Tray = find(apis, {name: 'Tray'})
-  //   var properties = find(Tray.events, {name: 'right-click'}).returns[0].properties
-  //   t.equal(properties[0].name, 'altKey', 'return objects have properties with a `name`')
-  //   t.equal(properties[0].type, 'Boolean', 'return objects have properties with a `type`')
-  // })
+    they('sometimes have return values that are complex objects', function () {
+      var event = find(app.events, {name: 'certificate-error'})
+      var properties = event.returns[4].properties
+      expect(properties.length).to.eq(2)
+      expect(properties[0].name).to.eq('data')
+      expect(properties[0].type).to.eq('Buffer')
+      expect(properties[0].description).to.eq('PEM encoded data')
+    })
   })
 
   describe('Convenience URLs', function () {
