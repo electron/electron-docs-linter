@@ -1,10 +1,22 @@
+const path = require('path')
 const find = require('lodash.find')
 const heads = require('heads')
 const expect = require('chai').expect
-const apis = require('..')
+const lint = require('..')
 const they = it
 
-describe('electron-apis', function () {
+var apis
+
+describe('apis', function () {
+  before(function (done) {
+    var docPath = path.join(__dirname, '../vendor/electron/docs/api')
+    lint(docPath)
+      .then(function (_apis) {
+        apis = _apis
+        done()
+      })
+  })
+
   it('exports an array of api objects', function () {
     expect(apis).to.be.an('array')
     expect(apis).to.not.be.empty
@@ -25,8 +37,10 @@ describe('electron-apis', function () {
   })
 
   describe('Instance Methods', function () {
-    var win = find(apis, {
-      name: 'BrowserWindow'
+    var win
+
+    before(function () {
+      win = find(apis, {name: 'BrowserWindow'})
     })
 
     they('have basic properties', function () {
@@ -43,7 +57,12 @@ describe('electron-apis', function () {
   })
 
   describe('Events', function () {
-    var app = find(apis, {name: 'app'})
+    var app
+
+    before(function () {
+      app = find(apis, {name: 'app'})
+    })
+
     it('is an array of event objects', function () {
       expect(app.events.length).to.be.above(10)
       expect(app.events.every(event => event.name.length > 0)).to.be.true
@@ -61,12 +80,12 @@ describe('electron-apis', function () {
       expect(event.platforms[0]).to.eq('macOS')
     })
 
-    // they('sometimes have an array of returned properties', function () {
-    //   var Tray = find(apis, {name: 'Tray'})
-    //   var properties = find(Tray.events, {name: 'right-click'}).returns[0].properties
-    //   t.equal(properties[0].name, 'altKey', 'return objects have properties with a `name`')
-    //   t.equal(properties[0].type, 'Boolean', 'return objects have properties with a `type`')
-    // })
+  // they('sometimes have an array of returned properties', function () {
+  //   var Tray = find(apis, {name: 'Tray'})
+  //   var properties = find(Tray.events, {name: 'right-click'}).returns[0].properties
+  //   t.equal(properties[0].name, 'altKey', 'return objects have properties with a `name`')
+  //   t.equal(properties[0].type, 'Boolean', 'return objects have properties with a `type`')
+  // })
   })
 
   describe('Convenience URLs', function () {

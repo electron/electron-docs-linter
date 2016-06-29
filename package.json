@@ -2,10 +2,9 @@
   "name": "electron-apis",
   "version": "1.2.0",
   "description": "A JSON object describing Electron's APIs",
-  "main": "apis.json",
+  "main": "index.js",
   "scripts": {
-    "build": "./script/build.js > apis.json",
-    "test": "npm run build && mocha && standard"
+    "test": "mocha && standard"
   },
   "repository": "https://github.com/zeke/electron-apis",
   "keywords": [
@@ -40,6 +39,8 @@
     }
   },
   "dependencies": {
-    "lodash.pick": "^4.2.1"
+    "electron-docs": "^1.1.0",
+    "lodash.pick": "^4.2.1",
+    "pify": "^2.3.0"
   }
 }
