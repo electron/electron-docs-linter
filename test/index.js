@@ -90,6 +90,27 @@ describe('apis', function () {
     })
   })
 
+  describe('JSON serialization', function () {
+    var app
+
+    before(function () {
+      app = find(apis, {name: 'app'})
+    })
+
+    it('preserves desired properties and omits the unwanted ones', function () {
+      var api = JSON.parse(JSON.stringify(app))
+      expect(api.name).to.exist
+      expect(api.description).to.exist
+      expect(api.type).to.exist
+      expect(api.slug).to.exist
+      expect(api.websiteUrl).to.exist
+      expect(api.repoUrl).to.exist
+
+      expect(api.errors).to.not.exist
+      expect(api.docs).to.not.exist
+    })
+  })
+
   describe('Convenience URLs', function () {
     this.timeout(10 * 1000)
 
