@@ -4,6 +4,12 @@ const fetchDocs = require('electron-docs')
 const promisify = require('pify')
 
 function lint (path, callback) {
+
+  if (!callback) {
+    callback = path
+    path = undefined
+  }
+
   return fetchDocs(path)
     .then(function (docs) {
       var apis = seeds.map(props => new API(props, docs))
