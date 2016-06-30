@@ -1,47 +1,46 @@
 {
   "name": "electron-apis",
-  "version": "2.0.0",
   "description": "A JSON object describing Electron's APIs",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha && standard"
-  },
-  "repository": "https://github.com/zeke/electron-apis",
-  "keywords": [
-    "electron",
-    "node",
-    "json",
-    "schema",
-    "documentation",
-    "api",
-    "markdown"
-  ],
+  "version": "2.0.0",
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/zeke/electron-apis/issues"
   },
-  "homepage": "https://github.com/zeke/electron-apis#readme",
+  "dependencies": {
+    "decamelize": "^1.2.0",
+    "electron-docs": "^1.1.0",
+    "lodash.find": "^4.3.0",
+    "lodash.pick": "^4.2.1",
+    "marky-markdown-lite": "^1.1.0",
+    "omit-empty": "^0.4.1",
+    "pify": "^2.3.0",
+    "to-markdown": "^3.0.0"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "heads": "^1.1.0",
     "mocha": "^2.5.3",
     "standard": "^7.1.2"
   },
+  "homepage": "https://github.com/zeke/electron-apis#readme",
+  "keywords": [
+    "api",
+    "documentation",
+    "electron",
+    "json",
+    "markdown",
+    "node",
+    "schema"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/zeke/electron-apis",
+  "scripts": {
+    "test": "mocha && standard"
+  },
   "standard": {
     "env": {
       "mocha": true
     }
-  },
-  "dependencies": {
-    "omit-empty": "^0.4.1",
-    "lodash.find": "^4.3.0",
-    "marky-markdown-lite": "^1.1.0",
-    "electron-docs": "^1.0.4",
-    "decamelize": "^1.2.0",
-    "electron-docs": "^1.1.0",
-    "lodash.pick": "^4.2.1",
-    "pify": "^2.3.0",
-    "to-markdown": "^3.0.0"
   }
 }
