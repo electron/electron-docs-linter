@@ -24,13 +24,8 @@
   "homepage": "https://github.com/zeke/electron-apis#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "decamelize": "^1.2.0",
-    "electron-docs": "^1.0.4",
     "heads": "^1.1.0",
-    "lodash.find": "^4.3.0",
-    "marky-markdown-lite": "^1.1.0",
     "mocha": "^2.5.3",
-    "omit-empty": "^0.4.1",
     "standard": "^7.1.2"
   },
   "standard": {
@@ -39,6 +34,11 @@
     }
   },
   "dependencies": {
+    "omit-empty": "^0.4.1",
+    "lodash.find": "^4.3.0",
+    "marky-markdown-lite": "^1.1.0",
+    "electron-docs": "^1.0.4",
+    "decamelize": "^1.2.0",
     "electron-docs": "^1.1.0",
     "lodash.pick": "^4.2.1",
     "pify": "^2.3.0",
