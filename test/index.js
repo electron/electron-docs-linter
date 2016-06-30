@@ -17,7 +17,11 @@ describe('apis', function () {
       })
   })
 
-  it('exports an array of api objects', function () {
+  it('exports a linting function', function () {
+    expect(lint).to.be.a('function')
+  })
+
+  it('returns an array of api objects', function () {
     expect(apis).to.be.an('array')
     expect(apis).to.not.be.empty
     expect(apis[0]).to.be.an('object')
