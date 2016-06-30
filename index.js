@@ -1,7 +1,7 @@
 const seeds = require('./lib/seeds.json')
 const API = require('./lib/api')
 const fetchDocs = require('electron-docs')
-const pify = require('pify')
+const promisify = require('pify')
 
 function lint (path, callback) {
   return fetchDocs(path)
@@ -14,4 +14,4 @@ function lint (path, callback) {
     })
 }
 
-module.exports = pify(lint)
+module.exports = promisify(lint)
