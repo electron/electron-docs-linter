@@ -49,21 +49,15 @@ describe('apis', function () {
   })
 
   describe('Instance Methods', function () {
-    var win
-
-    before(function () {
-      win = apis.BrowserWindow
-    })
-
     they('have basic properties', function () {
-      var method = win.instanceMethods.setContentSize
+      var method = apis.BrowserWindow.instanceMethods.setContentSize
       expect(method.name).to.eq('setContentSize')
       expect(method.signature).to.eq('(width, height[, animate])')
       expect(method.description).to.include('Resizes the window')
     })
 
     they('sometimes have a platform array', function () {
-      expect(win.instanceMethods.setAspectRatio.platforms[0]).to.eq('macOS')
+      expect(apis.BrowserWindow.instanceMethods.setAspectRatio.platforms[0]).to.eq('macOS')
     })
   })
 
