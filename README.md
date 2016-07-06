@@ -1,29 +1,24 @@
-# electron-apis [![Build Status](https://travis-ci.org/zeke/electron-apis.svg?branch=master)](https://travis-ci.org/zeke/electron-apis)
+# electron-docs-linter [![Build Status](https://travis-ci.org/zeke/electron-docs-linter.svg?branch=master)](https://travis-ci.org/zeke/electron-docs-linter)
 
-A JSON object describing [Electron's APIs](http://electron.atom.io/docs/api/).
-
-See [apis.json](/apis.json) or explore the object in the node repl:
-
-```js
-npm i -g trymodule && trymodule electron-apis
-```
+Parse and validate Electron's markdown API documentation.
 
 ## Installation
 
-The module exports a function that parses markdown docs in a given directory,
-then returns a JSON representation of the docs.
-
 ```sh
-npm install electron-apis --save
+npm install electron-docs-linter --save
 ```
 
 ## Usage
 
-```js
-const lint = require('electron-apis')
-const docPath = './vendor/electron/docs/api'
+The module exports a function that parses markdown docs in a given directory,
+then returns a JSON representation of the docs.
 
-lint(docPath).then(function (apis) {
+```js
+const lint = require('electron-docs-linter')
+const docPath = './vendor/electron/docs/api'
+const targetVersion = '1.2.3' // the soon-to-be-released version of electron
+
+lint(docPath, targetVersion).then(function (apis) {
   // `apis` is an array of API objects. To find one:
   var win = apis.find(api => api.name === 'BrowserWindow')
 
@@ -56,12 +51,7 @@ lint(docPath).then(function (apis) {
 
 ## How It Works
 
-The linter starts with [a list of all the API names](/lib/seeds.json)
-as well as booleans indicating if they're available on the
-[Main Process](https://github.com/electron/electron/blob/master/docs/tutorial/quick-start.md)
-or the
-[Renderer Process](https://github.com/electron/electron/blob/master/docs/tutorial/quick-start.md)
-(or both).
+The linter starts with [a list of all the API names](/lib/seeds.json) as seed data.
 
 Each API's structure is inferred by parsing its raw markdown documentation from
 the [electron repo](https://github.com/electron/electron/tree/master/docs/api).
@@ -78,7 +68,7 @@ the raw markdown is converted to HTML using
 which returns a [cheerio](https://ghub.io/cheerio) DOM object that can be queried
 and traversed using familiar CSS selectors.
 
-The result is an array of APIs. The following
+The result is an array of API objects. The following
 metadata is included for each API, where appropriate:
 
 - name
@@ -91,24 +81,8 @@ metadata is included for each API, where appropriate:
 - website URL
 - GitHub repository URL
 
-## Dependencies
 
-None
-
-## Dev Dependencies
-
-- [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
-- [decamelize](https://github.com/sindresorhus/decamelize): Convert a camelized string into a lowercased one with a custom separator: unicornRainbow → unicorn_rainbow
-- [electron-docs](https://github.com/zeke/electron-docs): Fetch Electron documentation as raw markdown strings
-- [heads](https://github.com/zeke/heads): Make parallel HEAD requests for an array of URLs and get back their HTTP status codes.
-- [lodash.find](https://github.com/lodash/lodash): The lodash method `_.find` exported as a module.
-- [marky-markdown-lite](https://github.com/zeke/marky-markdown-lite): A version of marky-markdown that does less
-- [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
-- [omit-empty](https://github.com/jonschlinkert/omit-empty): Recursively omit empty properties from an object. Omits empty objects, arrays, strings or zero.
-- [standard](https://github.com/feross/standard): JavaScript Standard Style
-
-
-## Related
+## Related Things and Prior Art
 
 - https://github.com/atom/autocomplete-atom-api
 - https://kapeli.com/docsets#dashDocset
@@ -116,6 +90,24 @@ None
 - https://raw.githubusercontent.com/atom/autocomplete-atom-api/master/completions.json
 - [devdocs.io](http://devdocs.io/)
 - [Node.js - About this Documentation](https://nodejs.org/dist/latest-v6.x/docs/api/documentation.html)
+
+## Dependencies
+
+- [decamelize](https://github.com/sindresorhus/decamelize): Convert a camelized string into a lowercased one with a custom separator: unicornRainbow → unicorn_rainbow
+- [electron-docs](https://github.com/zeke/electron-docs): Fetch Electron documentation as raw markdown strings
+- [lodash.pick](https://github.com/lodash/lodash): The lodash method `_.pick` exported as a module.
+- [marky-markdown-lite](https://github.com/zeke/marky-markdown-lite): A version of marky-markdown that does less
+- [omit-empty](https://github.com/jonschlinkert/omit-empty): Recursively omit empty properties from an object. Omits empty objects, arrays, strings or zero.
+- [pify](https://github.com/sindresorhus/pify): Promisify a callback-style function
+- [revalidator](https://github.com/flatiron/revalidator): A cross-browser / node.js validator powered by JSON Schema
+- [to-markdown](https://github.com/domchristie/to-markdown): HTML-to-Markdown converter
+
+## Dev Dependencies
+
+- [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
+- [heads](https://github.com/zeke/heads): Make parallel HEAD requests for an array of URLs and get back their HTTP status codes.
+- [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
+- [standard](https://github.com/feross/standard): JavaScript Standard Style
 
 ## License
 
