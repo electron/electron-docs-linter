@@ -48,6 +48,20 @@ describe('apis', function () {
     expect(apis.every(api => api.valid)).to.be.true
   })
 
+  describe('Methods', function () {
+    they('have basic properties', function () {
+      var method = apis.app.methods.exit
+      expect(method.name).to.eq('exit')
+      expect(method.signature).to.eq('(exitCode)')
+      expect(method.arguments[0].name).to.equal('exitCode')
+      expect(method.arguments[0].type).to.equal('Integer')
+    })
+
+    they('sometimes have a platform array', function () {
+      expect(apis.app.methods.hide.platforms[0]).to.eq('macOS')
+    })
+  })
+
   describe('Instance Methods', function () {
     they('have basic properties', function () {
       var method = apis.BrowserWindow.instanceMethods.setContentSize
