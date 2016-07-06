@@ -38,6 +38,16 @@ describe('apis', function () {
     expect(win.type).to.eq('Class')
   })
 
+  it('validates every API against a JSON schema', function () {
+    apis.forEach(api => {
+      if (!api.valid) {
+        console.error(`\n\nError in ${api.name} API`)
+        console.error(api.validationErrors)
+      }
+    })
+    expect(apis.every(api => api.valid)).to.be.true
+  })
+
   describe('Instance Methods', function () {
     var win
 
