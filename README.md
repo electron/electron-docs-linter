@@ -25,7 +25,11 @@ const docPath = './vendor/electron/docs/api'
 
 lint(docPath).then(function (apis) {
   // `apis` is an array of API objects. To find one:
-  const win = apis.find(api => api.name === 'BrowserWindow')
+  var win = apis.find(api => api.name === 'BrowserWindow')
+
+  // The array also has a string key for each API name, so
+  // you can access APIs like this too:
+  win = apis.BrowserWindow
 
   win.events.length
   // => 25

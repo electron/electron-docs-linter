@@ -24,6 +24,13 @@ function lint (path, targetVersion, callback) {
         props.version = targetVersion
         return new API(props, docs)
       })
+
+      // Attach named keys to the array for easier traversal of the object.
+      // e.g. apis.Tray, apis.BrowserWindow
+      apis.forEach(api => {
+        apis[api.name] = api
+      })
+
       return callback(null, apis)
     })
     .catch(function (err) {

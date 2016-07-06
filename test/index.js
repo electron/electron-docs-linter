@@ -1,5 +1,4 @@
 const path = require('path')
-const find = require('lodash.find')
 const heads = require('heads')
 const expect = require('chai').expect
 const lint = require('..')
@@ -33,9 +32,7 @@ describe('apis', function () {
     expect(apis.every(api => api.type.length > 0)).to.be.true
     expect(apis.every(api => api.version.length > 0)).to.be.true
 
-    var win = find(apis, {
-      name: 'BrowserWindow'
-    })
+    var win = apis.BrowserWindow
     expect(win.name).to.eq('BrowserWindow')
     expect(win.slug).to.eq('browser-window')
     expect(win.type).to.eq('Class')
@@ -45,48 +42,41 @@ describe('apis', function () {
     var win
 
     before(function () {
-      win = find(apis, {name: 'BrowserWindow'})
+      win = apis.BrowserWindow
     })
 
     they('have basic properties', function () {
-      var method = find(win.instanceMethods, {name: 'setContentSize'})
+      var method = win.instanceMethods.setContentSize
       expect(method.name).to.eq('setContentSize')
       expect(method.signature).to.eq('(width, height[, animate])')
       expect(method.description).to.include('Resizes the window')
     })
 
     they('sometimes have a platform array', function () {
-      var method = find(win.instanceMethods, {name: 'setAspectRatio'})
-      expect(method.platforms[0]).to.eq('macOS')
+      expect(win.instanceMethods.setAspectRatio.platforms[0]).to.eq('macOS')
     })
   })
 
   describe('Events', function () {
-    var app
-
-    before(function () {
-      app = find(apis, {name: 'app'})
-    })
-
     it('is an array of event objects', function () {
-      expect(app.events.length).to.be.above(10)
-      expect(app.events.every(event => event.name.length > 0)).to.be.true
+      expect(apis.app.events.length).to.be.above(10)
+      expect(apis.app.events.every(event => event.name.length > 0)).to.be.true
     })
 
     they('have a name, description, and type', function () {
-      var event = find(app.events, {name: 'quit'})
+      var event = apis.app.events.quit
       expect(event.description).to.eq('Emitted when the application is quitting.')
       expect(event.returns[0].name).to.eq('event')
       expect(event.returns[0].type).to.eq('Event')
     })
 
     they('sometimes have a platforms array', function () {
-      var event = find(app.events, {name: 'open-file'})
+      var event = apis.app.events['open-file']
       expect(event.platforms[0]).to.eq('macOS')
     })
 
     they('sometimes have return values that are complex objects', function () {
-      var event = find(app.events, {name: 'certificate-error'})
+      var event = apis.app.events['certificate-error']
       var properties = event.returns[4].properties
       expect(properties.length).to.eq(2)
       expect(properties[0].name).to.eq('data')
@@ -96,14 +86,8 @@ describe('apis', function () {
   })
 
   describe('JSON serialization', function () {
-    var app
-
-    before(function () {
-      app = find(apis, {name: 'app'})
-    })
-
     it('preserves desired properties and omits the unwanted ones', function () {
-      var api = JSON.parse(JSON.stringify(app))
+      var api = JSON.parse(JSON.stringify(apis.app))
       expect(api.name).to.exist
       expect(api.description).to.exist
       expect(api.type).to.exist
@@ -128,9 +112,8 @@ describe('apis', function () {
     })
 
     it('sets a repoUrl', function () {
-      var Tray = apis.find(api => api.name === 'Tray')
       var url = 'https://github.com/electron/electron/blob/v1.2.3/docs/api/tray.md'
-      expect(Tray.repoUrl).to.equal(url)
+      expect(apis.Tray.repoUrl).to.equal(url)
     })
   })
 })
