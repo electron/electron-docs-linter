@@ -10,7 +10,7 @@ var apis
 describe('apis', function () {
   before(function (done) {
     var docPath = path.join(__dirname, '../vendor/electron/docs/api')
-    lint(docPath)
+    lint(docPath, '1.2.3')
       .then(function (_apis) {
         apis = _apis
         done()
@@ -31,6 +31,7 @@ describe('apis', function () {
     expect(apis.every(api => api.name.length > 0)).to.be.true
     expect(apis.every(api => api.slug.length > 0)).to.be.true
     expect(apis.every(api => api.type.length > 0)).to.be.true
+    expect(apis.every(api => api.version.length > 0)).to.be.true
 
     var win = find(apis, {
       name: 'BrowserWindow'
@@ -126,12 +127,10 @@ describe('apis', function () {
       })
     })
 
-  // it('all repository URLs return a 200 status code', function (done) {
-  //   var urls = apis.map(api => api.repoUrl)
-  //   heads(urls).then(function (codes) {
-  //     expect(codes.every(code => code === 200)).to.be.true
-  //     done()
-  //   })
-  // })
+    it('sets a repoUrl', function () {
+      var Tray = apis.find(api => api.name === 'Tray')
+      var url = 'https://github.com/electron/electron/blob/v1.2.3/docs/api/tray.md'
+      expect(Tray.repoUrl).to.equal(url)
+    })
   })
 })
