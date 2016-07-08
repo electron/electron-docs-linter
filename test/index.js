@@ -48,6 +48,13 @@ describe('apis', function () {
     expect(apis.every(api => api.valid)).to.be.true
   })
 
+  describe('process', function () {
+    it('is an object with `main` and `renderer` keys', function () {
+      expect(apis.Tray.process.main).to.equal(true)
+      expect(apis.Tray.process.renderer).to.equal(false)
+    })
+  })
+
   describe('Methods', function () {
     they('have basic properties', function () {
       var method = apis.app.methods.exit

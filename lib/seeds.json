@@ -1,111 +1,106 @@
 [
   {
     "name": "clipboard",
-    "rendererProcess": true,
-    "mainProcess": true
+    "process": {"main": true, "renderer": true}
   },
   {
     "name": "crashReporter",
-    "rendererProcess": true,
-    "mainProcess": true
+    "process": {"main": true, "renderer": true}
   },
   {
     "name": "nativeImage",
-    "rendererProcess": true,
-    "mainProcess": true
+    "process": {"main": true, "renderer": true}
   },
   {
     "name": "shell",
-    "rendererProcess": true,
-    "mainProcess": true
+    "process": {"main": true, "renderer": true}
   },
   {
     "name": "app",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "autoUpdater",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "BrowserWindow",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "contentTracing",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "dialog",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "ipcMain",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "globalShortcut",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "Menu",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "MenuItem",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "powerMonitor",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "powerSaveBlocker",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "protocol",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "screen",
-    "rendererProcess": true,
-    "mainProcess": true
+    "process": {"main": true, "renderer": true}
   },
   {
     "name": "session",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "systemPreferences",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "Tray",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "webContents",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "process",
-    "mainProcess": true
+    "process": {"main": true, "renderer": false}
   },
   {
     "name": "desktopCapturer",
-    "rendererProcess": true
+    "process": {"main": false, "renderer": true}
   },
   {
     "name": "ipcRenderer",
-    "rendererProcess": true
+    "process": {"main": false, "renderer": true}
   },
   {
     "name": "remote",
-    "rendererProcess": true
+    "process": {"main": false, "renderer": true}
   },
   {
     "name": "webFrame",
-    "rendererProcess": true
+    "process": {"main": false, "renderer": true}
   }
 ]
