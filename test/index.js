@@ -62,6 +62,13 @@ describe('apis', function () {
     })
   })
 
+  describe('Arguments', function () {
+    it('preserves code backticks in descriptions and converts HTML to text', function () {
+      var callback = apis.webContents.instanceMethods.savePage.arguments.callback
+      expect(callback.description).to.equal('`(error) => {}`.')
+    })
+  })
+
   describe('Instance Methods', function () {
     they('have basic properties', function () {
       var method = apis.BrowserWindow.instanceMethods.setContentSize
