@@ -103,18 +103,24 @@ describe('apis', function () {
     })
   })
 
-  describe('JSON serialization', function () {
+  describe('JSON serialization/stringification', function () {
     it('preserves desired properties and omits the unwanted ones', function () {
-      var api = JSON.parse(JSON.stringify(apis.app))
-      expect(api.name).to.exist
-      expect(api.description).to.exist
-      expect(api.type).to.exist
-      expect(api.slug).to.exist
-      expect(api.websiteUrl).to.exist
-      expect(api.repoUrl).to.exist
+      var app = JSON.parse(JSON.stringify(apis.app))
+      expect(app.name).to.exist
+      expect(app.description).to.exist
+      expect(app.type).to.exist
+      expect(app.slug).to.exist
+      expect(app.websiteUrl).to.exist
+      expect(app.repoUrl).to.exist
 
-      expect(api.errors).to.not.exist
-      expect(api.docs).to.not.exist
+      expect(app.errors).to.not.exist
+      expect(app.docs).to.not.exist
+
+      var remote = JSON.parse(JSON.stringify(apis.remote))
+      expect(remote.methods).to.exist
+
+      var win = JSON.parse(JSON.stringify(apis.BrowserWindow))
+      expect(win.instanceMethods).to.exist
     })
   })
 
