@@ -106,6 +106,8 @@ describe('apis', function () {
   describe('JSON serialization/stringification', function () {
     it('preserves desired properties and omits the unwanted ones', function () {
       var app = JSON.parse(JSON.stringify(apis.app))
+
+      // common to all APIs
       expect(app.name).to.exist
       expect(app.description).to.exist
       expect(app.type).to.exist
@@ -113,12 +115,23 @@ describe('apis', function () {
       expect(app.websiteUrl).to.exist
       expect(app.repoUrl).to.exist
 
+      // unwanted
       expect(app.errors).to.not.exist
       expect(app.docs).to.not.exist
 
+      // events
+      var _process = JSON.parse(JSON.stringify(apis.process))
+      expect(_process.events).to.exist
+
+      // instanceEvents
+      var Tray = JSON.parse(JSON.stringify(apis.Tray))
+      expect(Tray.instanceEvents).to.exist
+
+      // methods
       var remote = JSON.parse(JSON.stringify(apis.remote))
       expect(remote.methods).to.exist
 
+      // instanceMethods
       var win = JSON.parse(JSON.stringify(apis.BrowserWindow))
       expect(win.instanceMethods).to.exist
     })
