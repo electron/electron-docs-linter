@@ -67,6 +67,17 @@ describe('apis', function () {
       var callback = apis.webContents.instanceMethods.savePage.arguments.callback
       expect(callback.description).to.equal('`(error) => {}`.')
     })
+
+    it('detects when arguments are required', function () {
+      expect(apis.BrowserWindow.instanceMethods.setSize.arguments.animate.required).to.eq(false)
+    })
+
+    they('do not have a `required` key if they are for an event', function () {
+      var keys = Object.keys(apis.app.events.activate.returns.hasVisibleWindows)
+      expect(keys).to.include('name')
+      expect(keys).to.include('type')
+      expect(keys).to.not.include('required')
+    })
   })
 
   describe('Instance Methods', function () {
