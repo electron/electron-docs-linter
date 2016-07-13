@@ -43,5 +43,8 @@
     "env": {
       "mocha": true
     }
+  },
+  "engines": {
+    "node": ">=4"
   }
 }
