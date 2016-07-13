@@ -7,6 +7,8 @@ const they = it
 var apis
 
 describe('apis', function () {
+  this.timeout(10*1000)
+
   before(function (done) {
     var docPath = path.join(__dirname, '../vendor/electron/docs/api')
     lint(docPath, '1.2.3')
