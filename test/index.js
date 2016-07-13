@@ -16,6 +16,9 @@ describe('apis', function () {
         apis = _apis
         done()
       })
+      .catch(function (err) {
+        console.error(err)
+      })
   })
 
   it('exports a linting function', function () {
