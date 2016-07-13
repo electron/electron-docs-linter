@@ -4,6 +4,7 @@ const fetchDocs = require('electron-docs')
 const promisify = require('pify')
 const semver = require('semver')
 const exists = require('path-exists').sync
+const keyedArray = require('keyed-array')
 
 function lint (path, targetVersion, callback) {
   if (typeof callback !== 'function') {
@@ -25,11 +26,11 @@ function lint (path, targetVersion, callback) {
         return new API(props, docs)
       })
 
-      // Attach named keys to the array for easier traversal of the object.
-      // e.g. apis.Tray, apis.BrowserWindow
-      apis.forEach(api => {
-        apis[api.name] = api
-      })
+      // Attach named keys to collection arrays for easier access
+      // apis.app.events.login
+      // apis.app.methods.quit
+      // apis.BrowserWindow.instanceMethods.isFocused
+      apis = keyedArray(apis)
 
       return callback(null, apis)
     })
