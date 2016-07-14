@@ -8,7 +8,32 @@ Parse and validate Electron's markdown API documentation.
 npm install electron-docs-linter --save
 ```
 
-## Usage
+## CLI Usage
+
+If linting errors are found, they are printed to STDERR and the process
+exits un-gracefully.
+
+```sh
+electron-docs-linter docs/api
+```
+
+If you've piped the output, the JSON schema is written to that pipe. Note
+that a `version` must be specified when piping.
+
+```sh
+electron-docs-linter docs/api --version=1.2.3 > api.json
+```
+
+If no pipe is present, you just see a nice message.
+
+```sh
+electron-docs-linter docs/api
+
+Docs are good to go! 👍
+```
+
+
+## Programmatic Usage
 
 The module exports a function that parses markdown docs in a given directory,
 then returns a JSON representation of the docs.
