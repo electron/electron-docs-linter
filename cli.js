@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
 const path = require('path')
 const sum = require('lodash.sum')
 const lint = require('.')
@@ -34,7 +33,7 @@ lint(docsPath, version).then(function (apis) {
   if (piping) {
     process.stdout.write(JSON.stringify(apis, null, 2))
   } else {
-    console.log(`Docs are good to go! 👍`)
+    console.log('Docs are good to go! 👍')
   }
 
   process.exit()
@@ -51,7 +50,7 @@ electron-docs-linter <pathname> --version=1.2.3 --outfile=electron.json
   process.exit(1)
 }
 
-function fail(apis) {
+function fail (apis) {
   if (apis.some(api => api.errors.length)) {
     console.error('\n🙊  uh-oh! bad docs 🙈\n')
     apis.forEach(api => {
@@ -59,7 +58,8 @@ function fail(apis) {
     })
 
     const errorCount = sum(apis.map(api => api.errors.length))
-    console.error(`\n${errorCount} error${errorCount === 1 ? '' : 's'} found`)
+    console.error(`
+${errorCount} error${errorCount === 1 ? '' : 's'} found`)
     process.exit(1)
   }
 }
