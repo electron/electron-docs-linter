@@ -105,6 +105,20 @@ describe('apis', function () {
     })
   })
 
+  describe('Instance Properties', function () {
+    they('exist on a number of APIs', function () {
+      expect(apis.Menu.instanceProperties).to.exist
+      expect(apis.webContents.instanceProperties).to.exist
+      expect(apis.BrowserWindow.instanceProperties).to.exist
+    })
+
+    they('exist on BrowserWindow', function () {
+      let {name, description} = apis.BrowserWindow.instanceProperties.webContents
+      expect(name).to.equal('webContents')
+      expect(description).to.include('The WebContents object this window owns')
+    })
+  })
+
   describe('Events', function () {
     it('is an array of event objects', function () {
       expect(apis.app.events.length).to.be.above(10)
