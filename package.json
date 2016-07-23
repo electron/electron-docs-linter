@@ -42,6 +42,7 @@
   "main": "index.js",
   "repository": "https://github.com/zeke/electron-docs-linter",
   "scripts": {
+    "vendor-electron": "./bin/vendor-electron.sh",
     "test": "mocha && standard"
   },
   "standard": {
