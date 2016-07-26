@@ -76,6 +76,7 @@ describe('apis', function () {
 
   describe('Arguments', function () {
     it('preserves code backticks in descriptions and converts HTML to text', function () {
+      // console.log(apis.webContents.instanceMethods)
       var callback = apis.webContents.instanceMethods.savePage.arguments.callback
       expect(callback.description).to.equal('`(error) => {}`.')
     })
@@ -126,7 +127,7 @@ describe('apis', function () {
     they('sometimes have return values that are complex objects', function () {
       var event = apis.app.events['certificate-error']
       var properties = event.returns[4].properties
-      expect(properties.length).to.eq(2)
+      expect(properties.length).to.be.above(5)
       expect(properties[0].name).to.eq('data')
       expect(properties[0].type).to.eq('Buffer')
       expect(properties[0].description).to.eq('PEM encoded data')
