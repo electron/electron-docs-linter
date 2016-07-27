@@ -98,7 +98,7 @@ metadata is included for each API, where appropriate:
 
 - name
 - description
-- type (Class or Object)
+- type (Class or Module)
 - process (main, renderer, or both)
 - methods
 - instance methods
