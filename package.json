@@ -3,9 +3,6 @@
   "description": "A JSON object describing Electron's APIs",
   "version": "1.3.0",
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)",
-  "bugs": {
-    "url": "https://github.com/zeke/electron-docs-linter/issues"
-  },
   "bin": "cli.js",
   "dependencies": {
     "decamelize": "^1.2.0",
@@ -42,7 +39,7 @@
   "main": "index.js",
   "repository": "https://github.com/zeke/electron-docs-linter",
   "scripts": {
-    "vendor-electron": "./bin/vendor-electron.sh",
+    "update-electron": "git submodule update --recursive --init",
     "test": "mocha && standard"
   },
   "standard": {
