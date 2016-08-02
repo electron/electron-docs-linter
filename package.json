@@ -5,23 +5,22 @@
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)",
   "bin": "cli.js",
   "dependencies": {
+    "clean-deep": "0.0.1",
     "decamelize": "^1.2.0",
     "electron-docs": "^1.1.0",
     "keyed-array": "^2.0.0",
     "lodash.pick": "^4.2.1",
+    "clean-deep": "^4.5.1",
     "lodash.sum": "^4.0.2",
-    "marky-markdown-lite": "^1.1.0",
+    "marky-markdown-lite": "^1.2.0",
     "minimist": "^1.2.0",
-    "omit-empty": "^0.4.1",
     "ora": "^0.2.3",
     "pify": "^2.3.0",
-    "require-dir": "^0.3.0",
     "revalidator": "^0.3.1",
     "to-markdown": "^3.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "heads": "^1.1.0",
     "mocha": "^2.5.3",
     "standard": "^7.1.2"
   },

@@ -1,5 +1,4 @@
 const path = require('path')
-const heads = require('heads')
 const expect = require('chai').expect
 const lint = require('..')
 const they = it
@@ -60,6 +59,14 @@ describe('apis', function () {
     })
   })
 
+  describe('Classes', function () {
+    it('sets class type on all the clases', function () {
+      expect(apis.Session.type).to.eq('Class')
+      expect(apis.Cookies.type).to.eq('Class')
+      expect(apis.WebRequest.type).to.eq('Class')
+    })
+  })
+
   describe('Methods', function () {
     they('have basic properties', function () {
       var method = apis.app.methods.exit
@@ -76,8 +83,7 @@ describe('apis', function () {
 
   describe('Arguments', function () {
     it('preserves code backticks in descriptions and converts HTML to text', function () {
-      // console.log(apis.webContents.instanceMethods)
-      var callback = apis.webContents.instanceMethods.savePage.arguments.callback
+      var callback = apis.WebContents.instanceMethods.savePage.arguments.callback
       expect(callback.description).to.equal('`(error) => {}`.')
     })
 
@@ -101,7 +107,15 @@ describe('apis', function () {
       expect(method.description).to.include('Resizes the window')
     })
 
-    they('sometimes have a platform array', function () {
+    they('are defined for classes that are among many in a module', function () {
+      expect(apis.WebRequest.instanceMethods.onBeforeRequest.signature).to.eq('([filter, ]listener)')
+    })
+
+    they('are defined for classes that are unique to a module', function () {
+      expect(apis.NativeImage.instanceMethods.toJPEG.signature).to.eq('(quality)')
+    })
+
+    they('can have a platform array', function () {
       expect(apis.BrowserWindow.instanceMethods.setAspectRatio.platforms[0]).to.eq('macOS')
     })
   })
@@ -169,14 +183,9 @@ describe('apis', function () {
   })
 
   describe('Convenience URLs', function () {
-    this.timeout(10 * 1000)
-
-    it('all website URLs return a 200 status code', function (done) {
-      var urls = apis.map(api => api.websiteUrl)
-      heads(urls).then(function (codes) {
-        expect(codes.every(code => code === 200)).to.be.true
-        done()
-      })
+    it('sets a websiteUrl', function () {
+      var url = 'http://electron.atom.io/docs/api/tray'
+      expect(apis.Tray.websiteUrl).to.equal(url)
     })
 
     it('sets a repoUrl', function () {

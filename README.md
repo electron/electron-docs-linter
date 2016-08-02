@@ -98,7 +98,7 @@ metadata is included for each API, where appropriate:
 
 - name
 - description
-- type (Class or Object)
+- type (Class or Module)
 - process (main, renderer, or both)
 - methods
 - instance methods
@@ -130,7 +130,6 @@ metadata is included for each API, where appropriate:
 ## Dev Dependencies
 
 - [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
-- [heads](https://github.com/zeke/heads): Make parallel HEAD requests for an array of URLs and get back their HTTP status codes.
 - [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
 - [standard](https://github.com/feross/standard): JavaScript Standard Style
 

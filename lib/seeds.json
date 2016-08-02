@@ -12,6 +12,11 @@
     "process": {"main": true, "renderer": true}
   },
   {
+    "name": "NativeImage",
+    "process": {"main": true, "renderer": true},
+    "parentDoc": "native-image"
+  },
+  {
     "name": "shell",
     "process": {"main": true, "renderer": true}
   },
@@ -72,6 +77,21 @@
     "process": {"main": true, "renderer": false}
   },
   {
+    "name": "Session",
+    "process": {"main": true, "renderer": false},
+    "parentDoc": "session"
+  },
+  {
+    "name": "Cookies",
+    "process": {"main": true, "renderer": false},
+    "parentDoc": "session"
+  },
+  {
+    "name": "WebRequest",
+    "process": {"main": true, "renderer": false},
+    "parentDoc": "session"
+  },
+  {
     "name": "systemPreferences",
     "process": {"main": true, "renderer": false}
   },
@@ -82,6 +102,16 @@
   {
     "name": "webContents",
     "process": {"main": true, "renderer": false}
+  },
+  {
+    "name": "WebContents",
+    "process": {"main": true, "renderer": false},
+    "parentDoc": "web-contents"
+  },
+  {
+    "name": "Debugger",
+    "process": {"main": true, "renderer": false},
+    "parentDoc": "web-contents"
   },
   {
     "name": "process",
@@ -102,5 +132,10 @@
   {
     "name": "webFrame",
     "process": {"main": false, "renderer": true}
+  },
+  {
+    "name": "BrowserWindowProxy",
+    "process": {"main": false, "renderer": true},
+    "parentDoc": "window-open"
   }
 ]
