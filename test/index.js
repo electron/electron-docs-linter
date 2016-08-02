@@ -1,5 +1,4 @@
 const path = require('path')
-const heads = require('heads')
 const expect = require('chai').expect
 const lint = require('..')
 const they = it
@@ -169,14 +168,9 @@ describe('apis', function () {
   })
 
   describe('Convenience URLs', function () {
-    this.timeout(10 * 1000)
-
-    it('all website URLs return a 200 status code', function (done) {
-      var urls = apis.map(api => api.websiteUrl)
-      heads(urls).then(function (codes) {
-        expect(codes.every(code => code === 200)).to.be.true
-        done()
-      })
+    it('sets a websiteUrl', function (done) {
+      var url = 'http://electron.atom.io/docs/api/tray'
+      expect(apis.Tray.websiteUrl).to.equal(url)
     })
 
     it('sets a repoUrl', function () {
