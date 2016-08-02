@@ -59,6 +59,14 @@ describe('apis', function () {
     })
   })
 
+  describe('Classes', function () {
+    it('sets class type on all the clases', function () {
+      expect(apis.Session.type).to.eq('Class')
+      expect(apis.Cookies.type).to.eq('Class')
+      expect(apis.WebRequest.type).to.eq('Class')
+    })
+  })
+
   describe('Methods', function () {
     they('have basic properties', function () {
       var method = apis.app.methods.exit
@@ -99,7 +107,15 @@ describe('apis', function () {
       expect(method.description).to.include('Resizes the window')
     })
 
-    they('sometimes have a platform array', function () {
+    they('are defined for classes that are among many in a module', function () {
+      expect(apis.WebRequest.instanceMethods.onBeforeRequest.signature).to.eq('([filter, ]listener)')
+    })
+
+    they('are defined for classes that are unique to a module', function () {
+      expect(apis.NativeImage.instanceMethods.toJPEG.signature).to.eq('(quality)')
+    })
+
+    they('can have a platform array', function () {
       expect(apis.BrowserWindow.instanceMethods.setAspectRatio.platforms[0]).to.eq('macOS')
     })
   })
