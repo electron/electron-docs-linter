@@ -14,7 +14,6 @@
     "lodash.sum": "^4.0.2",
     "marky-markdown-lite": "^1.2.0",
     "minimist": "^1.2.0",
-    "omit-empty": "^0.4.1",
     "ora": "^0.2.3",
     "pify": "^2.3.0",
     "revalidator": "^0.3.1",
