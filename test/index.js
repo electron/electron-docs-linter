@@ -75,8 +75,7 @@ describe('apis', function () {
 
   describe('Arguments', function () {
     it('preserves code backticks in descriptions and converts HTML to text', function () {
-      // console.log(apis.webContents.instanceMethods)
-      var callback = apis.webContents.instanceMethods.savePage.arguments.callback
+      var callback = apis.WebContents.instanceMethods.savePage.arguments.callback
       expect(callback.description).to.equal('`(error) => {}`.')
     })
 
@@ -168,7 +167,7 @@ describe('apis', function () {
   })
 
   describe('Convenience URLs', function () {
-    it('sets a websiteUrl', function (done) {
+    it('sets a websiteUrl', function () {
       var url = 'http://electron.atom.io/docs/api/tray'
       expect(apis.Tray.websiteUrl).to.equal(url)
     })
