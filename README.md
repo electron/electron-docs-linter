@@ -109,6 +109,8 @@ metadata is included for each API, where appropriate:
 
 ## Related Things and Prior Art
 
+- https://www.npmjs.com/package/@types/electron
+- https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/github-electron
 - https://github.com/atom/autocomplete-atom-api
 - https://kapeli.com/docsets#dashDocset
 - [issue: Publish the public API as JSON](https://github.com/electron/electron/issues/3375)
