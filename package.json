@@ -10,7 +10,6 @@
     "electron-docs": "^1.1.0",
     "keyed-array": "^2.0.0",
     "lodash.pick": "^4.2.1",
-    "clean-deep": "^4.5.1",
     "lodash.sum": "^4.0.2",
     "marky-markdown-lite": "^1.2.0",
     "minimist": "^1.2.0",
