@@ -5,18 +5,20 @@
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)",
   "bin": "cli.js",
   "dependencies": {
+    "cheerio": "^0.20.0",
     "clean-deep": "0.0.1",
     "decamelize": "^1.2.0",
     "electron-docs": "^1.1.0",
-    "keyed-array": "^2.0.0",
+    "keyed-array": "^2.1.0",
     "lodash.pick": "^4.2.1",
-    "clean-deep": "^4.5.1",
     "lodash.sum": "^4.0.2",
     "marky-markdown-lite": "^1.2.0",
     "minimist": "^1.2.0",
     "ora": "^0.2.3",
+    "path-exists": "^3.0.0",
     "pify": "^2.3.0",
     "revalidator": "^0.3.1",
+    "semver": "^5.3.0",
     "to-markdown": "^3.0.0"
   },
   "devDependencies": {
