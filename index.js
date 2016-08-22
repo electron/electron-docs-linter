@@ -1,4 +1,4 @@
-const seeds = require('./lib/seeds.json')
+const seeds = require('./lib/seeds')
 const API = require('./lib/api')
 const fetchDocs = require('electron-docs')
 const promisify = require('pify')
