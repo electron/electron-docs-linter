@@ -99,7 +99,7 @@ describe('apis', function () {
     })
 
     they('can have ENUM values', function () {
-      let values = apis.WebContents.instanceMethods.savePage.arguments.saveType.possibleValues
+      var values = apis.WebContents.instanceMethods.savePage.arguments.saveType.possibleValues
       expect(values.length).to.equal(3)
       expect(values[0].value).to.equal('HTMLOnly')
       expect(values[0].description).to.equal('Save only the HTML of the page.')
