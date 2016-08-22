@@ -97,6 +97,15 @@ describe('apis', function () {
       expect(keys).to.include('type')
       expect(keys).to.not.include('required')
     })
+
+    they('can have ENUM values', function () {
+      const values = apis.WebContents.instanceMethods.savePage.arguments.saveType.possibleValues
+      expect(values.length).to.equal(3)
+      expect(values[0].value).to.equal('HTMLOnly')
+      expect(values[0].description).to.equal('Save only the HTML of the page.')
+      expect(values[2].value).to.equal('MHTML')
+      expect(values[2].description).to.equal('Save only the HTML of the page.')
+    })
   })
 
   describe('Instance Methods', function () {
