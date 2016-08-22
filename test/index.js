@@ -99,12 +99,16 @@ describe('apis', function () {
     })
 
     they('can have ENUM values', function () {
-      const values = apis.WebContents.instanceMethods.savePage.arguments.saveType.possibleValues
+      let values = apis.WebContents.instanceMethods.savePage.arguments.saveType.possibleValues
       expect(values.length).to.equal(3)
       expect(values[0].value).to.equal('HTMLOnly')
       expect(values[0].description).to.equal('Save only the HTML of the page.')
       expect(values[2].value).to.equal('MHTML')
-      expect(values[2].description).to.equal('Save only the HTML of the page.')
+      expect(values[2].description).to.equal('Save complete-html page as MHTML.')
+
+      values = apis.powerSaveBlocker.methods.start.arguments.type.possibleValues
+      expect(values[0].value).to.equal('prevent-app-suspension')
+      expect(values[1].value).to.equal('prevent-display-sleep')
     })
   })
 
