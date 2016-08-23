@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
+const fs = require('fs')
 const path = require('path')
 const dedent = require('dedent')
 const sum = require('lodash.sum')
 const lint = require('.')
 const args = require('minimist')(process.argv.slice(2))
-const piping = !process.stdout.isTTY
 
 var docsPath = args._[0]
 var version = args.version
+var outfile = args.outfile
 
 // docsPath is required
 if (!docsPath) usage()
@@ -16,10 +17,13 @@ if (!docsPath) usage()
 // docsPath is relative to current working directory
 docsPath = path.join(process.cwd(), docsPath)
 
-// version is required if piping output
-if (piping && !version) usage()
+// outfile is relative to current working directory
+outfile = path.join(process.cwd(), outfile)
 
-// Use a placeholder version if not piping output
+// version is required if writing to a file
+if (outfile && !version) usage()
+
+// Use a placeholder version if not writing to a file
 if (!version) version = '0.0.0'
 
 const spinner = require('ora')('Parsing electron documentation').start()
@@ -31,10 +35,17 @@ lint(docsPath, version).then(function (apis) {
     fail(apis)
   }
 
-  if (piping) {
-    process.stdout.write(JSON.stringify(apis, null, 2))
+  if (outfile) {
+    fs.writeFileSync(outfile, JSON.stringify(apis, null, 2))
+    console.log(dedent`
+      Created ${path.relative(process.cwd(), outfile)}
+    `)
   } else {
-    console.log('Docs are good to go! 👍')
+    console.log(dedent`
+      Docs are good to go!\n
+      To write the docs schema to a file, specify \`version\` and \`outfile\`:\n
+      electron-docs-linter ${path.relative(process.cwd(), docsPath)} --version=1.2.3 --outfile=electron.json
+    `)
   }
 
   process.exit()

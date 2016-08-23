@@ -19,6 +19,7 @@
     "path-exists": "^3.0.0",
     "pify": "^2.3.0",
     "revalidator": "^0.3.1",
+    "rimraf": "^2.5.4",
     "semver": "^5.3.0",
     "to-markdown": "^3.0.0"
   },
