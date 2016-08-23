@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const path = require('path')
+const dedent = require('dedent')
 const sum = require('lodash.sum')
 const lint = require('.')
 const args = require('minimist')(process.argv.slice(2))
@@ -40,13 +41,10 @@ lint(docsPath, version).then(function (apis) {
 })
 
 function usage () {
-  console.error(`
-Usage: electron-docs-linter <pathname>
-
-To save the parsed JSON schema:
-
-electron-docs-linter <pathname> --version=1.2.3 --outfile=electron.json
-`)
+  console.error(dedent`
+    Usage: electron-docs-linter <pathname>\n
+    To save the parsed JSON schema:\n
+    electron-docs-linter <pathname> --version=1.2.3 --outfile=electron.json\n`)
   process.exit(1)
 }
 
@@ -58,8 +56,7 @@ function fail (apis) {
     })
 
     const errorCount = sum(apis.map(api => api.errors.length))
-    console.error(`
-${errorCount} error${errorCount === 1 ? '' : 's'} found`)
+    console.error(`${errorCount} error${errorCount === 1 ? '' : 's'} found`)
     process.exit(1)
   }
 }
