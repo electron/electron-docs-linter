@@ -133,6 +133,34 @@ describe('apis', function () {
     })
   })
 
+  describe('Instance Properties', function () {
+    they('are present on every class that should have them, with name and description', function () {
+      var apisWithInstanceProperties = [
+        'BrowserWindow',
+        'MenuItem',
+        'Menu',
+        'Session',
+        'WebContents'
+      ]
+
+      apisWithInstanceProperties.forEach(api => {
+        var props = apis[api].instanceProperties
+        expect(props).to.not.be.empty
+        expect(props.every(prop => prop.name.length > 0)).to.be.true
+        expect(props.every(prop => prop.description.length > 0)).to.be.true
+      })
+    })
+
+    they('have properly parsed name and description', function () {
+      var props = apis.BrowserWindow.instanceProperties
+      expect(props.length).to.equal(2)
+      expect(props[0].name).to.equal('webContents')
+      expect(props[0].description).to.include('object this window owns')
+      expect(props[1].name).to.equal('id')
+      expect(props[1].description).to.equal('The unique ID of the window.')
+    })
+  })
+
   describe('Events', function () {
     it('is an array of event objects', function () {
       expect(apis.app.events.length).to.be.above(10)
