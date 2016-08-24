@@ -80,7 +80,7 @@ describe('apis', function () {
       expect(apis.app.methods.hide.platforms[0]).to.eq('macOS')
     })
 
-    they('always have documented parameters', function() {
+    they('always have documented parameters', function () {
       var assertions = 0
       apis.forEach(api => {
         (api.methods || []).forEach(method => {
@@ -148,7 +148,7 @@ describe('apis', function () {
       expect(apis.BrowserWindow.instanceMethods.setAspectRatio.platforms[0]).to.eq('macOS')
     })
 
-    they('always have documented parameters', function() {
+    they('always have documented parameters', function () {
       var assertions = 0
       apis.forEach(api => {
         (api.instanceMethods || []).forEach(method => {
