@@ -18,7 +18,7 @@ if (!docsPath) usage()
 docsPath = path.join(process.cwd(), docsPath)
 
 // outfile is relative to current working directory
-outfile = path.join(process.cwd(), outfile)
+if (outfile) outfile = path.join(process.cwd(), outfile)
 
 // version is required if writing to a file
 if (outfile && !version) usage()

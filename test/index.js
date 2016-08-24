@@ -79,6 +79,22 @@ describe('apis', function () {
     they('sometimes have a platform array', function () {
       expect(apis.app.methods.hide.platforms[0]).to.eq('macOS')
     })
+
+    they('always have documented parameters', function () {
+      var assertions = 0
+      apis.forEach(api => {
+        (api.methods || []).forEach(method => {
+          if (method.signatureParameters.length) {
+            expect(method.signatureParameters).to.deep.equal(
+              method.arguments.map(arg => arg.name),
+              `${api.name}.${method.name}${method.signature} is missing parameter docs`
+            )
+            assertions++
+          }
+        })
+      })
+      expect(assertions).to.be.above(80)
+    })
   })
 
   describe('Arguments', function () {
@@ -130,6 +146,22 @@ describe('apis', function () {
 
     they('can have a platform array', function () {
       expect(apis.BrowserWindow.instanceMethods.setAspectRatio.platforms[0]).to.eq('macOS')
+    })
+
+    they('always have documented parameters', function () {
+      var assertions = 0
+      apis.forEach(api => {
+        (api.instanceMethods || []).forEach(method => {
+          if (method.signatureParameters.length) {
+            expect(method.signatureParameters).to.deep.equal(
+              method.arguments.map(arg => arg.name),
+              `${api.name}.${method.name}${method.signature} is missing parameter docs`
+            )
+            assertions++
+          }
+        })
+      })
+      expect(assertions).to.be.above(80)
     })
   })
 
