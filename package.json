@@ -5,7 +5,7 @@
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)",
   "bin": "cli.js",
   "dependencies": {
-    "cheerio": "^0.20.0",
+    "cheerio": "^0.22.0",
     "clean-deep": "0.0.1",
     "decamelize": "^1.2.0",
     "dedent": "^0.6.0",
@@ -15,7 +15,7 @@
     "lodash.sum": "^4.0.2",
     "marky-markdown-lite": "^1.2.0",
     "minimist": "^1.2.0",
-    "ora": "^0.2.3",
+    "ora": "^0.3.0",
     "path-exists": "^3.0.0",
     "pify": "^2.3.0",
     "revalidator": "^0.3.1",
@@ -24,9 +24,9 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.5.3",
+    "mocha": "^3.0.2",
     "rimraf": "^2.5.4",
-    "standard": "^7.1.2"
+    "standard": "^8.0.0"
   },
   "homepage": "https://github.com/zeke/electron-docs-linter#readme",
   "keywords": [
