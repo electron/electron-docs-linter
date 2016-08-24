@@ -124,7 +124,7 @@ metadata is included for each API, where appropriate:
 - [lodash.pick](https://github.com/lodash/lodash): The lodash method `_.pick` exported as a module.
 - [lodash.sum](https://github.com/lodash/lodash): The lodash method `_.sum` exported as a module.
 - [marky-markdown-lite](https://github.com/zeke/marky-markdown-lite): A version of marky-markdown that does less
-- [minimist](https://github.com/substack/minimist): parse argument options
+- [minimist](https://github.com/substack/minimist): parse parameter options
 - [ora](https://github.com/sindresorhus/ora): Elegant terminal spinner
 - [path-exists](https://github.com/sindresorhus/path-exists): Check if a path exists
 - [pify](https://github.com/sindresorhus/pify): Promisify a callback-style function

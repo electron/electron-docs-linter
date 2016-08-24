@@ -72,8 +72,8 @@ describe('apis', function () {
       var method = apis.app.methods.exit
       expect(method.name).to.eq('exit')
       expect(method.signature).to.eq('(exitCode)')
-      expect(method.arguments[0].name).to.equal('exitCode')
-      expect(method.arguments[0].type).to.equal('Integer')
+      expect(method.parameters[0].name).to.equal('exitCode')
+      expect(method.parameters[0].type).to.equal('Integer')
     })
 
     they('sometimes have a platform array', function () {
@@ -86,7 +86,7 @@ describe('apis', function () {
         (api.methods || []).forEach(method => {
           if (method.signatureParameters.length) {
             expect(method.signatureParameters).to.deep.equal(
-              method.arguments.map(arg => arg.name),
+              method.parameters.map(arg => arg.name),
               `${api.name}.${method.name}${method.signature} is missing parameter docs`
             )
             assertions++
@@ -97,14 +97,14 @@ describe('apis', function () {
     })
   })
 
-  describe('Arguments', function () {
+  describe('Parameters', function () {
     it('preserves code backticks in descriptions and converts HTML to text', function () {
-      var callback = apis.WebContents.instanceMethods.savePage.arguments.callback
+      var callback = apis.WebContents.instanceMethods.savePage.parameters.callback
       expect(callback.description).to.equal('`(error) => {}`.')
     })
 
-    it('detects when arguments are required', function () {
-      expect(apis.BrowserWindow.instanceMethods.setSize.arguments.animate.required).to.eq(false)
+    it('detects when parameters are required', function () {
+      expect(apis.BrowserWindow.instanceMethods.setSize.parameters.animate.required).to.eq(false)
     })
 
     they('do not have a `required` key if they are for an event', function () {
@@ -115,14 +115,14 @@ describe('apis', function () {
     })
 
     they('can have ENUM values', function () {
-      var values = apis.WebContents.instanceMethods.savePage.arguments.saveType.possibleValues
+      var values = apis.WebContents.instanceMethods.savePage.parameters.saveType.possibleValues
       expect(values.length).to.equal(3)
       expect(values[0].value).to.equal('HTMLOnly')
       expect(values[0].description).to.equal('Save only the HTML of the page.')
       expect(values[2].value).to.equal('MHTML')
       expect(values[2].description).to.equal('Save complete-html page as MHTML.')
 
-      values = apis.powerSaveBlocker.methods.start.arguments.type.possibleValues
+      values = apis.powerSaveBlocker.methods.start.parameters.type.possibleValues
       expect(values[0].value).to.equal('prevent-app-suspension')
       expect(values[1].value).to.equal('prevent-display-sleep')
     })
@@ -142,7 +142,7 @@ describe('apis', function () {
         (api.staticMethods || []).forEach(method => {
           if (method.signatureParameters.length) {
             expect(method.signatureParameters).to.deep.equal(
-              method.arguments.map(arg => arg.name),
+              method.parameters.map(param => param.name),
               `${api.name}.${method.name}${method.signature} is missing parameter docs`
             )
             assertions++
@@ -179,7 +179,7 @@ describe('apis', function () {
         (api.instanceMethods || []).forEach(method => {
           if (method.signatureParameters.length) {
             expect(method.signatureParameters).to.deep.equal(
-              method.arguments.map(arg => arg.name),
+              method.parameters.map(arg => arg.name),
               `${api.name}.${method.name}${method.signature} is missing parameter docs`
             )
             assertions++
