@@ -1,6 +1,6 @@
 # electron-docs-linter [![Build Status](https://travis-ci.org/zeke/electron-docs-linter.svg?branch=master)](https://travis-ci.org/zeke/electron-docs-linter)
 
-Parse and validate Electron's markdown API documentation.
+Parse and validate Electron's API documentation.
 
 ## Installation
 
@@ -10,33 +10,25 @@ npm install electron-docs-linter --save
 
 ## CLI Usage
 
-If linting errors are found, they are printed to STDERR and the process
+To lint the docs:
+
+```sh
+electron-docs-linter path/to/electron/docs
+```
+
+If errors are found, they are printed to STDERR and the process
 exits un-gracefully.
 
-```sh
-electron-docs-linter docs/api
-```
-
-If you've piped the output, the JSON schema is written to that pipe. Note
-that a `version` must be specified when piping.
+To lint the docs and save the generated JSON schema to a file:
 
 ```sh
-electron-docs-linter docs/api --version=1.2.3 > api.json
+electron-docs-linter docs/api --version=1.2.3 --outfile=api.json
 ```
-
-If no pipe is present, you just see a nice message.
-
-```sh
-electron-docs-linter docs/api
-
-Docs are good to go! 👍
-```
-
 
 ## Programmatic Usage
 
 The module exports a function that parses markdown docs in a given directory,
-then returns a JSON representation of the docs.
+then returns a JSON representation of all the APIs.
 
 ```js
 const lint = require('electron-docs-linter')
@@ -101,8 +93,11 @@ metadata is included for each API, where appropriate:
 - type (Class or Module)
 - process (main, renderer, or both)
 - methods
-- instance methods
 - events
+- static methods (aka class methods)
+- instance events
+- instance methods
+- instance properties
 - website URL
 - GitHub repository URL
 
@@ -120,19 +115,28 @@ metadata is included for each API, where appropriate:
 
 ## Dependencies
 
+- [cheerio](https://github.com/cheeriojs/cheerio): Tiny, fast, and elegant implementation of core jQuery designed specifically for the server
+- [clean-deep](https://github.com/seegno/clean-deep): Remove falsy, empty or nullable values from objects
 - [decamelize](https://github.com/sindresorhus/decamelize): Convert a camelized string into a lowercased one with a custom separator: unicornRainbow → unicorn_rainbow
+- [dedent](https://github.com/dmnd/dedent): An ES6 string tag that strips indentation from multi-line strings
 - [electron-docs](https://github.com/zeke/electron-docs): Fetch Electron documentation as raw markdown strings
+- [keyed-array](https://github.com/zeke/keyed-array): Recursively add named keys to arrays of objects
 - [lodash.pick](https://github.com/lodash/lodash): The lodash method `_.pick` exported as a module.
+- [lodash.sum](https://github.com/lodash/lodash): The lodash method `_.sum` exported as a module.
 - [marky-markdown-lite](https://github.com/zeke/marky-markdown-lite): A version of marky-markdown that does less
-- [omit-empty](https://github.com/jonschlinkert/omit-empty): Recursively omit empty properties from an object. Omits empty objects, arrays, strings or zero.
+- [minimist](https://github.com/substack/minimist): parse argument options
+- [ora](https://github.com/sindresorhus/ora): Elegant terminal spinner
+- [path-exists](https://github.com/sindresorhus/path-exists): Check if a path exists
 - [pify](https://github.com/sindresorhus/pify): Promisify a callback-style function
 - [revalidator](https://github.com/flatiron/revalidator): A cross-browser / node.js validator powered by JSON Schema
+- [semver](https://github.com/npm/node-semver): The semantic version parser used by npm.
 - [to-markdown](https://github.com/domchristie/to-markdown): HTML-to-Markdown converter
 
 ## Dev Dependencies
 
 - [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
 - [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
+- [rimraf](https://github.com/isaacs/rimraf): A deep deletion module for node (like `rm -rf`)
 - [standard](https://github.com/feross/standard): JavaScript Standard Style
 
 ## License
