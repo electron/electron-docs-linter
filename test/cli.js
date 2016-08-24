@@ -17,6 +17,7 @@ describe('CLI', function () {
 
   it('produces a JSON file', function () {
     expect(apis).to.be.an('array')
+    expect(apis.length).to.be.above(10)
     rimraf(path.join(__dirname, 'electron.json'))
   })
 })
