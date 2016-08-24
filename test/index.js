@@ -128,6 +128,31 @@ describe('apis', function () {
     })
   })
 
+  describe('Static Methods', function () {
+    they('have basic properties', function () {
+      var method = apis.BrowserWindow.staticMethods.getAllWindows
+      expect(method.name).to.eq('getAllWindows')
+      expect(method.signature).to.eq('()')
+      expect(method.description).to.eq('Returns an array of all opened browser windows.')
+    })
+
+    they('always have documented parameters', function () {
+      var assertions = 0
+      apis.forEach(api => {
+        (api.staticMethods || []).forEach(method => {
+          if (method.signatureParameters.length) {
+            expect(method.signatureParameters).to.deep.equal(
+              method.arguments.map(arg => arg.name),
+              `${api.name}.${method.name}${method.signature} is missing parameter docs`
+            )
+            assertions++
+          }
+        })
+      })
+      expect(assertions).to.be.above(5)
+    })
+  })
+
   describe('Instance Methods', function () {
     they('have basic properties', function () {
       var method = apis.BrowserWindow.instanceMethods.setContentSize
