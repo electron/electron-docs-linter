@@ -26,8 +26,9 @@ describe('apis', function () {
 
   it('returns an array of api objects', function () {
     expect(apis).to.be.an('array')
-    expect(apis).to.not.be.empty
-    expect(apis[0]).to.be.an('object')
+    expect(apis.length).to.be.at.least(30)
+    expect(apis.every(api => typeof api === 'object'))
+    expect(apis.every(api => api.constructor.name === 'API'))
   })
 
   it('adds basic properties to each object', function () {
