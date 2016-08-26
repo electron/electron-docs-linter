@@ -61,10 +61,15 @@ describe('apis', function () {
   })
 
   describe('Classes', function () {
-    it('sets class type on all the clases', function () {
+    they('have a type property of `Class`', function () {
       expect(apis.Session.type).to.eq('Class')
       expect(apis.Cookies.type).to.eq('Class')
       expect(apis.WebRequest.type).to.eq('Class')
+    })
+
+    they('have a description property', function () {
+      expect(apis.every(api => api.description.length > 0)).to.equal(true)
+      expect(apis.Session.description).to.equal('Get and set properties of a session.')
     })
   })
 
@@ -242,7 +247,7 @@ describe('apis', function () {
       var properties = event.returns[4].properties
       expect(properties.length).to.be.above(5)
       expect(properties[0].name).to.eq('data')
-      expect(properties[0].type).to.eq('Buffer')
+      expect(properties[0].type).to.eq('String')
       expect(properties[0].description).to.eq('PEM encoded data')
     })
   })
