@@ -71,6 +71,13 @@ describe('apis', function () {
       expect(apis.every(api => api.description.length > 0)).to.equal(true)
       expect(apis.Session.description).to.equal('Get and set properties of a session.')
     })
+
+    they('have an instanceName property', function () {
+      var classes = apis.filter(api => api.type === 'Class')
+      expect(classes.length).to.be.above(10)
+      expect(classes.every(api => api.instanceName.length > 0)).to.equal(true)
+      expect(apis.BrowserWindow.instanceName).to.equal('win')
+    })
   })
 
   describe('Methods', function () {
