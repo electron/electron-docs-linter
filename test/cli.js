@@ -27,7 +27,7 @@ describe('CLI', function () {
 
   it('prints errors to STDERR', function (done) {
     exec(path.join(__dirname, '../cli.js test/fixtures/malformed'), function (err, stdout, stderr) {
-      if (err) throw err
+      expect(err).to.exist
       expect(stderr).to.include('uh-oh! bad docs')
       expect(stderr).to.include('4 errors found')
       done()
