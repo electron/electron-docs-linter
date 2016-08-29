@@ -5,7 +5,7 @@ const they = it
 
 var apis
 
-describe('apis', function () {
+describe('APIs', function () {
   this.timeout(10 * 1000)
 
   before(function (done) {
