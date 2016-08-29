@@ -1,6 +1,5 @@
 const path = require('path')
-const exec = require('child_process').exec
-const execSync = require('child_process').execSync
+const {exec, execSync} = require('child_process')
 const expect = require('chai').expect
 const rimraf = require('rimraf').sync
 const keyedArray = require('keyed-array')
