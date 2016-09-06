@@ -12,7 +12,7 @@ var version = args.version
 var outfile = args.outfile
 
 // docsPath is required
-if (!docsPath) usage()
+if (!docsPath) usage('specify a pathname, .e.g ~/my/electron/electron')
 
 // docsPath is relative to current working directory
 docsPath = path.join(process.cwd(), docsPath)
@@ -20,13 +20,8 @@ docsPath = path.join(process.cwd(), docsPath)
 // outfile is relative to current working directory
 if (outfile) outfile = path.join(process.cwd(), outfile)
 
-// infer version from npm environment
-if (!version && process.env.npm_config_name === 'electron') {
-  version = process.env.npm_config_version
-}
-
 // version is required if writing to a file
-if (outfile && !version) usage()
+if (outfile && !version) usage('`version` is required if `outfile` is specified')
 
 // Use a placeholder version if not writing to a file
 if (!version) version = '0.0.0'
@@ -56,7 +51,9 @@ lint(docsPath, version).then(function (apis) {
   process.exit()
 })
 
-function usage () {
+function usage (reason) {
+  if (reason) console.error(`Error: ${reason}`)
+
   console.error(dedent`
     Usage: electron-docs-linter <pathname>\n
     To save the parsed JSON schema:\n
