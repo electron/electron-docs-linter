@@ -20,6 +20,11 @@ docsPath = path.join(process.cwd(), docsPath)
 // outfile is relative to current working directory
 if (outfile) outfile = path.join(process.cwd(), outfile)
 
+// infer version from npm environment
+if (!version && process.env.npm_config_name === 'electron') {
+  version = process.env.npm_config_version
+}
+
 // version is required if writing to a file
 if (outfile && !version) usage()
 
