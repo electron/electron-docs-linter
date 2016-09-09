@@ -101,17 +101,25 @@ metadata is included for each API, where appropriate:
 - website URL
 - GitHub repository URL
 
-
 ## Related Things and Prior Art
 
-- https://www.npmjs.com/package/@types/electron
-- https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/github-electron
 - https://github.com/atom/autocomplete-atom-api
 - https://kapeli.com/docsets#dashDocset
 - [issue: Publish the public API as JSON](https://github.com/electron/electron/issues/3375)
 - https://raw.githubusercontent.com/atom/autocomplete-atom-api/master/completions.json
 - [devdocs.io](http://devdocs.io/)
 - [Node.js - About this Documentation](https://nodejs.org/dist/latest-v6.x/docs/api/documentation.html)
+
+## TypeScript Definitions
+
+A lot of people want an up-to-date TypeScript definition file for Electron.
+
+- https://github.com/electron/electron/issues/4875
+- https://www.npmjs.com/package/@types/electron
+- https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/github-electron
+- https://github.com/RyanCavanaugh/dts-dom - A DOM library for generation TypeScript declaration (.d.ts) files
+- https://github.com/lbovet/typson - Converts TypeScript to JSON-schema
+- https://github.com/lbovet/docson - Documentation for your JSON types
 
 ## Dependencies
 
@@ -124,7 +132,7 @@ metadata is included for each API, where appropriate:
 - [lodash.pick](https://github.com/lodash/lodash): The lodash method `_.pick` exported as a module.
 - [lodash.sum](https://github.com/lodash/lodash): The lodash method `_.sum` exported as a module.
 - [marky-markdown-lite](https://github.com/zeke/marky-markdown-lite): A version of marky-markdown that does less
-- [minimist](https://github.com/substack/minimist): parse parameter options
+- [minimist](https://github.com/substack/minimist): parse argument options
 - [ora](https://github.com/sindresorhus/ora): Elegant terminal spinner
 - [path-exists](https://github.com/sindresorhus/path-exists): Check if a path exists
 - [pify](https://github.com/sindresorhus/pify): Promisify a callback-style function
