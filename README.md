@@ -1,4 +1,4 @@
-# electron-docs-linter [![Build Status](https://travis-ci.org/zeke/electron-docs-linter.svg?branch=master)](https://travis-ci.org/zeke/electron-docs-linter)
+  # electron-docs-linter [![Build Status](https://travis-ci.org/electron/electron-docs-linter.svg?branch=master)](https://travis-ci.org/electron/electron-docs-linter)
 
 Parse and validate Electron's API documentation.
 

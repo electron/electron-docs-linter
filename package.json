@@ -28,7 +28,7 @@
     "rimraf": "^2.5.4",
     "standard": "^8.0.0"
   },
-  "homepage": "https://github.com/zeke/electron-docs-linter#readme",
+  "homepage": "https://github.com/electron/electron-docs-linter#readme",
   "keywords": [
     "api",
     "documentation",
@@ -40,7 +40,7 @@
   ],
   "license": "MIT",
   "main": "index.js",
-  "repository": "https://github.com/zeke/electron-docs-linter",
+  "repository": "https://github.com/electron/electron-docs-linter",
   "scripts": {
     "update-electron": "git submodule update --recursive --init",
     "test": "mocha && standard"
