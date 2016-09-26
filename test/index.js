@@ -140,6 +140,18 @@ describe('APIs', function () {
       expect(keys).to.not.include('required')
     })
 
+    they('do not contain HTML encoded characters', function() {
+      // expect(JSON.stringify(apis)).to.not.include('&apos;')
+
+      expect(apis.app.events['certificate-error'].returns.certificate
+        .properties.issuerName.description
+      ).to.equal("Issuer's Common Name")
+
+      expect(apis.shell.methods.writeShortcutLink.parameters.operation
+        .possibleValues[2].description
+      ).to.include("doesn't")
+    })
+
     they('can have ENUM values', function () {
       var values = apis.WebContents.instanceMethods.savePage.parameters.saveType.possibleValues
       expect(values.length).to.equal(3)
