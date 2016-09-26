@@ -128,7 +128,7 @@ describe('APIs', function () {
       // expect(apis.BrowserWindow.instanceMethods.setSize.parameters.animate.required).to.eq(false)
     // })
 
-    they('can have descriptions that span multiple lines', function() {
+    they('can have descriptions that span multiple lines', function () {
       var method = apis.BrowserWindow.instanceMethods.setAspectRatio.parameters.extraSize
       expect(method.description).to.equal('(optional) - The extra size not to be included while maintaining the aspect ratio.')
     })
