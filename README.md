@@ -114,6 +114,7 @@ metadata is included for each API, where appropriate:
 
 A lot of people want an up-to-date TypeScript definition file for Electron.
 
+- https://github.com/MarshallOfSound/Electron-DefinitelyTyped (WIP)
 - https://github.com/electron/electron/issues/4875
 - https://www.npmjs.com/package/@types/electron
 - https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/github-electron
