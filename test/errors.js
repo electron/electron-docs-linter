@@ -50,18 +50,4 @@ describe('Malformed Docs', function () {
     expect(errors[0].filename).to.equal('web-contents.md')
     expect(errors[0].html).to.equal('<code>HTMLOnly</code>')
   })
-
-  describe('Deep objects', function () {
-    it('resolve deep objects as return values', function () {
-      const api = apis.find(a => a.name === 'webFrame')
-      const method = api.methods.find(m => m.name === 'getResourceUsage')
-      expect(method.returns.type).to.equal('Object')
-      expect(method.returns.properties.length).to.equal(5)
-      method.returns.properties.forEach(prop => {
-        expect(prop.type).to.equal('Object')
-        expect(prop.properties.length).to.equal(6)
-      })
-      // console.log(JSON.stringify(method, null, 4))
-    })
-  })
 })
