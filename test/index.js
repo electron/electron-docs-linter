@@ -141,7 +141,6 @@ describe('APIs', function () {
     })
 
     they('do not contain HTML encoded characters', function () {
-
       var stringified = JSON.stringify(apis)
       expect(stringified).to.not.include('&apos')
       expect(stringified).to.not.include('&amp')
