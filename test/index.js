@@ -92,7 +92,7 @@ describe('APIs', function () {
     they('have basic properties', function () {
       var method = apis.app.methods.exit
       expect(method.name).to.eq('exit')
-      expect(method.signature).to.eq('(exitCode)')
+      expect(method.signature).to.eq('([exitCode])')
       expect(method.parameters[0].name).to.equal('exitCode')
       expect(method.parameters[0].type).to.equal('Integer')
     })
@@ -186,7 +186,9 @@ describe('APIs', function () {
       var method = apis.BrowserWindow.staticMethods.getAllWindows
       expect(method.name).to.eq('getAllWindows')
       expect(method.signature).to.eq('()')
-      expect(method.description).to.eq('Returns an array of all opened browser windows.')
+      expect(method.description).to.eq('')
+      expect(method.returns.type).to.eq('BrowserWindow[]')
+      expect(method.returns.description).to.eq('An array of all opened browser windows.')
     })
 
     they('always have documented parameters', function () {
@@ -267,7 +269,7 @@ describe('APIs', function () {
       expect(props[0].name).to.equal('webContents')
       expect(props[0].description).to.include('object this window owns')
       expect(props[1].name).to.equal('id')
-      expect(props[1].description).to.equal('The unique ID of the window.')
+      expect(props[1].description).to.equal('A Integer representing the unique ID of the window.')
     })
   })
 
@@ -342,6 +344,20 @@ describe('APIs', function () {
     it('sets a repoUrl', function () {
       var url = 'https://github.com/electron/electron/blob/v1.2.3/docs/api/tray.md'
       expect(apis.Tray.repoUrl).to.equal(url)
+    })
+  })
+
+  describe('Deep objects', function () {
+    it('resolve deep objects as return values', function () {
+      const api = apis.find(a => a.name === 'webFrame')
+      const method = api.methods.find(m => m.name === 'getResourceUsage')
+      expect(method.returns.type).to.equal('Object')
+      expect(method.returns.properties.length).to.equal(5)
+      method.returns.properties.forEach(prop => {
+        expect(prop.type).to.equal('Object')
+        expect(prop.properties.length).to.equal(6)
+      })
+      // console.log(JSON.stringify(method, null, 4))
     })
   })
 })
