@@ -152,6 +152,13 @@ describe('APIs', function () {
       expect(values[0].value).to.equal('prevent-app-suspension')
       expect(values[1].value).to.equal('prevent-display-sleep')
     })
+
+    they('do not always have an ENUM of possibleValues', function () {
+      var param = apis.clipboard.methods.writeHTML.parameters.markup
+      expect(param.name).to.equal('markup')
+      expect(param.type).to.equal('String')
+      expect(param.possibleValues).to.be.undefined
+    })
   })
 
   describe('Static Methods', function () {
