@@ -140,8 +140,11 @@ describe('APIs', function () {
       expect(keys).to.not.include('required')
     })
 
-    they('do not contain HTML encoded characters', function() {
-      // expect(JSON.stringify(apis)).to.not.include('&apos;')
+    they('do not contain HTML encoded characters', function () {
+
+      var stringified = JSON.stringify(apis)
+      expect(stringified).to.not.include('&apos')
+      expect(stringified).to.not.include('&amp')
 
       expect(apis.app.events['certificate-error'].returns.certificate
         .properties.issuerName.description
