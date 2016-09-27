@@ -128,6 +128,11 @@ describe('APIs', function () {
       // expect(apis.BrowserWindow.instanceMethods.setSize.parameters.animate.required).to.eq(false)
     // })
 
+    they('can have descriptions that span multiple lines', function () {
+      var method = apis.BrowserWindow.instanceMethods.setAspectRatio.parameters.extraSize
+      expect(method.description).to.equal('(optional) - The extra size not to be included while maintaining the aspect ratio.')
+    })
+
     they('do not have a `required` key if they are for an event', function () {
       var keys = Object.keys(apis.app.events.activate.returns.hasVisibleWindows)
       expect(keys).to.include('name')
@@ -146,6 +151,19 @@ describe('APIs', function () {
       values = apis.powerSaveBlocker.methods.start.parameters.type.possibleValues
       expect(values[0].value).to.equal('prevent-app-suspension')
       expect(values[1].value).to.equal('prevent-display-sleep')
+    })
+
+    it('enum descriptions can span multiple lines', function () {
+      var possibleValue = apis.powerSaveBlocker.methods.start.parameters.type.possibleValues[1]
+      expect(possibleValue.value).to.equal('prevent-display-sleep')
+      expect(possibleValue.description).to.include('Keeps system and screen active')
+    })
+
+    they('do not always have an ENUM of possibleValues', function () {
+      var param = apis.clipboard.methods.writeHTML.parameters.markup
+      expect(param.name).to.equal('markup')
+      expect(param.type).to.equal('String')
+      expect(param.possibleValues).to.be.undefined
     })
   })
 
