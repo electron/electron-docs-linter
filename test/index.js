@@ -153,6 +153,12 @@ describe('APIs', function () {
       expect(values[1].value).to.equal('prevent-display-sleep')
     })
 
+    it('enum descriptions can span multiple lines', function () {
+      var possibleValue = apis.powerSaveBlocker.methods.start.parameters.type.possibleValues[1]
+      expect(possibleValue.value).to.equal('prevent-display-sleep')
+      expect(possibleValue.description).to.include('Keeps system and screen active')
+    })
+
     they('do not always have an ENUM of possibleValues', function () {
       var param = apis.clipboard.methods.writeHTML.parameters.markup
       expect(param.name).to.equal('markup')
