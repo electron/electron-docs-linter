@@ -154,7 +154,21 @@ describe('APIs', function () {
       ).to.include("doesn't")
     })
 
-    they('can have ENUM values', function () {
+    they('are careful not to inherit nested properties', function () {
+      var props = apis.WebContents.instanceMethods.enableDeviceEmulation.parameters.parameters.properties
+
+      // top-level
+      expect(props.screenPosition).to.exist
+      expect(props.screenSize).to.exist
+
+      // nested
+      expect(props.desktop).to.be.undefined
+      expect(props.mobile).to.be.undefined
+      expect(props.width).to.be.undefined
+      expect(props.height).to.be.undefined
+    })
+
+    they('can have possible values', function () {
       var values = apis.WebContents.instanceMethods.savePage.parameters.saveType.possibleValues
       expect(values.length).to.equal(3)
       expect(values[0].value).to.equal('HTMLOnly')
@@ -167,13 +181,13 @@ describe('APIs', function () {
       expect(values[1].value).to.equal('prevent-display-sleep')
     })
 
-    it('enum descriptions can span multiple lines', function () {
+    they('can have possible values with descriptions can span multiple lines', function () {
       var possibleValue = apis.powerSaveBlocker.methods.start.parameters.type.possibleValues[1]
       expect(possibleValue.value).to.equal('prevent-display-sleep')
       expect(possibleValue.description).to.include('Keeps system and screen active')
     })
 
-    they('do not always have an ENUM of possibleValues', function () {
+    they('do not always have an ENUM of possible values', function () {
       var param = apis.clipboard.methods.writeHTML.parameters.markup
       expect(param.name).to.equal('markup')
       expect(param.type).to.equal('String')
