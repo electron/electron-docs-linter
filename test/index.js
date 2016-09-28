@@ -349,8 +349,7 @@ describe('APIs', function () {
 
   describe('Deep objects', function () {
     it('resolve deep objects as return values', function () {
-      const api = apis.find(a => a.name === 'webFrame')
-      const method = api.methods.find(m => m.name === 'getResourceUsage')
+      const method = apis.webFrame.methods.getResourceUsage
       expect(method.returns.type).to.equal('Object')
       expect(method.returns.properties.length).to.equal(5)
       method.returns.properties.forEach(prop => {
@@ -358,6 +357,19 @@ describe('APIs', function () {
         expect(prop.properties.length).to.equal(6)
       })
       // console.log(JSON.stringify(method, null, 4))
+    })
+  })
+
+  describe('Returns', function () {
+    it('should set return types for methods that return a value', function () {
+      const method = apis.app.methods.getName
+      expect(method.returns).to.not.equal(undefined)
+      expect(method.returns.type).to.equal('String')
+    })
+
+    it('should not set return types for methods that return undefined', function () {
+      const method = apis.app.methods.setName
+      expect(method.returns).to.equal(undefined)
     })
   })
 })
