@@ -363,13 +363,13 @@ describe('APIs', function () {
   describe('Returns', function () {
     it('should set return types for methods that return a value', function () {
       const method = apis.app.methods.getName
-      expect(method.returns).to.not.equal(undefined)
+      expect(method.returns).to.exist
       expect(method.returns.type).to.equal('String')
     })
 
     it('should not set return types for methods that return undefined', function () {
       const method = apis.app.methods.setName
-      expect(method.returns).to.equal(undefined)
+      expect(method.returns).to.be.undefined
     })
   })
 })
