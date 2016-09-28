@@ -238,6 +238,12 @@ describe('APIs', function () {
       expect(apis.NativeImage.instanceMethods.toJPEG.signature).to.eq('(quality)')
     })
 
+    they('do not have a parameters array if they do not take parameters', function () {
+      var method = JSON.parse(JSON.stringify(apis.BrowserWindowProxy.instanceMethods.blur))
+      expect(method.name).to.equal('blur')
+      expect(method.parameters).to.be.undefined
+    })
+
     they('can have a platform array', function () {
       expect(apis.BrowserWindow.instanceMethods.setAspectRatio.platforms[0]).to.eq('macOS')
     })
@@ -275,6 +281,12 @@ describe('APIs', function () {
         expect(props.every(prop => prop.name.length > 0)).to.be.true
         expect(props.every(prop => prop.description.length > 0)).to.be.true
       })
+    })
+
+    they('are absent from APIs that have no instance properties', function () {
+      var api = JSON.parse(JSON.stringify(apis.NativeImage))
+      expect(api.name).to.equal('NativeImage')
+      expect(api.instanceProperties).to.be.undefined
     })
 
     they('have properly parsed name and description', function () {

@@ -6,7 +6,7 @@
   "bin": "cli.js",
   "dependencies": {
     "cheerio": "^0.22.0",
-    "clean-deep": "0.0.1",
+    "clean-deep": "github:zeke/clean-deep",
     "decamelize": "^1.2.0",
     "dedent": "^0.6.0",
     "electron-docs": "^1.1.0",
