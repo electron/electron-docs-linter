@@ -379,8 +379,7 @@ describe('APIs', function () {
       expect(method.returns.type).to.equal('Object')
       expect(method.returns.properties.length).to.equal(5)
       method.returns.properties.forEach(prop => {
-        expect(prop.type).to.equal('Object')
-        expect(prop.properties.length).to.equal(6)
+        expect(prop.type).to.equal('MemoryUsageDetails')
       })
       // console.log(JSON.stringify(method, null, 4))
     })
@@ -396,6 +395,12 @@ describe('APIs', function () {
     it('should not set return types for methods that return undefined', function () {
       const method = apis.app.methods.setName
       expect(method.returns).to.be.undefined
+    })
+
+    it('should strip and allow return types to be links', function () {
+      const method = apis.BrowserWindow.instanceMethods.getContentBounds
+      expect(method.returns).to.exist
+      expect(method.returns.type).to.equal('Bounds')
     })
   })
 })
