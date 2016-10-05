@@ -76,7 +76,7 @@ describe('APIs', function () {
     })
 
     they('have a description property', function () {
-      expect(apis.every(api => api.description.length > 0)).to.equal(true)
+      expect(apis.every(api => api.type === 'Structure' || api.description.length > 0)).to.equal(true)
       expect(apis.Session.description).to.equal('Get and set properties of a session.')
     })
 
@@ -381,7 +381,6 @@ describe('APIs', function () {
       method.returns.properties.forEach(prop => {
         expect(prop.type).to.equal('MemoryUsageDetails')
       })
-      // console.log(JSON.stringify(method, null, 4))
     })
   })
 
@@ -401,6 +400,24 @@ describe('APIs', function () {
       const method = apis.BrowserWindow.instanceMethods.getContentBounds
       expect(method.returns).to.exist
       expect(method.returns.type).to.equal('Bounds')
+    })
+  })
+
+  describe('Structures', function () {
+    var structs
+
+    before(function () {
+      structs = apis.filter(api => api.type === 'Structure')
+    })
+    it('should create API references for each of them', function () {
+      expect(structs.length).to.be.gt(6)
+    })
+
+    it('should list properties for each struct', function () {
+      structs.forEach(struct => {
+        expect(struct.properties).to.exist
+        expect(struct.properties.length).to.be.gt(0)
+      })
     })
   })
 })

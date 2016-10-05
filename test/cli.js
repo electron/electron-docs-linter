@@ -10,7 +10,7 @@ describe('CLI', function () {
 
   it('produces a JSON file', function () {
     rimraf(path.join(__dirname, 'electron.json'))
-    execSync(path.join(__dirname, '../cli.js vendor/electron --version=1.2.3 --outfile=test/electron.json'))
+    execSync('node ' + path.join(__dirname, '../cli.js vendor/electron/docs/api --version=1.2.3 --outfile=test/electron.json'))
     const apis = keyedArray(require('./electron.json'))
 
     expect(apis).to.be.an('array')
@@ -26,7 +26,7 @@ describe('CLI', function () {
   })
 
   it('prints errors to STDERR', function (done) {
-    exec(path.join(__dirname, '../cli.js test/fixtures/malformed'), function (err, stdout, stderr) {
+    exec('node ' + path.join(__dirname, '../cli.js test/fixtures/malformed'), function (err, stdout, stderr) {
       expect(err).to.exist
       expect(stderr).to.include('uh-oh! bad docs')
       expect(stderr).to.include('4 errors found')
