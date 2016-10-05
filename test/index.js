@@ -402,4 +402,22 @@ describe('APIs', function () {
       expect(method.returns.type).to.equal('Bounds')
     })
   })
+
+  describe('Structures', function () {
+    let structs
+
+    before(function () {
+      structs = apis.filter(api => api.type === 'Structure')
+    })
+    it('should create API references for each of them', function () {
+      expect(structs.length).to.be.gt(6)
+    })
+
+    it('should list properties for each struct', function () {
+      structs.forEach(struct => {
+        expect(struct.properties).to.exist
+        expect(struct.properties.length).to.be.gt(0)
+      })
+    })
+  })
 })
