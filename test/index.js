@@ -404,7 +404,7 @@ describe('APIs', function () {
   })
 
   describe('Structures', function () {
-    let structs
+    var structs
 
     before(function () {
       structs = apis.filter(api => api.type === 'Structure')

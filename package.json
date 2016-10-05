@@ -9,7 +9,7 @@
     "clean-deep": "github:zeke/clean-deep",
     "decamelize": "^1.2.0",
     "dedent": "^0.6.0",
-    "electron-docs": "github:electron/electron-docs#read-structure-folder",
+    "electron-docs": "^1.2.3",
     "entities": "^1.1.1",
     "keyed-array": "^2.1.0",
     "lodash.pick": "^4.2.1",
