@@ -76,7 +76,7 @@ describe('APIs', function () {
     })
 
     they('have a description property', function () {
-      expect(apis.every(api => api.description.length > 0)).to.equal(true)
+      expect(apis.every(api => api.type === 'Structure' || api.description.length > 0)).to.equal(true)
       expect(apis.Session.description).to.equal('Get and set properties of a session.')
     })
 
@@ -381,7 +381,6 @@ describe('APIs', function () {
       method.returns.properties.forEach(prop => {
         expect(prop.type).to.equal('MemoryUsageDetails')
       })
-      // console.log(JSON.stringify(method, null, 4))
     })
   })
 
