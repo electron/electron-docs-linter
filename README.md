@@ -68,7 +68,7 @@ lint(docPath, targetVersion).then(function (apis) {
 
 ## How It Works
 
-The linter starts with [a list of all the API names](/lib/seeds.json) as seed data.
+The linter starts with [a list of all the API names](/lib/seeds.js) as seed data.
 
 Each API's structure is inferred by parsing its raw markdown documentation from
 the [electron repo](https://github.com/electron/electron/tree/master/docs/api).
