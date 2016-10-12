@@ -399,7 +399,7 @@ describe('APIs', function () {
     it('should strip and allow return types to be links', function () {
       const method = apis.BrowserWindow.instanceMethods.getContentBounds
       expect(method.returns).to.exist
-      expect(method.returns.type).to.equal('Bounds')
+      expect(method.returns.type).to.equal('Rectangle')
     })
   })
 
