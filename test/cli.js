@@ -29,7 +29,7 @@ describe('CLI', function () {
     exec('node ' + path.join(__dirname, '../cli.js test/fixtures/malformed'), function (err, stdout, stderr) {
       expect(err).to.exist
       expect(stderr).to.include('uh-oh! bad docs')
-      expect(stderr).to.include('4 errors found')
+      expect(stderr).to.include('5 errors found')
       done()
     })
   })
