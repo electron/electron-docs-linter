@@ -382,6 +382,12 @@ describe('APIs', function () {
         expect(prop.type).to.equal('MemoryUsageDetails')
       })
     })
+
+    it('resolves properties of objects as arrays correctly', function () {
+      const method = apis.app.methods.getJumpListSettings
+      expect(method.returns.type).to.equal('Object')
+      expect(method.returns.properties[1].type).to.equal('JumpListItem[]')
+    })
   })
 
   describe('Returns', function () {
