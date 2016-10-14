@@ -263,6 +263,19 @@ describe('APIs', function () {
       })
       expect(assertions).to.be.above(80)
     })
+
+    it('should have function parameters that than have deep documented parameters', function () {
+      var method = apis.WebRequest.instanceMethods.onBeforeRequest
+      var fnParam = method.parameters[1]
+      expect(fnParam.type).to.equal('Function')
+      expect(fnParam.parameters).to.exist
+      expect(fnParam.parameters[0].type).to.equal('Object')
+      expect(fnParam.parameters[1].type).to.equal('Function')
+      expect(fnParam.parameters[1].parameters).to.exist
+      expect(fnParam.parameters[1].parameters[0].type).to.equal('Object')
+      expect(fnParam.parameters[1].parameters[0].properties).to.exist
+      expect(fnParam.parameters[1].parameters[0].properties[0].type).to.equal('Boolean')
+    })
   })
 
   describe('Instance Properties', function () {
