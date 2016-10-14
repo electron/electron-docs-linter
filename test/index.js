@@ -264,17 +264,17 @@ describe('APIs', function () {
       expect(assertions).to.be.above(80)
     })
 
-    it('should have function parameters that than have deep documented parameters', function () {
+    it('should have function parameters that then have deep documented parameters', function () {
       var method = apis.WebRequest.instanceMethods.onBeforeRequest
-      var fnParam = method.parameters[1]
-      expect(fnParam.type).to.equal('Function')
-      expect(fnParam.parameters).to.exist
-      expect(fnParam.parameters[0].type).to.equal('Object')
-      expect(fnParam.parameters[1].type).to.equal('Function')
-      expect(fnParam.parameters[1].parameters).to.exist
-      expect(fnParam.parameters[1].parameters[0].type).to.equal('Object')
-      expect(fnParam.parameters[1].parameters[0].properties).to.exist
-      expect(fnParam.parameters[1].parameters[0].properties[0].type).to.equal('Boolean')
+      var param = method.parameters[1]
+      expect(param.type).to.equal('Function')
+      expect(param.parameters).to.exist
+      expect(param.parameters[0].type).to.equal('Object')
+      expect(param.parameters[1].type).to.equal('Function')
+      expect(param.parameters[1].parameters).to.exist
+      expect(param.parameters[1].parameters[0].type).to.equal('Object')
+      expect(param.parameters[1].parameters[0].properties).to.exist
+      expect(param.parameters[1].parameters[0].properties[0].type).to.equal('Boolean')
     })
   })
 
