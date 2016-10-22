@@ -626,7 +626,7 @@ This method can only be called before app is ready.
 
 ### `app.setBadgeCount(count)` _Linux_ _macOS_
 
-* `count` Integer
+* `count` (Integer | Number | Float | [Struct](struct))
 
 Sets the counter badge for current app. Setting the count to `0` will hide the
 badge. Returns `true` when the call succeeded, otherwise returns `false`.

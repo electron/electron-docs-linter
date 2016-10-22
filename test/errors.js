@@ -50,4 +50,12 @@ describe('Malformed Docs', function () {
     expect(errors[0].filename).to.equal('web-contents.md')
     expect(errors[0].html).to.equal('<code>HTMLOnly</code>')
   })
+
+  // TODO: Move this to "index.js" tests when an appropriate PR is merged into Electron
+  it('supports return types consisting of multiple types', function () {
+    var methodParam = apis.app.methods.setBadgeCount.parameters[0]
+    expect(methodParam.type).to.be.a('array')
+    expect(methodParam.type.length).to.equal(4)
+    expect(methodParam.type).to.deep.equal(['Integer', 'Number', 'Float', 'Struct'])
+  })
 })
