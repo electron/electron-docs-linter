@@ -45,7 +45,7 @@
   "scripts": {
     "update-electron": "git submodule update --recursive --init",
     "generate": "node cli.js vendor/electron --version=1.4.1 --outfile=electron.json && open electron.json",
-    "test": "mocha test/index.js && mocha test/cli.js && standard"
+    "test": "mocha test/*.js && standard"
   },
   "standard": {
     "env": {
