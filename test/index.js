@@ -145,7 +145,7 @@ describe('APIs', function () {
       expect(stringified).to.not.include('&apos')
       expect(stringified).to.not.include('&amp')
 
-      expect(apis.app.events['certificate-error'].returns.certificate
+      expect(apis.Certificate
         .properties.issuerName.description
       ).to.equal("Issuer's Common Name")
 
@@ -263,6 +263,19 @@ describe('APIs', function () {
       })
       expect(assertions).to.be.above(80)
     })
+
+    it('should have function parameters that then have deep documented parameters', function () {
+      var method = apis.WebRequest.instanceMethods.onBeforeRequest
+      var param = method.parameters[1]
+      expect(param.type).to.equal('Function')
+      expect(param.parameters).to.exist
+      expect(param.parameters[0].type).to.equal('Object')
+      expect(param.parameters[1].type).to.equal('Function')
+      expect(param.parameters[1].parameters).to.exist
+      expect(param.parameters[1].parameters[0].type).to.equal('Object')
+      expect(param.parameters[1].parameters[0].properties).to.exist
+      expect(param.parameters[1].parameters[0].properties[0].type).to.equal('Boolean')
+    })
   })
 
   describe('Instance Properties', function () {
@@ -318,8 +331,7 @@ describe('APIs', function () {
     })
 
     they('sometimes have return values that are complex objects', function () {
-      var event = apis.app.events['certificate-error']
-      var properties = event.returns[4].properties
+      var properties = apis.Certificate.properties
       expect(properties.length).to.be.above(5)
       expect(properties[0].name).to.eq('data')
       expect(properties[0].type).to.eq('String')
