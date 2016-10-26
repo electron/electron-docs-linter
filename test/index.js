@@ -302,13 +302,15 @@ describe('APIs', function () {
       expect(api.instanceProperties).to.be.undefined
     })
 
-    they('have properly parsed name and description', function () {
+    they('have properly parsed name, description and type', function () {
       var props = apis.BrowserWindow.instanceProperties
       expect(props.length).to.equal(2)
       expect(props[0].name).to.equal('webContents')
       expect(props[0].description).to.include('object this window owns')
+      expect(props[0].type).to.equal('WebContents')
       expect(props[1].name).to.equal('id')
       expect(props[1].description).to.equal('A Integer representing the unique ID of the window.')
+      expect(props[1].type).to.equal('Integer')
     })
   })
 
