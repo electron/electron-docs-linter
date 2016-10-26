@@ -22,7 +22,7 @@ describe('CLI', function () {
     expect(classes.every(api => api.instanceName.length > 0)).to.equal(true)
 
     // clean up
-    // rimraf(path.join(__dirname, 'electron.json'))
+    rimraf(path.join(__dirname, 'electron.json'))
   })
 
   it('prints errors to STDERR', function (done) {
