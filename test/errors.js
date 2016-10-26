@@ -45,10 +45,10 @@ describe('Malformed Docs', function () {
 
   it('method parameter ENUM values', function () {
     var errors = apis.WebContents.errors
-    expect(errors.length).to.equal(2)
-    expect(errors[1].type).to.equal('parameter ENUM values')
-    expect(errors[1].filename).to.equal('web-contents.md')
-    expect(errors[1].html).to.equal('<code>HTMLOnly</code>')
+    expect(errors.length).to.equal(4)
+    expect(errors[3].type).to.equal('parameter ENUM values')
+    expect(errors[3].filename).to.equal('web-contents.md')
+    expect(errors[3].html).to.equal('<code>HTMLOnly</code>')
   })
 
   // TODO: Move this to "index.js" tests when an appropriate PR is merged into Electron
