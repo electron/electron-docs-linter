@@ -187,6 +187,12 @@ describe('APIs', function () {
       expect(possibleValue.description).to.include('Keeps system and screen active')
     })
 
+    they('can have possible values that are declared inline', function () {
+      var possibleValues = apis.WebContents.instanceMethods.openDevTools.parameters[0].properties[0].possibleValues
+      expect(possibleValues.length).to.equal(4)
+      expect(possibleValues.map(v => v.value)).to.deep.equal(['right', 'bottom', 'undocked', 'detach'])
+    })
+
     they('do not always have an ENUM of possible values', function () {
       var param = apis.clipboard.methods.writeHTML.parameters.markup
       expect(param.name).to.equal('markup')

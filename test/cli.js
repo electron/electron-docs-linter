@@ -22,14 +22,14 @@ describe('CLI', function () {
     expect(classes.every(api => api.instanceName.length > 0)).to.equal(true)
 
     // clean up
-    rimraf(path.join(__dirname, 'electron.json'))
+    // rimraf(path.join(__dirname, 'electron.json'))
   })
 
   it('prints errors to STDERR', function (done) {
     exec('node ' + path.join(__dirname, '../cli.js test/fixtures/malformed'), function (err, stdout, stderr) {
       expect(err).to.exist
       expect(stderr).to.include('uh-oh! bad docs')
-      expect(stderr).to.include('5 errors found')
+      expect(stderr).to.include('7 errors found')
       done()
     })
   })
