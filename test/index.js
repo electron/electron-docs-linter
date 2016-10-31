@@ -67,7 +67,7 @@ describe('APIs', function () {
       expect(apis.WebRequest.type).to.eq('Class')
     })
 
-    they('sometimes have a constructor (whereas others are instantiated by factory methods) ', function () {
+    they('sometimes have a constructor (whereas others are instantiated by factory methods)', function () {
       var method = apis.BrowserWindow.constructorMethod
       expect(method.signature).to.equal('([options])')
       expect(method.parameters).to.be.an('array')
