@@ -43,7 +43,7 @@
   "main": "index.js",
   "repository": "https://github.com/electron/electron-docs-linter",
   "scripts": {
-    "postinstall": "npm run update-electron",
+    "prepublish": "npm run update-electron",
     "update-electron": "git submodule update --recursive --init",
     "generate": "node cli.js vendor/electron --version=1.4.1 --outfile=electron.json && open electron.json",
     "test": "mocha test/*.js && standard"
