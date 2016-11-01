@@ -200,6 +200,12 @@ describe('APIs', function () {
       expect(param.type).to.equal('String')
       expect(param.possibleValues).to.be.undefined
     })
+
+    they('support return types consisting of multiple types', function () {
+      var param = apis.ClientRequest.instanceMethods.write.parameters[0]
+      expect(param.type).to.be.an('array')
+      expect(param.type).to.deep.equal(['String', 'Buffer'])
+    })
   })
 
   describe('Static Methods', function () {
