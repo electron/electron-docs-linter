@@ -1,0 +1,5 @@
+.gitmodules
+.npmignore
+.travis.yml
+/test
+/vendor
