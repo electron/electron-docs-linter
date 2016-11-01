@@ -67,7 +67,7 @@ describe('APIs', function () {
       expect(apis.WebRequest.type).to.eq('Class')
     })
 
-    they('sometimes have a constructor (whereas others are instantiated by factory methods) ', function () {
+    they('sometimes have a constructor (whereas others are instantiated by factory methods)', function () {
       var method = apis.BrowserWindow.constructorMethod
       expect(method.signature).to.equal('([options])')
       expect(method.parameters).to.be.an('array')
@@ -104,7 +104,8 @@ describe('APIs', function () {
     they('always have documented parameters', function () {
       var assertions = 0
       apis.forEach(api => {
-        (api.methods || []).forEach(method => {
+        var methods = api.methods || []
+        methods.forEach(method => {
           if (method.signatureParameters.length) {
             expect(method.signatureParameters).to.deep.equal(
               method.parameters.map(arg => arg.name),
