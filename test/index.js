@@ -107,8 +107,9 @@ describe('APIs', function () {
         var methods = api.methods || []
         methods.forEach(method => {
           if (method.signatureParameters.length) {
-            expect(method.signatureParameters).to.deep.equal(
-              method.parameters.map(arg => arg.name),
+            if (method.parameters.length > 1 && method.parameters[1].name === '...args') return
+            expect(JSON.stringify(method.signatureParameters)).to.equal(
+              JSON.stringify(method.parameters.map(arg => arg.name)),
               `${api.name}.${method.name}${method.signature} is missing parameter docs`
             )
             assertions++
@@ -260,8 +261,9 @@ describe('APIs', function () {
       apis.forEach(api => {
         (api.instanceMethods || []).forEach(method => {
           if (method.signatureParameters.length) {
-            expect(method.signatureParameters).to.deep.equal(
-              method.parameters.map(arg => arg.name),
+            if (method.parameters.length > 1 && method.parameters[1].name === '...args') return
+            expect(JSON.stringify(method.signatureParameters)).to.equal(
+              JSON.stringify(method.parameters.map(arg => arg.name)),
               `${api.name}.${method.name}${method.signature} is missing parameter docs`
             )
             assertions++
