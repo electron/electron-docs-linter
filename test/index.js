@@ -9,7 +9,7 @@ describe('APIs', function () {
   this.timeout(10 * 1000)
 
   before(function (done) {
-    var docPath = path.join(__dirname, '../vendor/electron/docs/api')
+    var docPath = path.join(__dirname, 'fixtures/electron/docs/api')
     lint(docPath, '1.2.3')
       .then(function (_apis) {
         apis = _apis

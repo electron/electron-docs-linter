@@ -19,7 +19,7 @@ electron-docs-linter path/to/electron/docs
 If errors are found, they are printed to STDERR and the process
 exits un-gracefully.
 
-To lint the docs and save the generated JSON schema to a file:
+To lint the docs and save the generated [JSON schema](http://electron.atom.io/blog/2016/09/27/api-docs-json-schema) to a file:
 
 ```sh
 electron-docs-linter docs/api --version=1.2.3 --outfile=api.json
@@ -32,7 +32,7 @@ then returns a JSON representation of all the APIs.
 
 ```js
 const lint = require('electron-docs-linter')
-const docPath = './vendor/electron/docs/api'
+const docPath = './test/fixtures/electron/docs/api'
 const targetVersion = '1.2.3' // the soon-to-be-released version of electron
 
 lint(docPath, targetVersion).then(function (apis) {
