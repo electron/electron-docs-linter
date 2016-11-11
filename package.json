@@ -25,7 +25,6 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "electron-docs": "^2.0.0",
-    "got": "^6.6.0",
     "mkdirp": "^0.5.1",
     "mocha": "^3.0.2",
     "rimraf": "^2.5.4",
