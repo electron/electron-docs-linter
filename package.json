@@ -25,6 +25,9 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "electron-docs": "^2.0.0",
+    "got": "^6.6.0",
+    "mkdirp": "^0.5.1",
     "mocha": "^3.0.2",
     "rimraf": "^2.5.4",
     "standard": "^8.0.0"
@@ -43,9 +46,8 @@
   "main": "index.js",
   "repository": "https://github.com/electron/electron-docs-linter",
   "scripts": {
-    "prepublish": "npm run update-electron",
-    "update-electron": "git submodule update --recursive --init",
-    "generate": "node cli.js vendor/electron --version=1.4.1 --outfile=electron.json && open electron.json",
+    "fetch-docs": "node bin/fetch-docs.js master",
+    "generate": "node cli.js test/fixtures/electron --version=1.4.1 --outfile=electron.json && open electron.json",
     "test": "mocha test/*.js && standard"
   },
   "standard": {

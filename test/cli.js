@@ -10,7 +10,7 @@ describe('CLI', function () {
 
   it('produces a JSON file', function () {
     rimraf(path.join(__dirname, 'electron.json'))
-    execSync('node ' + path.join(__dirname, '../cli.js vendor/electron/docs/api --version=1.2.3 --outfile=test/electron.json'))
+    execSync('node ' + path.join(__dirname, '../cli.js test/fixtures/electron/docs/api --version=1.2.3 --outfile=test/electron.json'))
     const apis = keyedArray(require('./electron.json'))
 
     expect(apis).to.be.an('array')
