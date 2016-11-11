@@ -58,6 +58,16 @@ describe('APIs', function () {
       expect(apis.Tray.process.main).to.equal(true)
       expect(apis.Tray.process.renderer).to.equal(false)
     })
+
+    it('is present on all APIs', function() {
+      var nonStructures = apis.filter(api => api.type !== 'Structure')
+      expect(nonStructures.length).to.be.above(30)
+      nonStructures.forEach(api => {
+        expect(api.process).to.be.an('object', `${api.name} is missing a process object`)
+        expect(api.process.main).to.be.a('boolean', `${api.name} is missing process.main property`)
+        expect(api.process.renderer).to.be.a('boolean', `${api.name} is missing process.renderer property`)
+      })
+    })
   })
 
   describe('Classes', function () {
