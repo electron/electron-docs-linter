@@ -238,7 +238,7 @@ will be set as each window's top menu.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+Returns the application menu (an instance of `Menu`), if set, or `null`, if not set.
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -253,9 +253,7 @@ for more information on macOS' native actions.
 
 #### `Menu.buildFromTemplate(template)`
 
-* `template` MenuItemConstructorOptions[]
-
-Returns `Menu`
+* `template` MenuItem[]
 
 Generally, the `template` is just an array of `options` for constructing a
 [MenuItem](menu-item.md). The usage can be referenced above.

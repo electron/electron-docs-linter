@@ -14,7 +14,7 @@ See [ipcMain](ipc-main.md) for code examples.
 
 ## Methods
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+The `ipcRenderer` module has the following method to listen for events:
 
 ### `ipcRenderer.on(channel, listener)`
 
@@ -46,10 +46,14 @@ Removes the specified `listener` from the listener array for the specified
 
 Removes all listeners, or those of the specified `channel`.
 
+## Sending Messages
+
+The `ipcRenderer` module has the following methods for sending messages:
+
 ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
-* `...args` any[]
+* `arg` (optional)
 
 Send a message to the main process asynchronously via `channel`, you can also
 send arbitrary arguments. Arguments will be serialized in JSON internally and
@@ -60,7 +64,7 @@ The main process handles it by listening for `channel` with `ipcMain` module.
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
-* `...args` any[]
+* `arg` (optional)
 
 Send a message to the main process synchronously via `channel`, you can also
 send arbitrary arguments. Arguments will be serialized in JSON internally and
@@ -75,7 +79,7 @@ unless you know what you are doing you should never use it.
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
-* `...args` any[]
+* `arg` (optional)
 
 Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in
 the host page instead of the main process.
