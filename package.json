@@ -9,7 +9,6 @@
     "clean-deep": "^2.0.1",
     "decamelize": "^1.2.0",
     "dedent": "^0.6.0",
-    "electron-docs": "^1.2.3",
     "entities": "^1.1.1",
     "keyed-array": "^2.1.0",
     "lodash.pick": "^4.2.1",
