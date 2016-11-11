@@ -59,7 +59,7 @@ describe('APIs', function () {
       expect(apis.Tray.process.renderer).to.equal(false)
     })
 
-    it('is present on all APIs', function() {
+    it('is present on all APIs', function () {
       var nonStructures = apis.filter(api => api.type !== 'Structure')
       expect(nonStructures.length).to.be.above(30)
       nonStructures.forEach(api => {
