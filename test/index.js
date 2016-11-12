@@ -55,6 +55,21 @@ describe('APIs', function () {
 
   describe('process', function () {
     it('is an object with `main` and `renderer` keys', function () {
+      expect(apis.clipboard.process.main).to.equal(true)
+      expect(apis.clipboard.process.renderer).to.equal(true)
+
+      expect(apis.crashReporter.process.main).to.equal(true)
+      expect(apis.crashReporter.process.renderer).to.equal(true)
+
+      expect(apis.nativeImage.process.main).to.equal(true)
+      expect(apis.nativeImage.process.renderer).to.equal(true)
+
+      expect(apis.NativeImage.process.main).to.equal(true)
+      expect(apis.NativeImage.process.renderer).to.equal(true)
+
+      expect(apis.shell.process.main).to.equal(true)
+      expect(apis.shell.process.renderer).to.equal(true)
+
       expect(apis.Tray.process.main).to.equal(true)
       expect(apis.Tray.process.renderer).to.equal(false)
     })
