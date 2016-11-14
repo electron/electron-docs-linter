@@ -198,6 +198,9 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on
     Windows, which adds standard window frame. Setting it to `false` will remove
     window shadow and window animations. Default is `true`.
+  * `vibrancy` String - Add a type of vibrancy effect to the window, only on
+    macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`,
+    `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
   * `webPreferences` Object (optional) - Settings of web page's features.
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default
@@ -1188,3 +1191,14 @@ Returns `BrowserWindow[]` - All child windows.
 
 [window-levels]: https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels
 [quick-look]: https://en.wikipedia.org/wiki/Quick_Look
+
+#### `win.setVibrancy(type)` _macOS_
+
+* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`,
+  `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See
+  the [macOS documentation][vibrancy-docs] for more details.
+
+Adds a vibrancy effect to the browser window. Passing `null` or an empty string
+will remove the vibrancy effect on the window.
+
+[vibrancy-docs]: https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc
