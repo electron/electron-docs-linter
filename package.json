@@ -11,17 +11,16 @@
     "dedent": "^0.6.0",
     "electron-docs": "^2.0.1",
     "entities": "^1.1.1",
-    "keyed-array": "^2.1.1",
+    "keyed-array": "^2.1.2",
+    "lodash.merge": "^4.6.0",
     "lodash.pick": "^4.2.1",
-    "lodash.sum": "^4.0.2",
     "marky-markdown-lite": "^1.2.0",
     "minimist": "^1.2.0",
     "ora": "^0.3.0",
     "path-exists": "^3.0.0",
     "pify": "^2.3.0",
     "revalidator": "^0.3.1",
-    "semver": "^5.3.0",
-    "to-markdown": "^3.0.0"
+    "semver": "^5.3.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
