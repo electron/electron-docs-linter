@@ -51,6 +51,7 @@ function deriveSeeds (docs) {
 
   docs
     // Ignore files that aren't real APIs or data structures
+    // TODO: remove this if we ever move the non-API files out of the api dir
     .filter(doc => doc.markdown_content.match(/^Process: \[/m) || doc.filename.match('structures'))
     .forEach(doc => {
       // H1 headings define modules and structures
@@ -64,6 +65,7 @@ function deriveSeeds (docs) {
       }
 
       // H2 headings define classes
+      // TODO: revise/simplify this if we ever change class headings from ## to #
       const classHeading = /^## Class: (.*)/m
       const classHeadingMatch = doc.markdown_content.match(classHeading)
       if (classHeadingMatch && !(moduleHeadingMatch && moduleHeadingMatch[1] === classHeadingMatch[1])) {
