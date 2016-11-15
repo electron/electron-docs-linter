@@ -290,7 +290,7 @@ Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Instance Properties
 
-`menu` objects also have the following properties:
+The following properties are available on instances of `Menu`:
 
 #### `menu.items`
 
