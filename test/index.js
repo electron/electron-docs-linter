@@ -257,7 +257,7 @@ describe('APIs', function () {
           }
         })
       })
-      expect(assertions).to.be.above(5)
+      expect(assertions).to.be.above(3)
     })
   })
 

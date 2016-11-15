@@ -11,7 +11,7 @@
     "dedent": "^0.6.0",
     "electron-docs": "^2.0.1",
     "entities": "^1.1.1",
-    "keyed-array": "^2.1.0",
+    "keyed-array": "^2.1.1",
     "lodash.pick": "^4.2.1",
     "lodash.sum": "^4.0.2",
     "marky-markdown-lite": "^1.2.0",
