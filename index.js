@@ -1,5 +1,4 @@
 const path = require('path')
-const seeds = require('./lib/seeds')
 const API = require('./lib/api')
 const fetchDocs = require('electron-docs')
 const promisify = require('pify')
@@ -27,9 +26,10 @@ function lint (docsPath, targetVersion, callback) {
 
   return fetchDocs(docsPath)
     .then(function (docs) {
-      var apis = seeds.map(props => {
-        props.version = targetVersion
-        return new API(props, docs)
+      const seeds = deriveSeeds(docs)
+      var apis = seeds.map(seed => {
+        seed.version = targetVersion
+        return new API(seed, docs)
       })
 
       // Attach named keys to collection arrays for easier access
@@ -44,6 +44,42 @@ function lint (docsPath, targetVersion, callback) {
       console.error(err)
       return callback(err)
     })
+}
+
+function deriveSeeds (docs) {
+  const seeds = []
+
+  docs
+    // Ignore files that aren't real APIs or data structures
+    // TODO: remove this if we ever move the non-API files out of the api dir
+    .filter(doc => doc.markdown_content.match(/^Process: \[/m) || doc.filename.match('structures'))
+    .forEach(doc => {
+      // H1 headings define modules and structures
+      const moduleHeading = /^# (.*)/
+      const moduleHeadingMatch = doc.markdown_content.match(moduleHeading)
+      if (moduleHeadingMatch) {
+        seeds.push({
+          name: moduleHeadingMatch[1].replace(/ Object/, ''),
+          structure: !!doc.filename.match('structures')
+        })
+      }
+
+      // H2 headings define classes
+      // TODO: revise/simplify this if we ever change class headings from ## to #
+      const classHeading = /^## Class: (.*)/m
+      const classHeadingMatch = doc.markdown_content.match(classHeading)
+      if (classHeadingMatch && !(moduleHeadingMatch && moduleHeadingMatch[1] === classHeadingMatch[1])) {
+        // Only add seed if it's not a duplicate,
+        // e.g. `web-contents` has `# WebContents` and `## Class: WebContents`
+        seeds.push({
+          name: classHeadingMatch[1],
+          structure: false
+        })
+      }
+    })
+
+  return seeds
+    .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
 }
 
 module.exports = promisify(lint)

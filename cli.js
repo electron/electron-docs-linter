@@ -3,7 +3,6 @@
 const fs = require('fs')
 const path = require('path')
 const dedent = require('dedent')
-const sum = require('lodash.sum')
 const lint = require('.')
 const args = require('minimist')(process.argv.slice(2))
 
@@ -31,9 +30,9 @@ const spinner = require('ora')('Parsing electron documentation').start()
 lint(docsPath, version).then(function (apis) {
   spinner.stop().clear()
 
-  if (apis.some(api => api.errors.length)) {
-    fail(apis)
-  }
+  apis.forEach(api => console.error(api.report()))
+
+  if (apis.some(api => !api.valid)) process.exit(1)
 
   if (outfile) {
     fs.writeFileSync(outfile, JSON.stringify(apis, null, 2))
@@ -49,6 +48,9 @@ lint(docsPath, version).then(function (apis) {
   }
 
   process.exit()
+}).catch(error => {
+  console.error(error)
+  process.exit(1)
 })
 
 function usage (reason) {
@@ -59,17 +61,4 @@ function usage (reason) {
     To save the parsed JSON schema:\n
     electron-docs-linter <pathname> --version=1.2.3 --outfile=electron.json\n`)
   process.exit(1)
-}
-
-function fail (apis) {
-  if (apis.some(api => api.errors.length)) {
-    console.error('\n🙊  uh-oh! bad docs 🙈\n')
-    apis.forEach(api => {
-      if (api.errors.length) api.logErrors()
-    })
-
-    const errorCount = sum(apis.map(api => api.errors.length))
-    console.error(`${errorCount} error${errorCount === 1 ? '' : 's'} found`)
-    process.exit(1)
-  }
 }
