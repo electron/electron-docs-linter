@@ -392,6 +392,7 @@ describe('APIs', function () {
       expect(app.slug).to.exist
       expect(app.websiteUrl).to.exist
       expect(app.repoUrl).to.exist
+      expect(app.version).to.exist
 
       // unwanted
       expect(app.errors).to.not.exist
