@@ -151,13 +151,15 @@ describe('APIs', function () {
       expect(callback.description).to.equal('`(error) => {}`.')
     })
 
-    it('detects when parameters are required')//, function () {
-      // expect(apis.BrowserWindow.instanceMethods.setSize.parameters.animate.required).to.eq(false)
-    // })
+    it('detects when parameters are required', function () {
+      const params = apis.app.methods.setAsDefaultProtocolClient.parameters
+      expect(params.protocol.required).to.equal(true)
+      expect(params.path.required).to.equal(false)
+    })
 
     they('can have descriptions that span multiple lines', function () {
       var method = apis.BrowserWindow.instanceMethods.setAspectRatio.parameters.extraSize
-      expect(method.description).to.equal('(optional) - The extra size not to be included while maintaining the aspect ratio.')
+      expect(method.description).to.equal('The extra size not to be included while maintaining the aspect ratio.')
     })
 
     they('do not have a `required` key if they are for an event', function () {
