@@ -6,8 +6,8 @@ const dedent = require('dedent')
 const lint = require('.')
 const args = require('minimist')(process.argv.slice(2))
 
-var docsPath = args._[0]
-var version = args.version
+var docsPath = args._[0] || 'docs/api'
+var version = args.version || process.env.npm_package_version
 var outfile = args.outfile
 
 // docsPath is required
