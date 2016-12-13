@@ -232,7 +232,13 @@ describe('APIs', function () {
     they('support return types consisting of multiple types', function () {
       var param = apis.ClientRequest.instanceMethods.write.parameters[0]
       expect(param.type).to.be.an('array')
-      expect(param.type).to.deep.equal(['String', 'Buffer'])
+      expect(param.type).to.deep.equal([{
+        typeName: 'String',
+        collection: false
+      }, {
+        typeName: 'Buffer',
+        collection: false
+      }])
     })
   })
 
@@ -242,7 +248,8 @@ describe('APIs', function () {
       expect(method.name).to.eq('getAllWindows')
       expect(method.signature).to.eq('()')
       expect(method.description).to.eq('')
-      expect(method.returns.type).to.eq('BrowserWindow[]')
+      expect(method.returns.type).to.eq('BrowserWindow')
+      expect(method.returns.collection).to.eq(true)
       expect(method.returns.description).to.eq('An array of all opened browser windows.')
     })
 
@@ -443,7 +450,8 @@ describe('APIs', function () {
     it('resolves properties of objects as arrays correctly', function () {
       const method = apis.app.methods.getJumpListSettings
       expect(method.returns.type).to.equal('Object')
-      expect(method.returns.properties[1].type).to.equal('JumpListItem[]')
+      expect(method.returns.properties[1].type).to.equal('JumpListItem')
+      expect(method.returns.properties[1].collection).to.equal(true)
     })
   })
 
