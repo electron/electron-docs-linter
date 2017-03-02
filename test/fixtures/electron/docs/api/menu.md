@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -52,16 +52,27 @@ will become properties of the constructed menu items.
 
 The `menu` object has the following instance methods:
 
-#### `menu.popup([browserWindow, x, y, positioningItem])`
+#### `menu.popup([browserWindow, options])`
 
-* `browserWindow` BrowserWindow (optional) - Default is `BrowserWindow.getFocusedWindow()`.
-* `x` Number (optional) - Default is the current mouse cursor position.
-* `y` Number (**required** if `x` is used) - Default is the current mouse cursor position.
-* `positioningItem` Number (optional) _macOS_ - The index of the menu item to
-  be positioned under the mouse cursor at the specified coordinates. Default is
-  -1.
+* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `options` Object (optional)
+  * `x` Number (optional) - Default is the current mouse cursor position.
+  * `y` Number (**required** if `x` is used) - Default is the current mouse
+    cursor position.
+  * `async` Boolean (optional) - Set to `true` to have this method return
+    immediately called, `false` to return after the menu has been selected
+    or closed. Defaults to `false`.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to
+    be positioned under the mouse cursor at the specified coordinates. Default
+    is -1.
 
 Pops up this menu as a context menu in the `browserWindow`.
+
+#### `menu.closePopup([browserWindow])`
+
+* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+
+Closes the context menu in the `browserWindow`.
 
 #### `menu.append(menuItem)`
 
@@ -137,18 +148,13 @@ const template = [
     label: 'View',
     submenu: [
       {
-        label: 'Reload',
-        accelerator: 'CmdOrCtrl+R',
-        click (item, focusedWindow) {
-          if (focusedWindow) focusedWindow.reload()
-        }
+        role: 'reload'
       },
       {
-        label: 'Toggle Developer Tools',
-        accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
-        click (item, focusedWindow) {
-          if (focusedWindow) focusedWindow.webContents.toggleDevTools()
-        }
+        role: 'forcereload'
+      },
+      {
+        role: 'toggledevtools'
       },
       {
         type: 'separator'
