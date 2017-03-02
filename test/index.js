@@ -435,6 +435,13 @@ describe('APIs', function () {
     })
   })
 
+  describe('Attributes', function () {
+    they('exist on the webviewTag API', function () {
+      console.log(apis.webviewTag.attributes)
+      expect(apis.webviewTag.attributes).to.exist
+    })
+  })
+
   describe('Convenience URLs', function () {
     it('sets a websiteUrl', function () {
       var url = 'http://electron.atom.io/docs/api/tray'
