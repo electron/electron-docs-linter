@@ -143,6 +143,16 @@ describe('APIs', function () {
       })
       expect(assertions).to.be.above(80)
     })
+
+    they('exist on the webviewTag API', function () {
+      expect(apis.webviewTag.methods).to.exist
+      expect(apis.webviewTag.methods).to.be.an('array')
+      expect(apis.webviewTag.methods.length).to.be.above(5)
+      apis.webviewTag.methods.forEach(method => {
+        expect(method.name).to.exist
+        expect(method.description).to.exist
+      })
+    })
   })
 
   describe('Parameters', function () {
