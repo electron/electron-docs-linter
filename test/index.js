@@ -437,8 +437,13 @@ describe('APIs', function () {
 
   describe('Attributes', function () {
     they('exist on the webviewTag API', function () {
-      console.log(apis.webviewTag.attributes)
       expect(apis.webviewTag.attributes).to.exist
+      expect(apis.webviewTag.attributes).to.be.an('array')
+      expect(apis.webviewTag.attributes.length).to.be.above(5)
+      apis.webviewTag.attributes.forEach(attr => {
+        expect(attr.name).to.exist
+        expect(attr.description).to.exist
+      })
     })
   })
 
