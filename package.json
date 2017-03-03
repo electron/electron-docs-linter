@@ -1,7 +1,7 @@
 {
   "name": "electron-docs-linter",
   "description": "A JSON object describing Electron's APIs",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)",
   "bin": "cli.js",
   "dependencies": {
