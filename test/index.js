@@ -111,6 +111,11 @@ describe('APIs', function () {
       expect(classes.every(api => api.instanceName.length > 0)).to.equal(true)
       expect(apis.BrowserWindow.instanceName).to.equal('win')
     })
+
+    they('derive instanceName from name if no instance events/methods/properties exist', function () {
+      expect(apis.TouchBarGroup).to.exist
+      expect(apis.TouchBarGroup.instanceName).to.eq('touchBarGroup')
+    })
   })
 
   describe('Methods', function () {
