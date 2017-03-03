@@ -513,4 +513,10 @@ describe('APIs', function () {
       })
     })
   })
+
+  describe('Elements', function () {
+    they('have a type property of `Element`', function () {
+      expect(apis.webviewTag.type).to.eq('Element')
+    })
+  })
 })
