@@ -143,6 +143,16 @@ describe('APIs', function () {
       })
       expect(assertions).to.be.above(80)
     })
+
+    they('exist on the webviewTag API', function () {
+      expect(apis.webviewTag.methods).to.exist
+      expect(apis.webviewTag.methods).to.be.an('array')
+      expect(apis.webviewTag.methods.length).to.be.above(5)
+      apis.webviewTag.methods.forEach(method => {
+        expect(method.name).to.exist
+        expect(method.description).to.exist
+      })
+    })
   })
 
   describe('Parameters', function () {
@@ -425,6 +435,18 @@ describe('APIs', function () {
     })
   })
 
+  describe('Attributes', function () {
+    they('exist on the webviewTag API', function () {
+      expect(apis.webviewTag.attributes).to.exist
+      expect(apis.webviewTag.attributes).to.be.an('array')
+      expect(apis.webviewTag.attributes.length).to.be.above(5)
+      apis.webviewTag.attributes.forEach(attr => {
+        expect(attr.name).to.exist
+        expect(attr.description).to.exist
+      })
+    })
+  })
+
   describe('Convenience URLs', function () {
     it('sets a websiteUrl', function () {
       var url = 'http://electron.atom.io/docs/api/tray'
@@ -489,6 +511,12 @@ describe('APIs', function () {
         expect(struct.properties).to.exist
         expect(struct.properties.length).to.be.gt(0)
       })
+    })
+  })
+
+  describe('Elements', function () {
+    they('have a type property of `Element`', function () {
+      expect(apis.webviewTag.type).to.eq('Element')
     })
   })
 })

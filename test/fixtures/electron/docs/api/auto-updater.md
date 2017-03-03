@@ -2,7 +2,7 @@
 
 > Enable apps to automatically update themselves.
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 The `autoUpdater` module provides an interface for the
 [Squirrel](https://github.com/Squirrel) framework.
@@ -16,6 +16,7 @@ application by using one of these projects:
   auto-updater*
 - [squirrel-updates-server][squirrel-updates-server]: *A simple node.js server
   for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
+- [squirrel-release-server][squirrel-release-server]: *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
 
 ## Platform notices
 
@@ -40,7 +41,7 @@ On Windows, you have to install your app into a user's machine before you can
 use the `autoUpdater`, so it is recommended that you use the
 [electron-winstaller][installer-lib], [electron-builder][electron-builder-lib] or the [grunt-electron-installer][installer] package to generate a Windows installer.
 
-When using [electron-winstaller][installer-lib] or [electron-builder][electron-builder-lib] make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). It's also recommended to use [electron-squirrel-startup](electron-squirrel-startup) to get desktop shortcuts for your app.
+When using [electron-winstaller][installer-lib] or [electron-builder][electron-builder-lib] make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). It's also recommended to use [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) to get desktop shortcuts for your app.
 
 The installer generated with Squirrel will create a shortcut icon with an
 [Application User Model ID][app-user-model-id] in the format of
@@ -121,6 +122,10 @@ using this API.
 Restarts the app and installs the update after it has been downloaded. It
 should only be called after `update-downloaded` has been emitted.
 
+**Note:** `autoUpdater.quitAndInstall()` will close all application windows
+first and only emit `before-quit` event on `app` after that. This is different
+from the normal quit event sequence.
+
 [squirrel-mac]: https://github.com/Squirrel/Squirrel.Mac
 [server-support]: https://github.com/Squirrel/Squirrel.Mac#server-support
 [squirrel-windows]: https://github.com/Squirrel/Squirrel.Windows
@@ -131,3 +136,4 @@ should only be called after `update-downloaded` has been emitted.
 [electron-release-server]: https://github.com/ArekSredzki/electron-release-server
 [squirrel-updates-server]: https://github.com/Aluxian/squirrel-updates-server
 [nuts]: https://github.com/GitbookIO/nuts
+[squirrel-release-server]: https://github.com/Arcath/squirrel-release-server
