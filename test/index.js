@@ -113,8 +113,9 @@ describe('APIs', function () {
     })
 
     they('derive instanceName from name if no instance events/methods/properties exist', function () {
-      expect(apis.TouchBarGroup).to.exist
-      expect(apis.TouchBarGroup.instanceName).to.eq('touchBarGroup')
+      expect(apis.TouchBar.staticProperties).to.exist
+      expect(apis.TouchBar.staticProperties.TouchBarGroup).to.exist
+      expect(apis.TouchBar.staticProperties.TouchBarGroup.instanceName).to.eq('touchBarGroup')
     })
   })
 
