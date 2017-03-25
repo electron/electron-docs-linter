@@ -6,6 +6,24 @@ const semver = require('semver')
 const exists = require('path-exists').sync
 const keyedArray = require('keyed-array')
 
+function remapTouchBar (apis) {
+  const newApis = []
+  const touchBarApis = []
+  var touchBarApi
+  apis.forEach((api) => {
+    if (api.name.substr(0, 8) === 'TouchBar' && api.name !== 'TouchBar') {
+      touchBarApis.push(api)
+    } else if (api.name === 'TouchBar') {
+      touchBarApi = api
+      newApis.push(touchBarApi)
+    } else {
+      newApis.push(api)
+    }
+  })
+  touchBarApi.staticProperties = touchBarApis
+  return newApis
+}
+
 function lint (docsPath, targetVersion, callback) {
   if (typeof callback !== 'function') {
     throw new TypeError('Expected a callback function as third argument')
@@ -31,6 +49,8 @@ function lint (docsPath, targetVersion, callback) {
         seed.version = targetVersion
         return new API(seed, docs)
       })
+
+      apis = remapTouchBar(apis)
 
       // Attach named keys to collection arrays for easier access
       // apis.app.events.login
