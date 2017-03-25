@@ -20,7 +20,7 @@ function remapTouchBar (apis) {
       newApis.push(api)
     }
   })
-  touchBarApi.staticProperties = touchBarApis
+  if (touchBarApi) touchBarApi.staticProperties = touchBarApis
   return newApis
 }
 
