@@ -178,11 +178,11 @@ describe('APIs', function () {
       expect(method.description).to.equal('The extra size not to be included while maintaining the aspect ratio.')
     })
 
-    they('do not have a `required` key if they are for an event', function () {
+    they('have a `required` key for events', function () {
       var keys = Object.keys(apis.app.events.activate.returns.hasVisibleWindows)
       expect(keys).to.include('name')
       expect(keys).to.include('type')
-      expect(keys).to.not.include('required')
+      expect(keys).to.include('required')
     })
 
     they('do not contain HTML encoded characters', function () {
@@ -340,6 +340,12 @@ describe('APIs', function () {
       expect(param.parameters[1].parameters[0].type).to.equal('Object')
       expect(param.parameters[1].parameters[0].properties).to.exist
       expect(param.parameters[1].parameters[0].properties[0].type).to.equal('Boolean')
+    })
+  })
+
+  describe('Properties', function () {
+    they('are marked `required` for super objects', function () {
+      apis.app.properties.forEach(prop => expect(prop.required).to.equal(true))
     })
   })
 
@@ -516,6 +522,7 @@ describe('APIs', function () {
       structs.forEach(struct => {
         expect(struct.properties).to.exist
         expect(struct.properties.length).to.be.gt(0)
+        struct.properties.forEach(prop => expect(prop.required).to.exist)
       })
     })
   })
