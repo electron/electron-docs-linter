@@ -105,6 +105,13 @@ describe('APIs', function () {
       expect(apis.Session.description).to.equal('Get and set properties of a session.')
     })
 
+    they('include code in description', function () {
+      var properties = apis.BrowserWindow.constructorMethod.parameters[0].properties
+      for (var property of properties) {
+        expect(property.description).to.not.include('Default is .')
+      }
+    })
+
     they('have an instanceName property', function () {
       var classes = apis.filter(api => api.type === 'Class')
       expect(classes.length).to.be.above(10)
