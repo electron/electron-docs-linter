@@ -162,9 +162,14 @@ describe('APIs', function () {
   })
 
   describe('Parameters', function () {
-    it('preserves code backticks in descriptions and converts HTML to text', function () {
+    it('preserves backticked code in descriptions and converts HTML to text', function () {
       var callback = apis.WebContents.instanceMethods.savePage.parameters.callback
       expect(callback.description).to.equal('`(error) => {}`.')
+
+      var properties = apis.BrowserWindow.constructorMethod.parameters[0].properties
+      expect(properties.some(p => p.description.includes('Default is true'))).to.eq(true)
+      expect(properties.some(p => p.description.includes('Default is false'))).to.eq(true)
+      expect(properties.some(p => p.description.includes('Default is .'))).to.eq(false)
     })
 
     it('detects when parameters are required', function () {
