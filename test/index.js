@@ -105,13 +105,6 @@ describe('APIs', function () {
       expect(apis.Session.description).to.equal('Get and set properties of a session.')
     })
 
-    they('include code in description', function () {
-      var properties = apis.BrowserWindow.constructorMethod.parameters[0].properties
-      for (var property of properties) {
-        expect(property.description).to.not.include('Default is .')
-      }
-    })
-
     they('have an instanceName property', function () {
       var classes = apis.filter(api => api.type === 'Class')
       expect(classes.length).to.be.above(10)
@@ -169,9 +162,14 @@ describe('APIs', function () {
   })
 
   describe('Parameters', function () {
-    it('preserves code backticks in descriptions and converts HTML to text', function () {
+    it('preserves backticked code in descriptions and converts HTML to text', function () {
       var callback = apis.WebContents.instanceMethods.savePage.parameters.callback
       expect(callback.description).to.equal('`(error) => {}`.')
+
+      var properties = apis.BrowserWindow.constructorMethod.parameters[0].properties
+      expect(properties.some(p => p.description.includes('Default is true'))).to.eq(true)
+      expect(properties.some(p => p.description.includes('Default is false'))).to.eq(true)
+      expect(properties.some(p => p.description.includes('Default is .'))).to.eq(false)
     })
 
     it('detects when parameters are required', function () {
