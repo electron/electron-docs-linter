@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "check-for-leaks": "^1.2.0",
+    "husky": "^0.14.3",
     "mkdirp": "^0.5.1",
     "mocha": "^3.0.2",
     "rimraf": "^2.5.4",
@@ -45,7 +47,9 @@
   "scripts": {
     "fetch-docs": "node bin/fetch-docs.js master",
     "generate": "node cli.js test/fixtures/electron --version=1.4.1 --outfile=electron.json && open electron.json",
-    "test": "mocha test/*.js && standard"
+    "test": "mocha test/*.js && standard",
+    "prepack": "check-for-leaks",
+    "prepush": "check-for-leaks"
   },
   "standard": {
     "env": {
