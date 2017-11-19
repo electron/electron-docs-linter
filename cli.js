@@ -49,7 +49,13 @@ lint(docsPath, version).then(function (apis) {
 
   process.exit()
 }).catch(error => {
-  console.error(error)
+  if (typeof error === 'string') {
+    spinner.text = error
+  } else if (error instanceof Error) {
+    spinner.text = error.message
+  }
+  spinner.fail()
+  if (typeof error !== 'string') console.error(error)
   process.exit(1)
 })
 
