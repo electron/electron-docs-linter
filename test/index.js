@@ -261,6 +261,14 @@ describe('APIs', function () {
         collection: false
       }])
     })
+
+    they('support return types consisting of multiple complex types', function () {
+      var param = apis.Session.instanceMethods.setPermissionRequestHandler.parameters[0]
+      expect(param.type).to.be.an('array')
+      expect(param.type[0].typeName).to.equal('Function')
+      expect(param.type[1].typeName).to.equal('null')
+      expect(param, 'should have function parameters').to.have.property('parameters')
+    })
   })
 
   describe('Static Methods', function () {
