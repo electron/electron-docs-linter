@@ -1,7 +1,7 @@
 {
   "name": "electron-docs-linter",
   "description": "A JSON object describing Electron's APIs",
-  "version": "2.3.4",
+  "version": "0.0.0-development",
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)",
   "bin": "cli.js",
   "dependencies": {
@@ -29,7 +29,8 @@
     "mkdirp": "^0.5.1",
     "mocha": "^3.0.2",
     "rimraf": "^2.5.4",
-    "standard": "^8.0.0"
+    "standard": "^8.0.0",
+    "semantic-release": "^8.2.0"
   },
   "homepage": "https://github.com/electron/electron-docs-linter#readme",
   "keywords": [
@@ -49,7 +50,8 @@
     "generate": "node cli.js test/fixtures/electron --version=1.4.1 --outfile=electron.json && open electron.json",
     "test": "mocha test/*.js && standard",
     "prepack": "check-for-leaks",
-    "prepush": "check-for-leaks"
+    "prepush": "check-for-leaks",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "standard": {
     "env": {
