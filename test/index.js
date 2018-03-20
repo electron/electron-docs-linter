@@ -474,7 +474,7 @@ describe('APIs', function () {
 
   describe('Convenience URLs', function () {
     it('sets a websiteUrl', function () {
-      var url = 'http://electron.atom.io/docs/api/tray'
+      var url = 'http://electronjs.org/docs/api/tray'
       expect(apis.Tray.websiteUrl).to.equal(url)
     })
 
