@@ -159,6 +159,39 @@ describe('APIs', function () {
         expect(method.description).to.exist
       })
     })
+
+    they('can return promises with inner types', function () {
+      expect(apis.app.methods.isDefaultProtocolClient).to.exist
+      expect(apis.app.methods.isDefaultProtocolClient.returns.type).to.eq('Promise')
+      expect(apis.app.methods.isDefaultProtocolClient.returns.innerType).to.eq('boolean')
+    })
+
+    they('can return promises with complex inner types', function () {
+      expect(apis.app.methods.removeAsDefaultProtocolClient).to.exist
+      expect(apis.app.methods.removeAsDefaultProtocolClient.returns.type).to.eq('Promise')
+      expect(apis.app.methods.removeAsDefaultProtocolClient.returns.innerType).to.deep.eq([
+        {
+          collection: false,
+          innerType: undefined,
+          typeName: 'Boolean'
+        },
+        {
+          collection: false,
+          innerType: undefined,
+          typeName: 'null'
+        },
+        {
+          collection: false,
+          innerType: undefined,
+          typeName: 'Point'
+        },
+        {
+          collection: true,
+          innerType: undefined,
+          typeName: 'Rect'
+        }
+      ])
+    })
   })
 
   describe('Parameters', function () {
@@ -255,9 +288,11 @@ describe('APIs', function () {
       expect(param.type).to.be.an('array')
       expect(param.type).to.deep.equal([{
         typeName: 'String',
+        innerType: undefined,
         collection: false
       }, {
         typeName: 'Buffer',
+        innerType: undefined,
         collection: false
       }])
     })
@@ -268,6 +303,12 @@ describe('APIs', function () {
       expect(param.type[0].typeName).to.equal('Function')
       expect(param.type[1].typeName).to.equal('null')
       expect(param, 'should have function parameters').to.have.property('parameters')
+    })
+
+    they('can be promises with inner types', function () {
+      var param = apis.app.methods.isDefaultProtocolClient.parameters[0]
+      expect(param.type).to.eq('Promise')
+      expect(param.innerType).to.eq('String')
     })
   })
 
@@ -360,6 +401,12 @@ describe('APIs', function () {
     they('are marked `required` for super objects', function () {
       apis.app.properties.forEach(prop => expect(prop.required).to.equal(true))
     })
+
+    they('can be promises with inner types', function () {
+      var prop = apis.BrowserWindow.instanceProperties.id
+      expect(prop.type).to.eq('Promise')
+      expect(prop.innerType).to.eq('Integer')
+    })
   })
 
   describe('Instance Properties', function () {
@@ -393,8 +440,8 @@ describe('APIs', function () {
       expect(props[0].description).to.include('object this window owns')
       expect(props[0].type).to.equal('WebContents')
       expect(props[1].name).to.equal('id')
-      expect(props[1].description).to.equal('A Integer representing the unique ID of the window.')
-      expect(props[1].type).to.equal('Integer')
+      expect(props[1].description).to.equal('A Promise<Integer> representing the unique ID of the window.')
+      expect(props[1].type).to.equal('Promise')
     })
   })
 
@@ -499,6 +546,16 @@ describe('APIs', function () {
       expect(method.returns.type).to.equal('Object')
       expect(method.returns.properties[1].type).to.equal('JumpListItem')
       expect(method.returns.properties[1].collection).to.equal(true)
+    })
+
+    it('resolve promises in deep objects as return values', function () {
+      const method = apis.screen.methods.getCursorScreenPoint
+      expect(method.returns.type).to.equal('Object')
+      expect(method.returns.properties.length).to.equal(2)
+      const prop = method.returns.properties[0]
+      expect(prop.name).to.eq('x')
+      expect(prop.type).to.eq('Promise')
+      expect(prop.innerType).to.eq('Integer')
     })
   })
 

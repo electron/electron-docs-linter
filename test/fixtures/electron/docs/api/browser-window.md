@@ -573,7 +573,7 @@ events.
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+A `Promise<Integer>` representing the unique ID of the window.
 
 ### Instance Methods
 

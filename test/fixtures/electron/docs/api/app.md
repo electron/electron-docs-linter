@@ -517,7 +517,7 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 * `path` String (optional) _Windows_ - Defaults to `process.execPath`
 * `args` String[] (optional) _Windows_ - Defaults to an empty array
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Promise<Boolean | null | Point | Rect[]>` - Whether the call succeeded.
 
 This method checks if the current executable as the default handler for a
 protocol (aka URI scheme). If so, it will remove the app as the default handler.
@@ -525,11 +525,11 @@ protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
-* `protocol` String - The name of your protocol, without `://`.
+* `protocol` Promise<String> - The name of your protocol, without `://`.
 * `path` String (optional) _Windows_ - Defaults to `process.execPath`
 * `args` String[] (optional) _Windows_ - Defaults to an empty array
 
-Returns `Boolean`
+Returns `Promise<boolean>`
 
 This method checks if the current executable is the default handler for a protocol
 (aka URI scheme). If so, it will return true. Otherwise, it will return false.

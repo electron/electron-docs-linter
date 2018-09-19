@@ -93,7 +93,7 @@ The `screen` module has the following methods:
 
 Returns `Object`:
 
-* `x` Integer
+* `x` Promise<Integer>
 * `y` Integer
 
 The current absolute position of the mouse pointer.
