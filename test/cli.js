@@ -1,8 +1,12 @@
 const path = require('path')
 const exec = require('child_process').exec
-const expect = require('chai').expect
+const chai = require('chai')
+const dirtyChai = require('dirty-chai')
 const rimraf = require('rimraf').sync
 const keyedArray = require('keyed-array')
+
+const expect = chai.expect
+chai.use(dirtyChai)
 
 describe('CLI', function () {
   this.timeout(10 * 1000)
@@ -28,7 +32,7 @@ describe('CLI', function () {
 
   it('prints errors to STDERR', function (done) {
     exec('node ' + path.join(__dirname, '../cli.js test/fixtures/malformed'), function (err, stdout, stderr) {
-      expect(err).to.exist
+      expect(err).to.exist()
       expect(stderr).to.include('expected 3 instanceMethods but only found 2')
       expect(stderr).to.include('expected 4 instanceProperties but only found 3')
       expect(stderr).to.include('description must not be empty')

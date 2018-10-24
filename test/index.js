@@ -1,7 +1,11 @@
 const path = require('path')
-const expect = require('chai').expect
+const chai = require('chai')
+const dirtyChai = require('dirty-chai')
 const lint = require('..')
 const they = it
+
+const expect = chai.expect
+chai.use(dirtyChai)
 
 var apis
 
@@ -32,10 +36,10 @@ describe('APIs', function () {
   })
 
   it('adds basic properties to each object', function () {
-    expect(apis.every(api => api.name.length > 0)).to.be.true
-    expect(apis.every(api => api.slug.length > 0)).to.be.true
-    expect(apis.every(api => api.type.length > 0)).to.be.true
-    expect(apis.every(api => api.version.length > 0)).to.be.true
+    expect(apis.every(api => api.name.length > 0)).to.be.true()
+    expect(apis.every(api => api.slug.length > 0)).to.be.true()
+    expect(apis.every(api => api.type.length > 0)).to.be.true()
+    expect(apis.every(api => api.version.length > 0)).to.be.true()
 
     var win = apis.BrowserWindow
     expect(win.name).to.eq('BrowserWindow')
@@ -50,7 +54,7 @@ describe('APIs', function () {
         console.error(api.validationErrors)
       }
     })
-    expect(apis.every(api => api.valid)).to.be.true
+    expect(apis.every(api => api.valid)).to.be.true()
   })
 
   describe('process', function () {
@@ -113,8 +117,8 @@ describe('APIs', function () {
     })
 
     they('derive instanceName from name if no instance events/methods/properties exist', function () {
-      expect(apis.TouchBar.staticProperties).to.exist
-      expect(apis.TouchBar.staticProperties.TouchBarGroup).to.exist
+      expect(apis.TouchBar.staticProperties).to.exist()
+      expect(apis.TouchBar.staticProperties.TouchBarGroup).to.exist()
       expect(apis.TouchBar.staticProperties.TouchBarGroup.instanceName).to.eq('touchBarGroup')
     })
   })
@@ -151,23 +155,23 @@ describe('APIs', function () {
     })
 
     they('exist on the webviewTag API', function () {
-      expect(apis.webviewTag.methods).to.exist
+      expect(apis.webviewTag.methods).to.exist()
       expect(apis.webviewTag.methods).to.be.an('array')
       expect(apis.webviewTag.methods.length).to.be.above(5)
       apis.webviewTag.methods.forEach(method => {
-        expect(method.name).to.exist
-        expect(method.description).to.exist
+        expect(method.name).to.exist()
+        expect(method.description).to.exist()
       })
     })
 
     they('can return promises with inner types', function () {
-      expect(apis.app.methods.isDefaultProtocolClient).to.exist
+      expect(apis.app.methods.isDefaultProtocolClient).to.exist()
       expect(apis.app.methods.isDefaultProtocolClient.returns.type).to.eq('Promise')
       expect(apis.app.methods.isDefaultProtocolClient.returns.innerType).to.eq('boolean')
     })
 
     they('can return promises with complex inner types', function () {
-      expect(apis.app.methods.removeAsDefaultProtocolClient).to.exist
+      expect(apis.app.methods.removeAsDefaultProtocolClient).to.exist()
       expect(apis.app.methods.removeAsDefaultProtocolClient.returns.type).to.eq('Promise')
       expect(apis.app.methods.removeAsDefaultProtocolClient.returns.innerType).to.deep.eq([
         {
@@ -241,14 +245,14 @@ describe('APIs', function () {
       var props = apis.WebContents.instanceMethods.enableDeviceEmulation.parameters.parameters.properties
 
       // top-level
-      expect(props.screenPosition).to.exist
-      expect(props.screenSize).to.exist
+      expect(props.screenPosition).to.exist()
+      expect(props.screenSize).to.exist()
 
       // nested
-      expect(props.desktop).to.be.undefined
-      expect(props.mobile).to.be.undefined
-      expect(props.width).to.be.undefined
-      expect(props.height).to.be.undefined
+      expect(props.desktop).to.be.undefined()
+      expect(props.mobile).to.be.undefined()
+      expect(props.width).to.be.undefined()
+      expect(props.height).to.be.undefined()
     })
 
     they('can have possible values', function () {
@@ -280,7 +284,7 @@ describe('APIs', function () {
       var param = apis.clipboard.methods.writeHTML.parameters.markup
       expect(param.name).to.equal('markup')
       expect(param.type).to.equal('String')
-      expect(param.possibleValues).to.be.undefined
+      expect(param.possibleValues).to.be.undefined()
     })
 
     they('support return types consisting of multiple types', function () {
@@ -359,7 +363,7 @@ describe('APIs', function () {
     they('do not have a parameters array if they do not take parameters', function () {
       var method = JSON.parse(JSON.stringify(apis.BrowserWindowProxy.instanceMethods.blur))
       expect(method.name).to.equal('blur')
-      expect(method.parameters).to.be.undefined
+      expect(method.parameters).to.be.undefined()
     })
 
     they('can have a platform array', function () {
@@ -387,12 +391,12 @@ describe('APIs', function () {
       var method = apis.WebRequest.instanceMethods.onBeforeRequest
       var param = method.parameters[1]
       expect(param.type).to.equal('Function')
-      expect(param.parameters).to.exist
+      expect(param.parameters).to.exist()
       expect(param.parameters[0].type).to.equal('Object')
       expect(param.parameters[1].type).to.equal('Function')
-      expect(param.parameters[1].parameters).to.exist
+      expect(param.parameters[1].parameters).to.exist()
       expect(param.parameters[1].parameters[0].type).to.equal('Object')
-      expect(param.parameters[1].parameters[0].properties).to.exist
+      expect(param.parameters[1].parameters[0].properties).to.exist()
       expect(param.parameters[1].parameters[0].properties[0].type).to.equal('Boolean')
     })
   })
@@ -421,16 +425,16 @@ describe('APIs', function () {
 
       apisWithInstanceProperties.forEach(api => {
         var props = apis[api].instanceProperties
-        expect(props).to.not.be.empty
-        expect(props.every(prop => prop.name.length > 0)).to.be.true
-        expect(props.every(prop => prop.description.length > 0)).to.be.true
+        expect(props).to.not.be.empty()
+        expect(props.every(prop => prop.name.length > 0)).to.be.true()
+        expect(props.every(prop => prop.description.length > 0)).to.be.true()
       })
     })
 
     they('are absent from APIs that have no instance properties', function () {
       var api = JSON.parse(JSON.stringify(apis.NativeImage))
       expect(api.name).to.equal('NativeImage')
-      expect(api.instanceProperties).to.be.undefined
+      expect(api.instanceProperties).to.be.undefined()
     })
 
     they('have properly parsed name, description and type', function () {
@@ -448,7 +452,7 @@ describe('APIs', function () {
   describe('Events', function () {
     it('is an array of event objects', function () {
       expect(apis.app.events.length).to.be.above(10)
-      expect(apis.app.events.every(event => event.name.length > 0)).to.be.true
+      expect(apis.app.events.every(event => event.name.length > 0)).to.be.true()
     })
 
     they('have a name, description, and type', function () {
@@ -477,44 +481,44 @@ describe('APIs', function () {
       var app = JSON.parse(JSON.stringify(apis.app))
 
       // common to all APIs
-      expect(app.name).to.exist
-      expect(app.description).to.exist
-      expect(app.type).to.exist
-      expect(app.slug).to.exist
-      expect(app.websiteUrl).to.exist
-      expect(app.repoUrl).to.exist
-      expect(app.version).to.exist
+      expect(app.name).to.exist()
+      expect(app.description).to.exist()
+      expect(app.type).to.exist()
+      expect(app.slug).to.exist()
+      expect(app.websiteUrl).to.exist()
+      expect(app.repoUrl).to.exist()
+      expect(app.version).to.exist()
 
       // unwanted
-      expect(app.errors).to.not.exist
-      expect(app.docs).to.not.exist
+      expect(app.errors).to.not.exist()
+      expect(app.docs).to.not.exist()
 
       // events
       var _process = JSON.parse(JSON.stringify(apis.process))
-      expect(_process.events).to.exist
+      expect(_process.events).to.exist()
 
       // instanceEvents
       var Tray = JSON.parse(JSON.stringify(apis.Tray))
-      expect(Tray.instanceEvents).to.exist
+      expect(Tray.instanceEvents).to.exist()
 
       // methods
       var remote = JSON.parse(JSON.stringify(apis.remote))
-      expect(remote.methods).to.exist
+      expect(remote.methods).to.exist()
 
       // instanceMethods
       var win = JSON.parse(JSON.stringify(apis.BrowserWindow))
-      expect(win.instanceMethods).to.exist
+      expect(win.instanceMethods).to.exist()
     })
   })
 
   describe('Attributes', function () {
     they('exist on the webviewTag API', function () {
-      expect(apis.webviewTag.attributes).to.exist
+      expect(apis.webviewTag.attributes).to.exist()
       expect(apis.webviewTag.attributes).to.be.an('array')
       expect(apis.webviewTag.attributes.length).to.be.above(5)
       apis.webviewTag.attributes.forEach(attr => {
-        expect(attr.name).to.exist
-        expect(attr.description).to.exist
+        expect(attr.name).to.exist()
+        expect(attr.description).to.exist()
       })
     })
   })
@@ -562,18 +566,18 @@ describe('APIs', function () {
   describe('Returns', function () {
     it('should set return types for methods that return a value', function () {
       const method = apis.app.methods.getName
-      expect(method.returns).to.exist
+      expect(method.returns).to.exist()
       expect(method.returns.type).to.equal('String')
     })
 
     it('should not set return types for methods that return undefined', function () {
       const method = apis.app.methods.setName
-      expect(method.returns).to.be.undefined
+      expect(method.returns).to.be.undefined()
     })
 
     it('should strip and allow return types to be links', function () {
       const method = apis.BrowserWindow.instanceMethods.getContentBounds
-      expect(method.returns).to.exist
+      expect(method.returns).to.exist()
       expect(method.returns.type).to.equal('Rectangle')
     })
   })
@@ -590,7 +594,7 @@ describe('APIs', function () {
 
     it('should list properties for each struct', function () {
       structs.forEach(struct => {
-        expect(struct.properties).to.exist
+        expect(struct.properties).to.exist()
         expect(struct.properties.length).to.be.gt(0)
         struct.properties.forEach(prop => expect(prop.required).to.exist)
       })
