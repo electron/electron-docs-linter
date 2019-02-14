@@ -599,6 +599,12 @@ describe('APIs', function () {
         struct.properties.forEach(prop => expect(prop.required).to.exist)
       })
     })
+
+    it('should have "extends" for structures that extend other structures', () => {
+      expect(apis.Event).to.have.property('extends')
+        .that.is.a('string')
+        .and.is.equal('GlobalEvent')
+    })
   })
 
   describe('Elements', function () {

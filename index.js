@@ -78,13 +78,14 @@ function deriveSeeds (docs) {
       const moduleHeading = /^# (.*)/
       const moduleHeadingMatch = doc.markdown_content.match(moduleHeading)
       if (moduleHeadingMatch) {
-        var name = moduleHeadingMatch[1].replace(/ Object/, '')
+        var name = moduleHeadingMatch[1].replace(/ Object/, '').replace(/ extends .+/, '')
 
         // Special case for '<webview> Tag' heading
         if (name.match(/webview/i)) name = 'webviewTag'
 
         seeds.push({
           name: name,
+          moduleLevelHeading: moduleHeadingMatch[1],
           structure: !!doc.filename.match('structures')
         })
       }
