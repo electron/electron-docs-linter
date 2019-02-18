@@ -167,13 +167,13 @@ describe('APIs', function () {
     they('can return promises with inner types', function () {
       expect(apis.app.methods.isDefaultProtocolClient).to.exist()
       expect(apis.app.methods.isDefaultProtocolClient.returns.type).to.eq('Promise')
-      expect(apis.app.methods.isDefaultProtocolClient.returns.innerType).to.eq('boolean')
+      expect(apis.app.methods.isDefaultProtocolClient.returns.innerType[0]).to.eq('boolean')
     })
 
     they('can return promises with complex inner types', function () {
       expect(apis.app.methods.removeAsDefaultProtocolClient).to.exist()
       expect(apis.app.methods.removeAsDefaultProtocolClient.returns.type).to.eq('Promise')
-      expect(apis.app.methods.removeAsDefaultProtocolClient.returns.innerType).to.deep.eq([
+      expect(apis.app.methods.removeAsDefaultProtocolClient.returns.innerType[0]).to.deep.eq([
         {
           collection: false,
           innerType: undefined,
@@ -312,7 +312,7 @@ describe('APIs', function () {
     they('can be promises with inner types', function () {
       var param = apis.app.methods.isDefaultProtocolClient.parameters[0]
       expect(param.type).to.eq('Promise')
-      expect(param.innerType).to.eq('String')
+      expect(param.innerType[0]).to.eq('String')
     })
   })
 
@@ -409,7 +409,7 @@ describe('APIs', function () {
     they('can be promises with inner types', function () {
       var prop = apis.BrowserWindow.instanceProperties.id
       expect(prop.type).to.eq('Promise')
-      expect(prop.innerType).to.eq('Integer')
+      expect(prop.innerType[0]).to.eq('Integer')
     })
   })
 
@@ -559,7 +559,16 @@ describe('APIs', function () {
       const prop = method.returns.properties[0]
       expect(prop.name).to.eq('x')
       expect(prop.type).to.eq('Promise')
-      expect(prop.innerType).to.eq('Integer')
+      expect(prop.innerType[0]).to.eq('Integer')
+    })
+
+    it('resolves multi-inner generics as innerTypes', function () {
+      const method = apis.crashReporter.methods.start
+      const options = method.parameters.options
+      expect(options.properties.extra.innerType).to.deep.equal([
+        'string',
+        'string'
+      ])
     })
   })
 
