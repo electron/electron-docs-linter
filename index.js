@@ -61,7 +61,6 @@ function lint (docsPath, targetVersion, callback) {
       return callback(null, apis)
     })
     .catch(function (err) {
-      console.error(err)
       return callback(err)
     })
 }
