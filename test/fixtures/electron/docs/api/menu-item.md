@@ -114,4 +114,4 @@ A String representing the menu items visible label
 
 #### `menuItem.click`
 
-A Function that is fired when the MenuItem recieves a click event
+A Function that is fired when the MenuItem receives a click event
