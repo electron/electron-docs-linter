@@ -117,7 +117,6 @@ A lot of people want an up-to-date TypeScript definition file for Electron.
 - https://github.com/MarshallOfSound/Electron-DefinitelyTyped (WIP)
 - https://github.com/electron/electron/issues/4875
 - https://www.npmjs.com/package/@types/electron
-- https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/github-electron
 - https://github.com/RyanCavanaugh/dts-dom - A DOM library for generation TypeScript declaration (.d.ts) files
 - https://github.com/lbovet/typson - Converts TypeScript to JSON-schema
 - https://github.com/lbovet/docson - Documentation for your JSON types
