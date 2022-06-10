@@ -30,7 +30,7 @@
     "mkdirp": "^0.5.1",
     "mocha": "^5.2.0",
     "rimraf": "^2.5.4",
-    "semantic-release": "^17.2.3",
+    "semantic-release": "^19.0.3",
     "standard": "^12.0.1"
   },
   "homepage": "https://github.com/electron/electron-docs-linter#readme",
